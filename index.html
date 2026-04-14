@@ -2,555 +2,1025 @@
 <html lang="zh-TW">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>沖繩環島自駕｜2026.07.18-07.26</title>
-<link href="https://fonts.googleapis.com/css2?family=Zen+Maru+Gothic:wght@400;700&family=Syne:wght@700;800&family=Noto+Serif+TC:wght@400;700&display=swap" rel="stylesheet">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>沖繩環島自駕遊 2026.07.18–07.26</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@400;600;700&family=Syne:wght@700;800&family=Noto+Sans+TC:wght@400;500;600&display=swap" rel="stylesheet">
 <style>
-:root{--ocean:#0077b6;--sky:#90e0ef;--coral:#f4845f;--deep:#03045e;--text:#1a1a2e;--gray:#6b7280;}
+:root{
+  --ocean:#0369a1;--ocean-light:#e0f2fe;--ocean-mid:#38bdf8;
+  --sand:#fef9f0;--sand-dark:#f4e8d0;
+  --text:#1e293b;--text2:#475569;--text3:#94a3b8;
+  --white:#ffffff;--border:#e2e8f0;
+  --green:#059669;--coral:#f4845f;--senior:#f59e0b;
+}
 *{margin:0;padding:0;box-sizing:border-box;}
-body{font-family:'Zen Maru Gothic',sans-serif;background:var(--deep);color:#fff;overflow-x:hidden;}
-.hero{position:relative;min-height:100vh;display:flex;flex-direction:column;align-items:center;justify-content:center;overflow:hidden;background:linear-gradient(160deg,#03045e 0%,#0077b6 50%,#00b4d8 80%,#90e0ef 100%);}
-.hero-waves{position:absolute;bottom:0;left:0;right:0;height:200px;overflow:hidden;}
-.wave{position:absolute;bottom:0;width:200%;height:100%;animation:wv linear infinite;}
-.w1{background:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1200 120'%3E%3Cpath d='M0,60 C300,120 600,0 900,60 C1050,90 1150,30 1200,60 L1200,120 L0,120 Z' fill='%230077b6' opacity='0.6'/%3E%3C/svg%3E") repeat-x;background-size:600px 100px;animation-duration:8s;opacity:.6;}
-.w2{background:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1200 120'%3E%3Cpath d='M0,80 C200,20 400,100 600,60 C800,20 1000,80 1200,40 L1200,120 L0,120 Z' fill='%2300b4d8' opacity='0.5'/%3E%3C/svg%3E") repeat-x;background-size:800px 120px;animation-duration:12s;animation-direction:reverse;}
-.w3{background:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1200 120'%3E%3Cpath d='M0,40 C150,80 350,20 550,60 C750,100 950,20 1200,70 L1200,120 L0,120 Z' fill='%2390e0ef' opacity='0.3'/%3E%3C/svg%3E") repeat-x;background-size:1000px 140px;animation-duration:16s;}
-@keyframes wv{0%{transform:translateX(0)}100%{transform:translateX(-50%)}}
-.hi{text-align:center;z-index:10;padding:2rem;animation:fu 1.2s ease both;}
-@keyframes fu{from{opacity:0;transform:translateY(40px)}to{opacity:1;transform:translateY(0)}}
-.htag{display:inline-block;background:rgba(255,255,255,.15);border:1px solid rgba(255,255,255,.3);border-radius:100px;padding:.4rem 1.2rem;font-size:.85rem;letter-spacing:.15em;margin-bottom:1.5rem;backdrop-filter:blur(10px);}
-.htitle{font-family:'Syne',sans-serif;font-size:clamp(3rem,10vw,7rem);font-weight:800;line-height:.9;letter-spacing:-.02em;margin-bottom:.5rem;background:linear-gradient(135deg,#fff 0%,#caf0f8 60%,#90e0ef 100%);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;}
-.hsub{font-family:'Noto Serif TC',serif;font-size:clamp(1rem,3vw,1.3rem);color:rgba(255,255,255,.75);margin-bottom:2rem;letter-spacing:.1em;}
-.badges{display:flex;gap:.8rem;justify-content:center;flex-wrap:wrap;}
-.badge{background:rgba(255,255,255,.1);border:1px solid rgba(255,255,255,.25);border-radius:50px;padding:.5rem 1rem;font-size:.82rem;backdrop-filter:blur(8px);}
-.fbar{background:linear-gradient(90deg,#023e8a,#0077b6);padding:1rem 2rem;display:flex;justify-content:center;gap:3rem;flex-wrap:wrap;border-bottom:2px solid rgba(144,224,239,.3);}
-.fi{display:flex;align-items:center;gap:1rem;}
-.fc{font-family:'Syne',sans-serif;font-size:1.1rem;font-weight:700;color:var(--sky);}
-.rbar{background:#f8f9fa;color:var(--text);padding:1.2rem 2rem;overflow-x:auto;border-bottom:2px solid #e5e7eb;}
-.rflow{display:flex;align-items:center;min-width:max-content;}
-.rn{display:flex;flex-direction:column;align-items:center;gap:.25rem;cursor:pointer;transition:transform .2s;}
-.rn:hover{transform:translateY(-3px);}
-.rd{width:42px;height:42px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:.78rem;font-weight:700;color:white;border:3px solid white;box-shadow:0 2px 8px rgba(0,0,0,.12);}
-.rl{font-size:.68rem;font-weight:700;color:var(--text);text-align:center;}
-.rs{font-size:.6rem;color:var(--gray);}
-.ra{padding:0 .4rem;color:#d1d5db;font-size:1.2rem;}
-.sbar{background:#f8f9fa;padding:1rem 2rem;border-bottom:2px solid #e5e7eb;}
-.sbox{background:linear-gradient(135deg,#fef3c7,#fff7ed);border:2px solid #f59e0b;border-radius:12px;padding:1rem 1.5rem;display:flex;align-items:flex-start;gap:1rem;max-width:900px;margin:0 auto;}
-.stag{display:inline-block;background:#fef3c7;color:#92400e;font-size:.62rem;border:1px solid #fbbf24;border-radius:3px;padding:.05rem .3rem;margin-left:.3rem;}
-.hroute{background:#f8f9fa;padding:.7rem 2rem;border-bottom:1px solid #e5e7eb;}
-.hri{max-width:900px;margin:0 auto;display:flex;align-items:center;gap:.8rem;flex-wrap:wrap;font-size:.82rem;color:#4b5563;}
-.hcs{color:white;border-radius:6px;padding:.2rem .6rem;font-size:.75rem;}
-main{background:#f8f9fa;color:var(--text);}
-.tabs{position:sticky;top:0;z-index:100;background:white;border-bottom:2px solid #e5e7eb;display:flex;padding:0 1rem;overflow-x:auto;scrollbar-width:none;box-shadow:0 2px 20px rgba(0,0,0,.08);}
-.tabs::-webkit-scrollbar{display:none;}
-.tbtn{flex-shrink:0;padding:1rem 1.2rem;border:none;background:none;font-family:'Zen Maru Gothic',sans-serif;font-size:.85rem;color:#9ca3af;cursor:pointer;position:relative;transition:color .2s;white-space:nowrap;}
-.tbtn::after{content:'';position:absolute;bottom:-2px;left:0;right:0;height:3px;background:var(--ocean);border-radius:2px 2px 0 0;transform:scaleX(0);transition:transform .2s;}
-.tbtn.active{color:var(--ocean);font-weight:700;}
-.tbtn.active::after{transform:scaleX(1);}
-.panel{display:none;}
-.panel.active{display:block;}
-.ogrid{display:grid;grid-template-columns:1fr 1fr;}
-.mbox{position:sticky;top:57px;height:calc(100vh - 57px);overflow:hidden;}
-.mph{width:100%;height:100%;display:flex;flex-direction:column;align-items:center;justify-content:center;background:linear-gradient(135deg,#caf0f8,#90e0ef);color:var(--deep);text-align:center;padding:2rem;text-decoration:none;gap:1rem;}
-.mph:hover{filter:brightness(.95);}
-.dlist{height:calc(100vh - 57px);overflow-y:auto;scrollbar-width:thin;}
-.dc{border-bottom:1px solid #e5e7eb;cursor:pointer;transition:background .15s;}
-.dc:hover{background:#f0f9ff;}
-.dh{padding:1rem 1.5rem;display:flex;align-items:center;gap:1rem;}
-.dnum{width:44px;height:44px;color:white;border-radius:50%;display:flex;align-items:center;justify-content:center;font-family:'Syne',sans-serif;font-weight:800;font-size:.9rem;flex-shrink:0;}
-.dinfo{flex:1;}
-.ddate{font-size:.72rem;color:var(--gray);}
-.dtitle{font-weight:700;font-size:.95rem;color:var(--text);}
-.dregion{font-size:.72rem;color:var(--ocean);margin-top:.1rem;}
-.dhotel{font-size:.68rem;color:#059669;margin-top:.1rem;font-weight:600;}
-.ei{color:#9ca3af;font-size:.8rem;transition:transform .2s;}
-.dc.open .ei{transform:rotate(180deg);}
-.ds{display:none;padding:0 1.5rem 1rem 4rem;}
-.dc.open .ds{display:block;}
-.si{display:flex;align-items:flex-start;gap:.75rem;padding:.5rem;border-bottom:1px dashed #e5e7eb;cursor:pointer;transition:all .15s;border-radius:8px;}
-.si:last-child{border-bottom:none;}
-.si:hover{background:rgba(0,119,182,.06);padding-left:.8rem;}
-.st{font-size:.7rem;color:white;background:var(--ocean);border-radius:4px;padding:.15rem .4rem;white-space:nowrap;flex-shrink:0;margin-top:.1rem;font-family:'Syne',sans-serif;}
-.st.hb{background:#059669;}
-.st.cb{background:var(--coral);}
-.sname{font-weight:600;font-size:.85rem;color:var(--text);}
-.sdesc{font-size:.7rem;color:var(--gray);margin-top:.1rem;line-height:1.4;}
-.sl{font-size:1rem;text-decoration:none;flex-shrink:0;margin-top:.1rem;}
-.dvr{display:flex;align-items:center;gap:.5rem;padding:.25rem .5rem;font-size:.7rem;color:#6b7280;}
-.dpanel{max-width:860px;margin:0 auto;padding:2rem 1.5rem;}
-.dnav{display:flex;gap:.4rem;overflow-x:auto;padding-bottom:1rem;scrollbar-width:none;margin-bottom:2rem;flex-wrap:wrap;}
-.dnav::-webkit-scrollbar{display:none;}
-.dnb{flex-shrink:0;padding:.45rem .9rem;border:2px solid #e5e7eb;background:white;border-radius:50px;font-family:'Zen Maru Gothic',sans-serif;font-size:.78rem;cursor:pointer;transition:all .2s;color:#4b5563;}
-.dnb:hover,.dnb.active{background:var(--ocean);color:white;border-color:var(--ocean);}
-.ddetail{display:none;}
-.ddetail.active{display:block;}
-.ddh{color:white;border-radius:16px;padding:1.5rem 2rem;margin-bottom:1.5rem;display:flex;align-items:center;gap:1.5rem;}
-.ddbig{font-family:'Syne',sans-serif;font-size:4rem;font-weight:800;opacity:.25;line-height:1;}
-.ddinfo{flex:1;}
-.dddate{font-size:.82rem;opacity:.7;}
-.ddtitle{font-size:1.4rem;font-weight:700;margin:.3rem 0;}
-.ddtheme{font-size:.8rem;opacity:.8;}
-.dchip{display:inline-flex;align-items:center;gap:.3rem;background:rgba(255,255,255,.15);border:1px solid rgba(255,255,255,.3);border-radius:50px;padding:.3rem .8rem;font-size:.72rem;margin-top:.5rem;}
-.tl{position:relative;padding-left:2rem;}
-.tl::before{content:'';position:absolute;left:.5rem;top:0;bottom:0;width:2px;background:linear-gradient(to bottom,var(--ocean),var(--sky));border-radius:2px;}
-.titem{position:relative;margin-bottom:.8rem;}
-.tdot{position:absolute;left:-1.65rem;top:.9rem;width:12px;height:12px;border-radius:50%;background:var(--ocean);border:2px solid white;box-shadow:0 0 0 2px var(--ocean);}
-.tdot.dd2{background:#d1d5db;box-shadow:0 0 0 2px #d1d5db;width:8px;height:8px;left:-1.55rem;top:.7rem;}
-.tdot.hd{background:#059669;box-shadow:0 0 0 2px #059669;}
-.tc{background:white;border-radius:12px;padding:1rem 1.2rem;box-shadow:0 1px 6px rgba(0,0,0,.06);cursor:pointer;transition:all .2s;border:1px solid #f0f0f0;}
-.tc:hover{box-shadow:0 4px 20px rgba(0,119,182,.12);transform:translateX(4px);border-color:#bae6fd;}
-.tctop{display:flex;align-items:center;gap:.75rem;}
-.tct{font-family:'Syne',sans-serif;font-size:.78rem;font-weight:700;color:var(--ocean);background:#e0f2fe;padding:.2rem .6rem;border-radius:4px;white-space:nowrap;}
-.tcn{font-weight:700;font-size:.92rem;flex:1;}
-.tcl{text-decoration:none;font-size:1.1rem;flex-shrink:0;}
-.tcd{display:none;margin-top:.8rem;padding-top:.8rem;border-top:1px dashed #e5e7eb;font-size:.8rem;color:#4b5563;line-height:1.7;}
-.tc.open .tcd{display:block;}
-.tags{display:flex;flex-wrap:wrap;gap:.4rem;margin-top:.6rem;}
-.tag{background:#f0f9ff;border:1px solid #bae6fd;color:#0369a1;font-size:.7rem;padding:.15rem .5rem;border-radius:50px;}
-.tag.s{background:#fef3c7;border-color:#fbbf24;color:#92400e;}
-.dblk{background:#f9fafb;border-radius:8px;padding:.5rem 1rem;display:flex;align-items:center;gap:.6rem;font-size:.75rem;color:#6b7280;border:1px dashed #d1d5db;}
-.hblk{background:#f0fdf4;border-radius:10px;padding:.8rem 1rem;display:flex;align-items:center;gap:.8rem;border:1px solid #86efac;}
-.hblkn{font-weight:700;font-size:.9rem;color:#15803d;}
-.hblks{font-size:.75rem;color:#4b5563;}
-.hsec{max-width:900px;margin:0 auto;padding:2rem 1.5rem;}
-.stitle{font-family:'Syne',sans-serif;font-size:1.4rem;font-weight:800;color:var(--deep);margin-bottom:1.2rem;}
-.hgrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:1rem;}
-.hcard{background:white;border-radius:16px;overflow:hidden;box-shadow:0 2px 12px rgba(0,0,0,.06);border:1px solid #f0f0f0;transition:transform .2s,box-shadow .2s;}
-.hcard:hover{transform:translateY(-4px);box-shadow:0 8px 30px rgba(0,119,182,.12);}
-.htop{background:linear-gradient(135deg,var(--ocean),#00b4d8);padding:1.2rem;color:white;}
-.hnights{font-family:'Syne',sans-serif;font-size:.75rem;font-weight:700;background:rgba(255,255,255,.2);border-radius:4px;padding:.1rem .4rem;display:inline-block;margin-bottom:.3rem;}
-.hname{font-weight:700;font-size:.95rem;}
-.hbody{padding:1rem;}
-.harea{font-size:.72rem;color:var(--ocean);font-weight:700;margin-bottom:.4rem;}
-.hdesc{font-size:.78rem;color:#4b5563;line-height:1.6;}
-.hlink{display:inline-block;margin-top:.8rem;font-size:.78rem;color:var(--ocean);text-decoration:none;font-weight:600;}
-.hlink:hover{text-decoration:underline;}
-.rgrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:1rem;margin-bottom:1rem;}
-.rcard{background:white;border-radius:12px;padding:1.2rem;border:2px solid #e5e7eb;transition:border-color .2s;}
-.rcard:hover{border-color:var(--ocean);}
-.rcname{font-weight:700;font-size:.95rem;margin-bottom:.3rem;}
-.rcdesc{font-size:.78rem;color:#6b7280;line-height:1.5;}
-.rclink{display:inline-block;margin-top:.8rem;font-size:.78rem;color:var(--ocean);text-decoration:none;font-weight:700;}
-.tipbox{background:linear-gradient(135deg,#fff7ed,#fef3c7);border:1px solid #fbbf24;border-radius:12px;padding:1.2rem 1.5rem;margin-top:1rem;}
-.tipbox h4{color:#92400e;font-size:.9rem;margin-bottom:.5rem;}
-.tipbox ul{padding-left:1.2rem;font-size:.8rem;color:#78350f;line-height:1.9;}
-@media(max-width:768px){.ogrid{grid-template-columns:1fr;}.mbox{position:relative;height:280px;top:0;}.dlist{height:auto;}}
-footer{background:var(--deep);color:rgba(255,255,255,.5);text-align:center;padding:2rem;font-size:.8rem;line-height:1.8;}
+body{font-family:'Noto Sans TC',sans-serif;background:var(--sand);color:var(--text);min-height:100vh;}
+
+/* HERO */
+.hero{
+  background:linear-gradient(160deg,#0c2340 0%,#0369a1 55%,#0ea5e9 85%,#7dd3fc 100%);
+  padding:3rem 2rem 4rem;
+  text-align:center;
+  position:relative;
+  overflow:hidden;
+}
+.hero::after{
+  content:'';position:absolute;bottom:0;left:0;right:0;height:60px;
+  background:var(--sand);
+  clip-path:ellipse(55% 100% at 50% 100%);
+}
+.hero-tag{
+  display:inline-block;
+  background:rgba(255,255,255,.12);
+  border:1px solid rgba(255,255,255,.25);
+  border-radius:100px;
+  padding:.35rem 1.1rem;
+  font-size:.8rem;
+  letter-spacing:.12em;
+  color:rgba(255,255,255,.85);
+  margin-bottom:1.2rem;
+  backdrop-filter:blur(8px);
+}
+.hero-title{
+  font-family:'Syne',sans-serif;
+  font-size:clamp(2.8rem,10vw,6rem);
+  font-weight:800;
+  color:#fff;
+  letter-spacing:-.02em;
+  line-height:.95;
+  margin-bottom:.6rem;
+}
+.hero-sub{
+  font-family:'Noto Serif TC',serif;
+  font-size:clamp(.9rem,2.5vw,1.2rem);
+  color:rgba(255,255,255,.72);
+  letter-spacing:.08em;
+  margin-bottom:1.8rem;
+}
+.hero-badges{display:flex;gap:.6rem;justify-content:center;flex-wrap:wrap;margin-bottom:1.5rem;}
+.hero-badge{
+  background:rgba(255,255,255,.1);
+  border:1px solid rgba(255,255,255,.2);
+  border-radius:50px;
+  padding:.4rem .9rem;
+  font-size:.78rem;
+  color:rgba(255,255,255,.9);
+}
+.flight-bar{
+  display:flex;gap:2rem;justify-content:center;flex-wrap:wrap;
+  background:rgba(255,255,255,.08);
+  border-top:1px solid rgba(255,255,255,.15);
+  border-bottom:1px solid rgba(255,255,255,.15);
+  padding:.8rem 2rem;
+  margin-top:1rem;
+}
+.flight-item{display:flex;align-items:center;gap:.7rem;}
+.flight-code{font-family:'Syne',sans-serif;font-size:1rem;font-weight:700;color:#7dd3fc;}
+.flight-route{font-size:.85rem;color:rgba(255,255,255,.9);font-weight:600;}
+.flight-time{font-size:.78rem;color:rgba(255,255,255,.6);}
+
+/* MAIN */
+main{max-width:860px;margin:0 auto;padding:2rem 1rem 4rem;}
+
+/* SECTION TITLE */
+.section-title{
+  font-family:'Syne',sans-serif;
+  font-size:1.3rem;
+  font-weight:700;
+  color:var(--text);
+  margin:2.5rem 0 1rem;
+  display:flex;align-items:center;gap:.5rem;
+}
+.section-title::after{
+  content:'';flex:1;height:1px;background:var(--border);
+}
+
+/* HOTEL TABLE */
+.hotel-table{width:100%;border-collapse:collapse;font-size:.85rem;}
+.hotel-table th{
+  background:var(--ocean);color:#fff;
+  padding:.6rem 1rem;text-align:left;font-weight:600;
+}
+.hotel-table td{padding:.6rem 1rem;border-bottom:1px solid var(--border);background:#fff;}
+.hotel-table tr:last-child td{border-bottom:none;}
+.hotel-table tr:hover td{background:var(--ocean-light);}
+
+/* DAY TABS */
+.day-tabs{
+  display:flex;gap:0;overflow-x:auto;
+  border-bottom:2px solid var(--border);
+  scrollbar-width:none;
+  margin-bottom:0;
+  background:#fff;
+  border-radius:12px 12px 0 0;
+  box-shadow:0 1px 4px rgba(0,0,0,.06);
+}
+.day-tabs::-webkit-scrollbar{display:none;}
+.tab-btn{
+  flex-shrink:0;
+  padding:.7rem 1rem;
+  border:none;background:none;
+  font-family:'Noto Sans TC',sans-serif;
+  font-size:.78rem;font-weight:600;
+  color:var(--text3);
+  cursor:pointer;
+  display:flex;flex-direction:column;align-items:center;gap:.15rem;
+  position:relative;transition:color .2s;
+  white-space:nowrap;
+  border-radius:12px 12px 0 0;
+}
+.tab-btn .tab-date{font-size:.65rem;font-weight:400;}
+.tab-btn::after{
+  content:'';position:absolute;bottom:-2px;left:0;right:0;height:2px;
+  background:var(--ocean);border-radius:2px;
+  transform:scaleX(0);transition:transform .2s;
+}
+.tab-btn.active{color:var(--ocean);}
+.tab-btn.active::after{transform:scaleX(1);}
+.tab-btn:hover{color:var(--ocean);background:var(--ocean-light);}
+
+/* DAY PANEL */
+.day-panel{display:none;background:#fff;border-radius:0 0 12px 12px;box-shadow:0 2px 12px rgba(0,0,0,.06);}
+.day-panel.active{display:block;}
+.day-header-inner{
+  padding:1.2rem 1.5rem;
+  border-bottom:1px solid var(--border);
+  display:flex;align-items:flex-start;justify-content:space-between;gap:1rem;flex-wrap:wrap;
+}
+.day-title-block{display:flex;align-items:center;gap:1rem;}
+.day-big{
+  font-family:'Syne',sans-serif;font-size:2.2rem;font-weight:800;
+  color:var(--ocean);opacity:.25;line-height:1;flex-shrink:0;
+}
+.day-date-txt{font-size:.75rem;color:var(--text3);}
+.day-title-txt{font-weight:700;font-size:1.1rem;color:var(--text);margin:.1rem 0;}
+.day-theme{font-size:.75rem;color:var(--text2);}
+.day-hotel-chip{
+  border:1.5px solid;border-radius:50px;
+  padding:.3rem .8rem;font-size:.72rem;font-weight:600;
+  white-space:nowrap;flex-shrink:0;
+}
+.day-note{
+  background:#fef3c7;border-left:3px solid #f59e0b;
+  padding:.6rem 1rem;font-size:.8rem;color:#92400e;
+  margin:0 1.5rem .5rem;border-radius:0 6px 6px 0;
+}
+
+/* SPOTS */
+.spots{padding:.5rem 1.5rem 1.2rem;}
+.spot-row{
+  display:flex;align-items:flex-start;gap:.8rem;
+  padding:.55rem .5rem;border-bottom:1px dashed var(--border);
+}
+.spot-row:last-child{border-bottom:none;}
+.spot-time{
+  font-family:'Syne',sans-serif;font-size:.72rem;font-weight:700;
+  color:var(--ocean);background:var(--ocean-light);
+  border-radius:4px;padding:.15rem .45rem;
+  white-space:nowrap;flex-shrink:0;margin-top:.15rem;min-width:42px;text-align:center;
+}
+.spot-time-empty{width:42px;flex-shrink:0;}
+.spot-content{flex:1;}
+.spot-name{font-weight:600;font-size:.88rem;color:var(--text);display:flex;align-items:center;flex-wrap:wrap;gap:.4rem;}
+.spot-desc{font-size:.75rem;color:var(--text2);margin-top:.15rem;line-height:1.5;}
+.senior-tag{
+  background:#fef3c7;color:#92400e;
+  font-size:.62rem;border:1px solid #fbbf24;
+  border-radius:3px;padding:.05rem .3rem;
+  font-weight:500;
+}
+.spot-hotel{
+  display:flex;align-items:center;gap:.8rem;
+  padding:.5rem;background:var(--ocean-light);
+  border-radius:8px;margin:.3rem 0;
+}
+.hotel-icon{font-size:1.1rem;flex-shrink:0;}
+.spot-hotel .spot-content{display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:.5rem;}
+.spot-hotel .spot-name{color:var(--ocean);font-size:.85rem;}
+.drive-row{
+  display:flex;align-items:center;gap:.6rem;
+  padding:.3rem .5rem;font-size:.72rem;color:var(--text3);
+  border-bottom:1px dashed transparent;
+}
+.car-icon{flex-shrink:0;}
+.drive-info{flex:1;}
+.drive-km{
+  background:#f1f5f9;border-radius:4px;
+  padding:.1rem .5rem;font-weight:600;color:var(--ocean);
+  font-size:.72rem;white-space:nowrap;flex-shrink:0;
+}
+
+/* COPY BUTTON */
+.copy-btn{
+  background:transparent;
+  border:1px solid var(--ocean);
+  color:var(--ocean);
+  border-radius:4px;
+  padding:.1rem .5rem;
+  font-size:.68rem;
+  cursor:pointer;
+  font-family:'Noto Sans TC',sans-serif;
+  transition:all .15s;
+  white-space:nowrap;
+}
+.copy-btn:hover{background:var(--ocean);color:#fff;}
+.copy-btn.copied{background:var(--green);border-color:var(--green);color:#fff;}
+
+/* KEYWORD SECTION */
+.kw-grid{display:flex;flex-direction:column;gap:1rem;}
+.kw-day-group{
+  background:#fff;border-radius:10px;
+  box-shadow:0 1px 4px rgba(0,0,0,.05);
+  overflow:hidden;
+}
+.kw-day-label{
+  background:var(--ocean);color:#fff;
+  padding:.4rem .8rem;
+  font-family:'Syne',sans-serif;font-size:.8rem;font-weight:700;
+}
+.kw-item{
+  display:flex;align-items:center;justify-content:space-between;
+  padding:.55rem .8rem;border-bottom:1px solid var(--border);
+  gap:.8rem;
+}
+.kw-item:last-child{border-bottom:none;}
+.kw-item:hover{background:var(--ocean-light);}
+.kw-names{flex:1;min-width:0;}
+.kw-zh{font-size:.82rem;font-weight:600;color:var(--text);display:block;}
+.kw-jp{font-size:.75rem;color:var(--text2);display:block;margin-top:.1rem;word-break:break-all;}
+
+/* FOOTER */
+footer{
+  background:#0c2340;color:rgba(255,255,255,.5);
+  text-align:center;padding:2rem;font-size:.78rem;line-height:1.9;
+}
+
+@media(max-width:600px){
+  .day-header-inner{flex-direction:column;}
+  .hero-title{font-size:2.8rem;}
+  .hotel-table th, .hotel-table td{padding:.5rem .7rem;font-size:.78rem;}
+}
 </style>
 </head>
 <body>
+
 <section class="hero">
-  <div class="hi">
-    <div class="htag">✈ IT288 KHH→OKA &nbsp;·&nbsp; 親子四人環島</div>
-    <h1 class="htitle">OKINAWA</h1>
-    <p class="hsub">沖繩環島自駕遊 · 2026年7月18日–26日</p>
-    <div class="badges">
-      <span class="badge">🗓 9天8夜</span>
-      <span class="badge">👨‍👩‍👧‍👦 4人（含60歲長輩）</span>
-      <span class="badge">🚗 環島自駕</span>
-      <span class="badge">🏔 最北邊戶岬</span>
-      <span class="badge">🏨 分區住宿</span>
-    </div>
+  <div class="hero-tag">✈ IT288 KHH → OKA &nbsp;·&nbsp; 親子四人環島自駕</div>
+  <h1 class="hero-title">OKINAWA</h1>
+  <p class="hero-sub">沖繩環島自駕遊 · 2026年7月18日–26日 · 9天8夜</p>
+  <div class="hero-badges">
+    <span class="hero-badge">👨‍👩‍👧‍👦 4人（含60歲長輩）</span>
+    <span class="hero-badge">🚗 環島自駕</span>
+    <span class="hero-badge">🏔 最北端邊戶岬</span>
+    <span class="hero-badge">🔭 海中展望塔・玻璃船</span>
+    <span class="hero-badge">🏨 分區住宿8飯店</span>
   </div>
-  <div style="position:absolute;bottom:230px;left:50%;transform:translateX(-50%);display:flex;flex-direction:column;align-items:center;gap:.3rem;font-size:.75rem;color:rgba(255,255,255,.5);animation:bounce 2s infinite;z-index:10">
-    <span>往下探索行程</span><span>↓</span>
+  <div class="flight-bar">
+    <div class="flight-item"><span class="flight-code">IT288</span><span class="flight-route">KHH → OKA</span><span class="flight-time">07/18  10:10 → 13:00</span></div>
+<div class="flight-item"><span class="flight-code">IT289</span><span class="flight-route">OKA → KHH</span><span class="flight-time">07/26  21:40 → 22:30</span></div>
+
   </div>
-  <div class="hero-waves"><div class="wave w1"></div><div class="wave w2"></div><div class="wave w3"></div></div>
 </section>
-<style>@keyframes bounce{0%,100%{transform:translateX(-50%) translateY(0)}50%{transform:translateX(-50%) translateY(8px)}}</style>
-
-<div class="fbar">
-  <div class="fi"><span class="fc">IT288</span><span>KHH <span style="color:var(--coral)">✈</span> OKA</span><div><div style="font-size:.85rem;color:rgba(255,255,255,.85)">2026/07/18&nbsp;10:10→13:00</div><div style="font-size:.7rem;color:rgba(255,255,255,.5)">高雄→那霸</div></div></div>
-  <div style="width:1px;background:rgba(255,255,255,.2)"></div>
-  <div class="fi"><span class="fc">IT289</span><span>OKA <span style="color:var(--coral)">✈</span> KHH</span><div><div style="font-size:.85rem;color:rgba(255,255,255,.85)">2026/07/26&nbsp;21:40→22:30</div><div style="font-size:.7rem;color:rgba(255,255,255,.5)">那霸→高雄</div></div></div>
-</div>
-
-<div class="rbar">
-  <div style="font-family:'Syne',sans-serif;font-size:.8rem;font-weight:700;color:var(--gray);letter-spacing:.1em;margin-bottom:.8rem">🗺 環島路線 — 住宿跟著路線走，不重複開車</div>
-  <div class="rflow">
-    <div class="rn" onclick="jumpToDay(0)"><div class="rd" style="background:#0077b6">✈</div><div class="rl">那霸</div><div class="rs">7/18抵</div></div><div class="ra">→</div>
-    <div class="rn" onclick="jumpToDay(1)"><div class="rd" style="background:#7c3aed">南</div><div class="rl">南部</div><div class="rs">7/19</div></div><div class="ra">→</div>
-    <div class="rn" onclick="jumpToDay(2)"><div class="rd" style="background:#0891b2">中</div><div class="rl">美國村</div><div class="rs">7/20</div></div><div class="ra">→</div>
-    <div class="rn" onclick="jumpToDay(3)"><div class="rd" style="background:#059669">北</div><div class="rl">水族館</div><div class="rs">7/21</div></div><div class="ra">→</div>
-    <div class="rn" onclick="jumpToDay(4)"><div class="rd" style="background:#dc2626;font-size:.62rem">最北</div><div class="rl">邊戶岬</div><div class="rs">7/22</div></div><div class="ra">→</div>
-    <div class="rn" onclick="jumpToDay(5)"><div class="rd" style="background:#0284c7">恩</div><div class="rl">恩納放鬆</div><div class="rs">7/23</div></div><div class="ra">→</div>
-    <div class="rn" onclick="jumpToDay(6)"><div class="rd" style="background:#854d0e">那</div><div class="rl">那霸文化</div><div class="rs">7/24</div></div><div class="ra">→</div>
-    <div class="rn" onclick="jumpToDay(7)"><div class="rd" style="background:#0d9488">購</div><div class="rl">購物夕陽</div><div class="rs">7/25</div></div><div class="ra">→</div>
-    <div class="rn" onclick="jumpToDay(8)"><div class="rd" style="background:#64748b">✈</div><div class="rl">回程</div><div class="rs">7/26</div></div>
-  </div>
-</div>
-
-<div class="sbar">
-  <div class="sbox">
-    <div style="font-size:1.8rem;flex-shrink:0">👴👵</div>
-    <div>
-      <div style="font-weight:700;color:#92400e;margin-bottom:.3rem;font-size:.9rem">長輩友善設計原則</div>
-      <div style="font-size:.78rem;color:#78350f;line-height:1.7">✅ 去除潛水等高體力活動 &nbsp;|&nbsp; ✅ 分區住宿減少疲勞 &nbsp;|&nbsp; ✅ 每天3-4景點不趕路 &nbsp;|&nbsp; ✅ 午後固定休息 &nbsp;|&nbsp; ✅ 優先平坦有空調景點 &nbsp;|&nbsp; 標注 <span class="stag">長輩友善</span></div>
-    </div>
-  </div>
-</div>
-<div class="hroute">
-  <div class="hri">
-    <b style="color:var(--deep)">🏨 住宿計畫：</b>
-    <span class="hcs" style="background:#0077b6">那霸 7/18-19（2晚）</span>→
-    <span class="hcs" style="background:#059669">恩納 7/20-23（4晚）</span>→
-    <span class="hcs" style="background:#854d0e">那霸 7/23-26（2晚）</span>
-  </div>
-</div>
 
 <main>
-<nav class="tabs">
-  <button class="tbtn active" onclick="switchTab('overview',this)">🗺 總覽地圖</button>
-  <button class="tbtn" onclick="switchTab('daily',this)">📅 每日詳細</button>
-  <button class="tbtn" onclick="switchTab('hotels',this)">🏨 住宿建議</button>
-  <button class="tbtn" onclick="switchTab('rental',this)">🚗 租車建議</button>
+
+<div class="section-title">🏨 住宿計畫</div>
+<table class="hotel-table">
+  <thead><tr><th>晚次</th><th>飯店</th><th>位置</th></tr></thead>
+  <tbody><tr><td>第1晚 7/18</td><td style="font-weight:600;color:#2563eb">The Grand Hotel Ginowan</td><td style="color:#6b7280">宜野灣</td></tr>
+<tr><td>第2晚 7/19</td><td style="font-weight:600;color:#7c3aed">Rycom Crystal Hotel</td><td style="color:#6b7280">北中城・中部</td></tr>
+<tr><td>第3晚 7/20</td><td style="font-weight:600;color:#db2777">ANA Crowne Plaza Uruma Hills</td><td style="color:#6b7280">うるま市・東岸</td></tr>
+<tr><td>第4-6晚 7/21-23</td><td style="font-weight:600;color:#059669">Motobu Green Park Hotel</td><td style="color:#6b7280">本部町・北部 3晚</td></tr>
+<tr><td>第7晚 7/24</td><td style="font-weight:600;color:#d97706">Hotel Route Inn Nago</td><td style="color:#6b7280">名護市・北部</td></tr>
+<tr><td>第8晚 7/25</td><td style="font-weight:600;color:#0891b2">The Yuinchi Hotel Nanjo</td><td style="color:#6b7280">南城市・南部</td></tr>
+</tbody>
+</table>
+
+<div class="section-title">📅 每日行程</div>
+<nav class="day-tabs"><button class="tab-btn active" onclick="switchDay(0,this)">D1<span class="tab-date">7/18（六）</span></button>
+<button class="tab-btn" onclick="switchDay(1,this)">D2<span class="tab-date">7/19（日）</span></button>
+<button class="tab-btn" onclick="switchDay(2,this)">D3<span class="tab-date">7/20（一）</span></button>
+<button class="tab-btn" onclick="switchDay(3,this)">D4<span class="tab-date">7/21（二）</span></button>
+<button class="tab-btn" onclick="switchDay(4,this)">D5<span class="tab-date">7/22（三）</span></button>
+<button class="tab-btn" onclick="switchDay(5,this)">D6<span class="tab-date">7/23（四）</span></button>
+<button class="tab-btn" onclick="switchDay(6,this)">D7<span class="tab-date">7/24（五）</span></button>
+<button class="tab-btn" onclick="switchDay(7,this)">D8<span class="tab-date">7/25（六）</span></button>
+<button class="tab-btn" onclick="switchDay(8,this)">D9<span class="tab-date">7/26（日）</span></button>
 </nav>
-
-<div id="tab-overview" class="panel active">
-<div class="ogrid">
-<div class="mbox">
-  <a class="mph" href="https://www.google.com/maps/search/沖繩+環島+観光" target="_blank">
-    <div style="font-size:4rem">🗺</div>
-    <div style="font-size:1.1rem;font-weight:700">點擊開啟 Google 地圖</div>
-    <div style="font-size:.82rem;max-width:220px;color:#2c5282">沖繩本島環島路線<br>南→中→北→最北邊戶岬</div>
-    <div style="margin-top:1rem;background:var(--ocean);color:white;border-radius:50px;padding:.6rem 1.5rem;font-weight:700;font-size:.9rem">開啟地圖 →</div>
-  </a>
-</div>
-<div class="dlist">
-<div class="dc" onclick="toggleDay(this)">
-<div class="dh"><div class="dnum" style="background:#0077b6">D1</div><div class="dinfo"><div class="ddate">7/18（六）降落日</div><div class="dtitle">✈ 抵達那霸・瀨長島</div><div class="dregion">📍 機場→瀨長島→國際通</div><div class="dhotel">🏨 那霸市區（2晚）</div></div><span class="ei">&#9660;</span></div>
-<div class="ds">
-<div class="si" onclick="openGmap(event,'那霸機場')"><span class="st">13:00</span><div><div class="sname">那霸機場降落・取車</div><div class="sdesc">辦理取車、SIM卡</div></div><a class="sl" href="https://www.google.com/maps/search/那霸機場" target="_blank" onclick="event.stopPropagation()">&#128205;</a></div>
-<div class="dvr">&#128663; 🚗 機場 → 瀨長島｜約20分 / <b>10km</b></div>
-<div class="si" onclick="openGmap(event,'瀨長島 Umikaji Terrace')"><span class="st">14:30</span><div><div class="sname">🏝 瀨長島 Umikaji Terrace<span class="stag">長輩友善</span></div><div class="sdesc">平坦步道，看飛機降落，長輩友善</div></div><a class="sl" href="https://www.google.com/maps/search/瀨長島+Umikaji+Terrace" target="_blank" onclick="event.stopPropagation()">&#128205;</a></div>
-<div class="dvr">&#128663; 🚗 瀨長島 → 國際通｜約30分 / <b>20km</b></div>
-<div class="si" onclick="openGmap(event,'那霸 国際通り')"><span class="st">17:30</span><div><div class="sname">🛍 國際通・沖繩料理晚餐</div><div class="sdesc">步行街，長輩逛起來輕鬆</div></div><a class="sl" href="https://www.google.com/maps/search/那霸+国際通り" target="_blank" onclick="event.stopPropagation()">&#128205;</a></div>
-<div class="si"><span class="st hb">&#127968;</span><div><div class="sname">那霸市區飯店 Check-in</div><div class="sdesc"></div></div></div>
-</div></div>
-<div class="dc" onclick="toggleDay(this)">
-<div class="dh"><div class="dnum" style="background:#7c3aed">D2</div><div class="dinfo"><div class="ddate">7/19（日）</div><div class="dtitle">⛩ 南部聖地巡禮</div><div class="dregion">📍 首里城→齋場御嶽→知念岬→濱邊茶屋</div><div class="dhotel">🏨 那霸（連住）</div></div><span class="ei">&#9660;</span></div>
-<div class="ds">
-<div class="si" onclick="openGmap(event,'首里城公園 沖繩')"><span class="st">09:00</span><div><div class="sname">🏯 首里城公園<span class="stag">長輩友善</span></div><div class="sdesc">世界遺產，電梯輪椅路線，長輩友善</div></div><a class="sl" href="https://www.google.com/maps/search/首里城公園+沖繩" target="_blank" onclick="event.stopPropagation()">&#128205;</a></div>
-<div class="dvr">&#128663; 🚗 首里城 → 南城市｜約50分 / <b>32km</b></div>
-<div class="si" onclick="openGmap(event,'斎場御嶽 沖繩')"><span class="st">11:00</span><div><div class="sname">⛩ 齋場御嶽</div><div class="sdesc">琉球最高聖地，林蔭步道</div></div><a class="sl" href="https://www.google.com/maps/search/斎場御嶽+沖繩" target="_blank" onclick="event.stopPropagation()">&#128205;</a></div>
-<div class="si" onclick="openGmap(event,'知念岬公園 沖繩')"><span class="st">13:00</span><div><div class="sname">🌅 知念岬公園<span class="stag">長輩友善</span></div><div class="sdesc">停車場到觀景台5分鐘，360度海景，長輩友善</div></div><a class="sl" href="https://www.google.com/maps/search/知念岬公園+沖繩" target="_blank" onclick="event.stopPropagation()">&#128205;</a></div>
-<div class="si" onclick="openGmap(event,'浜辺の茶屋 沖繩')"><span class="st">14:30</span><div><div class="sname">☕ 濱邊の茶屋<span class="stag">長輩友善</span></div><div class="sdesc">海邊咖啡廳，漲潮時如海中孤島，長輩友善</div></div><a class="sl" href="https://www.google.com/maps/search/浜辺の茶屋+沖繩" target="_blank" onclick="event.stopPropagation()">&#128205;</a></div>
-<div class="dvr">&#128663; 🚗 濱邊茶屋 → 那霸｜約40分 / <b>30km</b></div>
-<div class="si" onclick="openGmap(event,'牧志公設市場 那霸')"><span class="st">18:00</span><div><div class="sname">🐟 牧志公設市場晚餐</div><div class="sdesc">買海鮮上樓加工，熱鬧有趣</div></div><a class="sl" href="https://www.google.com/maps/search/牧志公設市場+那霸" target="_blank" onclick="event.stopPropagation()">&#128205;</a></div>
-</div></div>
-<div class="dc" onclick="toggleDay(this)">
-<div class="dh"><div class="dnum" style="background:#0891b2">D3</div><div class="dinfo"><div class="ddate">7/20（一）</div><div class="dtitle">🇺🇸 中部美國村→恩納 Check-in</div><div class="dregion">📍 壺屋通→北谷→殘波岬→恩納</div><div class="dhotel">🏨 恩納海景飯店 Check-in（住4晚）</div></div><span class="ei">&#9660;</span></div>
-<div class="ds">
-<div class="si" onclick="openGmap(event,'壺屋やちむん通り 那霸')"><span class="st">09:00</span><div><div class="sname">🏺 壺屋陶器通<span class="stag">長輩友善</span></div><div class="sdesc">退房前逛平坦工藝街道，長輩友善</div></div><a class="sl" href="https://www.google.com/maps/search/壺屋やちむん通り+那霸" target="_blank" onclick="event.stopPropagation()">&#128205;</a></div>
-<div class="dvr">&#128663; 🚗 那霸 → 北谷｜約30分 / <b>22km</b></div>
-<div class="si" onclick="openGmap(event,'北谷美國村 沖繩')"><span class="st">11:00</span><div><div class="sname">🇺🇸 北谷美國村・午餐</div><div class="sdesc">海邊平坦購物區，午餐選擇豐富</div></div><a class="sl" href="https://www.google.com/maps/search/北谷美國村+沖繩" target="_blank" onclick="event.stopPropagation()">&#128205;</a></div>
-<div class="dvr">&#128663; 🚗 北谷 → 殘波岬｜約30分 / <b>22km</b></div>
-<div class="si" onclick="openGmap(event,'殘波岬 沖繩')"><span class="st">14:00</span><div><div class="sname">🌊 殘波岬燈塔<span class="stag">長輩友善</span></div><div class="sdesc">步道平緩，礁岩海景壯觀，長輩友善</div></div><a class="sl" href="https://www.google.com/maps/search/殘波岬+沖繩" target="_blank" onclick="event.stopPropagation()">&#128205;</a></div>
-<div class="dvr">&#128663; 🚗 殘波岬 → 恩納｜約25分 / <b>18km</b></div>
-<div class="si"><span class="st hb">&#127968;</span><div><div class="sname">恩納海景飯店 Check-in（住4晚！）</div><div class="sdesc">享用泳池，長輩充分休息</div></div></div>
-</div></div>
-<div class="dc" onclick="toggleDay(this)">
-<div class="dh"><div class="dnum" style="background:#059669">D4</div><div class="dinfo"><div class="ddate">7/21（二）</div><div class="dtitle">🦈 美麗海水族館・北部</div><div class="dregion">📍 水族館→翡翠海灘→備瀨福木→萬座毛</div><div class="dhotel">🏨 恩納（連住）</div></div><span class="ei">&#9660;</span></div>
-<div class="ds">
-<div class="dvr">&#128663; 🚗 恩納 → 水族館｜約50分 / <b>45km</b>（早出發！）</div>
-<div class="si" onclick="openGmap(event,'沖繩美ら海水族館')"><span class="st">09:00</span><div><div class="sname">🦈 美麗海水族館<span class="stag">長輩友善</span></div><div class="sdesc">全室空調，輪椅可進，巨大水槽超震撼，長輩必去！</div></div><a class="sl" href="https://www.google.com/maps/search/沖繩美ら海水族館" target="_blank" onclick="event.stopPropagation()">&#128205;</a></div>
-<div class="si" onclick="openGmap(event,'翡翠海灘 海洋博公園')"><span class="st">12:00</span><div><div class="sname">🏖 翡翠海灘・午餐<span class="stag">長輩友善</span></div><div class="sdesc">遮蔭休憩，長輩乘涼，年輕人下水，長輩友善</div></div><a class="sl" href="https://www.google.com/maps/search/翡翠海灘+海洋博公園" target="_blank" onclick="event.stopPropagation()">&#128205;</a></div>
-<div class="dvr">&#128663; 🚗 翡翠海灘 → 備瀨福木｜約15分 / <b>10km</b></div>
-<div class="si" onclick="openGmap(event,'備瀬のフクギ並木 沖繩')"><span class="st">14:30</span><div><div class="sname">🌳 備瀨福木林道<span class="stag">長輩友善</span></div><div class="sdesc">全平坦林蔭步道，涼爽舒適，長輩友善</div></div><a class="sl" href="https://www.google.com/maps/search/備瀬のフクギ並木+沖繩" target="_blank" onclick="event.stopPropagation()">&#128205;</a></div>
-<div class="dvr">&#128663; 🚗 備瀨 → 萬座毛｜約50分 / <b>38km</b></div>
-<div class="si" onclick="openGmap(event,'万座毛 恩納村')"><span class="st">17:30</span><div><div class="sname">🌅 萬座毛夕陽<span class="stag">長輩友善</span></div><div class="sdesc">象鼻岩，停車場到景點5分鐘，長輩友善</div></div><a class="sl" href="https://www.google.com/maps/search/万座毛+恩納村" target="_blank" onclick="event.stopPropagation()">&#128205;</a></div>
-</div></div>
-<div class="dc" onclick="toggleDay(this)">
-<div class="dh"><div class="dnum" style="background:#dc2626">D5</div><div class="dinfo"><div class="ddate">7/22（三）⚡最長的一天</div><div class="dtitle">🏔 最北端！邊戶岬大冒險</div><div class="dregion">📍 今歸仁→古宇利→邊戶岬（最北）→大石林山→恩納</div><div class="dhotel">🏨 恩納（連住）</div></div><span class="ei">&#9660;</span></div>
-<div class="ds">
-<div class="si" onclick="openGmap(event,'今歸仁城跡 沖繩')"><span class="st">08:00</span><div><div class="sname">🏰 今歸仁城跡</div><div class="sdesc">世界遺產，長輩只需看入口石牆即壯觀</div></div><a class="sl" href="https://www.google.com/maps/search/今歸仁城跡+沖繩" target="_blank" onclick="event.stopPropagation()">&#128205;</a></div>
-<div class="dvr">&#128663; 🚗 今歸仁 → 古宇利島｜約20分 / <b>15km</b></div>
-<div class="si" onclick="openGmap(event,'古宇利島 沖繩')"><span class="st">09:30</span><div><div class="sname">🌉 古宇利大橋・島上咖啡</div><div class="sdesc">跨海大橋，車上看景，長輩咖啡廳等候</div></div><a class="sl" href="https://www.google.com/maps/search/古宇利島+沖繩" target="_blank" onclick="event.stopPropagation()">&#128205;</a></div>
-<div class="dvr">&#128663; 🚗 古宇利 → 邊戶岬｜約55分 / <b>50km</b>（沿東岸北上）</div>
-<div class="si" onclick="openGmap(event,'辺戸岬 国頭村 沖繩')"><span class="st">11:30</span><div><div class="sname">🏔 邊戶岬・沖繩最北端！<span class="stag">長輩友善</span></div><div class="sdesc">🎉 停車場到觀景台5分鐘平路，環島最具成就感打卡，長輩友善</div></div><a class="sl" href="https://www.google.com/maps/search/辺戸岬+国頭村+沖繩" target="_blank" onclick="event.stopPropagation()">&#128205;</a></div>
-<div class="dvr">&#128663; 🚗 邊戶岬 → 大石林山｜約10分 / <b>7km</b></div>
-<div class="si" onclick="openGmap(event,'大石林山 国頭村')"><span class="st">13:00</span><div><div class="sname">🌿 大石林山（可選）<span class="stag">長輩友善</span></div><div class="sdesc">有無障礙步道，可搭接駁車，長輩友善</div></div><a class="sl" href="https://www.google.com/maps/search/大石林山+国頭村" target="_blank" onclick="event.stopPropagation()">&#128205;</a></div>
-<div class="dvr">&#128663; 🚗 大石林山 → 恩納｜約1.5小時 / <b>80km</b>（沿西岸）</div>
-<div class="si"><span class="st hb">&#127968;</span><div><div class="sname">16:00 回恩納・長輩充分休息</div><div class="sdesc">今天開車最多，晚餐在飯店附近</div></div></div>
-</div></div>
-<div class="dc" onclick="toggleDay(this)">
-<div class="dh"><div class="dnum" style="background:#0284c7">D6</div><div class="dinfo"><div class="ddate">7/23（四）</div><div class="dtitle">🌊 恩納放鬆・琉球村</div><div class="dregion">📍 真榮田岬→琉球村→那霸 Check-in</div><div class="dhotel">🏨 恩納 Check-out→那霸（住2晚）</div></div><span class="ei">&#9660;</span></div>
-<div class="ds">
-<div class="si" onclick="openGmap(event,'真榮田岬 沖繩')"><span class="st">09:00</span><div><div class="sname">🌊 真榮田岬觀景</div><div class="sdesc">長輩觀景台看海，年輕人可浮潛</div></div><a class="sl" href="https://www.google.com/maps/search/真榮田岬+沖繩" target="_blank" onclick="event.stopPropagation()">&#128205;</a></div>
-<div class="dvr">&#128663; 🚗 真榮田岬 → 琉球村｜約20分 / <b>12km</b></div>
-<div class="si" onclick="openGmap(event,'琉球村 恩納 沖繩')"><span class="st">10:30</span><div><div class="sname">🥁 琉球村<span class="stag">長輩友善</span></div><div class="sdesc">三線琴表演、傳統舞蹈，長輩必去！</div></div><a class="sl" href="https://www.google.com/maps/search/琉球村+恩納+沖繩" target="_blank" onclick="event.stopPropagation()">&#128205;</a></div>
-<div class="si" onclick="openGmap(event,'')"><span class="st">13:00</span><div><div class="sname">🍱 恩納最後午餐・Check-out</div><div class="sdesc">海鮮午餐後移動那霸</div></div><a class="sl" href="https://www.google.com/maps/search/" target="_blank" onclick="event.stopPropagation()">&#128205;</a></div>
-<div class="dvr">&#128663; 🚗 恩納 → 那霸｜約50分 / <b>55km</b></div>
-<div class="si"><span class="st hb">&#127968;</span><div><div class="sname">那霸飯店 Check-in（住2晚）</div><div class="sdesc">長輩午休</div></div></div>
-</div></div>
-<div class="dc" onclick="toggleDay(this)">
-<div class="dh"><div class="dnum" style="background:#854d0e">D7</div><div class="dinfo"><div class="ddate">7/24（五）</div><div class="dtitle">🏺 那霸文化・老牌牛排</div><div class="dregion">📍 壺屋通→牧志市場→長輩午休→Jack's牛排</div><div class="dhotel">🏨 那霸（連住）</div></div><span class="ei">&#9660;</span></div>
-<div class="ds">
-<div class="si" onclick="openGmap(event,'壺屋やちむん通り 那霸')"><span class="st">10:00</span><div><div class="sname">🏺 壺屋陶器通<span class="stag">長輩友善</span></div><div class="sdesc">平坦工藝街道，長輩友善</div></div><a class="sl" href="https://www.google.com/maps/search/壺屋やちむん通り+那霸" target="_blank" onclick="event.stopPropagation()">&#128205;</a></div>
-<div class="si" onclick="openGmap(event,'牧志公設市場 那霸')"><span class="st">11:30</span><div><div class="sname">🐟 牧志公設市場・午餐<span class="stag">長輩友善</span></div><div class="sdesc">一樓挑海鮮二樓加工，長輩友善</div></div><a class="sl" href="https://www.google.com/maps/search/牧志公設市場+那霸" target="_blank" onclick="event.stopPropagation()">&#128205;</a></div>
-<div class="si" onclick="openGmap(event,'')"><span class="st">14:00</span><div><div class="sname">😴 長輩午休・年輕人逛街</div><div class="sdesc">午後固定休息，非常重要</div></div><a class="sl" href="https://www.google.com/maps/search/" target="_blank" onclick="event.stopPropagation()">&#128205;</a></div>
-<div class="si" onclick="openGmap(event,'ジャッキーステーキハウス 那霸')"><span class="st">17:30</span><div><div class="sname">🥩 Jack's Steak House<span class="stag">長輩友善</span></div><div class="sdesc">1953年老牌牛排，提早排隊，長輩友善</div></div><a class="sl" href="https://www.google.com/maps/search/ジャッキーステーキハウス+那霸" target="_blank" onclick="event.stopPropagation()">&#128205;</a></div>
-<div class="si" onclick="openGmap(event,'国際通り 那霸')"><span class="st">19:30</span><div><div class="sname">🌙 國際通夜逛</div><div class="sdesc">飯後散步，買紅芋塔藥妝</div></div><a class="sl" href="https://www.google.com/maps/search/国際通り+那霸" target="_blank" onclick="event.stopPropagation()">&#128205;</a></div>
-</div></div>
-<div class="dc" onclick="toggleDay(this)">
-<div class="dh"><div class="dnum" style="background:#0d9488">D8</div><div class="dinfo"><div class="ddate">7/25（六）</div><div class="dtitle">🛍 採購衝刺・最後夕陽</div><div class="dregion">📍 DFS→御菓子御殿→瀨長島夕陽→告別晚餐</div><div class="dhotel">🏨 那霸（連住）</div></div><span class="ei">&#9660;</span></div>
-<div class="ds">
-<div class="si" onclick="openGmap(event,'DFS 沖繩 おもろまち')"><span class="st">10:00</span><div><div class="sname">🛍 DFS・おもろまち<span class="stag">長輩友善</span></div><div class="sdesc">百貨空調電梯齊全，長輩友善</div></div><a class="sl" href="https://www.google.com/maps/search/DFS+沖繩+おもろまち" target="_blank" onclick="event.stopPropagation()">&#128205;</a></div>
-<div class="si" onclick="openGmap(event,'御菓子御殿 那霸')"><span class="st">12:30</span><div><div class="sname">🧁 御菓子御殿・紅芋塔工廠<span class="stag">長輩友善</span></div><div class="sdesc">看工廠製作，試吃採購，長輩超愛</div></div><a class="sl" href="https://www.google.com/maps/search/御菓子御殿+那霸" target="_blank" onclick="event.stopPropagation()">&#128205;</a></div>
-<div class="dvr">&#128663; 🚗 那霸 → 瀨長島｜約20分 / <b>12km</b></div>
-<div class="si" onclick="openGmap(event,'瀨長島 Umikaji Terrace')"><span class="st">16:00</span><div><div class="sname">🌅 瀨長島・最後夕陽<span class="stag">長輩友善</span></div><div class="sdesc">首尾呼應！第一天和最後一天都在這裡，長輩友善</div></div><a class="sl" href="https://www.google.com/maps/search/瀨長島+Umikaji+Terrace" target="_blank" onclick="event.stopPropagation()">&#128205;</a></div>
-<div class="si" onclick="openGmap(event,'那霸 沖繩料理 三線琴')"><span class="st">19:00</span><div><div class="sname">🍽 告別晚餐・三線琴表演</div><div class="sdesc">傳統料理配民謠演奏</div></div><a class="sl" href="https://www.google.com/maps/search/那霸+沖繩料理+三線琴" target="_blank" onclick="event.stopPropagation()">&#128205;</a></div>
-</div></div>
-<div class="dc" onclick="toggleDay(this)">
-<div class="dh"><div class="dnum" style="background:#64748b">D9</div><div class="dinfo"><div class="ddate">7/26（日）</div><div class="dtitle">✈ 回程 IT289 21:40</div><div class="dregion">📍 最後採買→還車→機場</div><div class="dhotel">🛬 22:30 抵達高雄小港機場</div></div><span class="ei">&#9660;</span></div>
-<div class="ds">
-<div class="si" onclick="openGmap(event,'国際通り 那霸')"><span class="st">10:00</span><div><div class="sname">🛍 國際通最後衝刺</div><div class="sdesc">BLUE SEAL、泡盛、藥妝掃貨</div></div><a class="sl" href="https://www.google.com/maps/search/国際通り+那霸" target="_blank" onclick="event.stopPropagation()">&#128205;</a></div>
-<div class="dvr">&#128663; 🚗 那霸 → 機場還車｜約20分 / <b>13km</b></div>
-<div class="si" onclick="openGmap(event,'那霸機場')"><span class="st">16:00</span><div><div class="sname">🚗 還車・辦理登機</div><div class="sdesc">長輩行動較慢，預留充足時間</div></div><a class="sl" href="https://www.google.com/maps/search/那霸機場" target="_blank" onclick="event.stopPropagation()">&#128205;</a></div>
-<div class="si" onclick="openGmap(event,'那霸機場')"><span class="st cb">21:40</span><div><div class="sname">✈ IT289 那霸→高雄 22:30</div><div class="sdesc">さようなら沖縄！</div></div><a class="sl" href="https://www.google.com/maps/search/那霸機場" target="_blank" onclick="event.stopPropagation()">&#128205;</a></div>
-</div></div>
-</div></div></div>
-
-<div id="tab-daily" class="panel">
-<div class="dpanel">
-<div class="dnav">
-  <button class="dnb active" onclick="switchDay(0,this)">D1・7/18 抵達</button>
-  <button class="dnb" onclick="switchDay(1,this)">D2・7/19 南部</button>
-  <button class="dnb" onclick="switchDay(2,this)">D3・7/20 中部</button>
-  <button class="dnb" onclick="switchDay(3,this)">D4・7/21 水族館</button>
-  <button class="dnb" onclick="switchDay(4,this)">D5・7/22 最北端</button>
-  <button class="dnb" onclick="switchDay(5,this)">D6・7/23 恩納</button>
-  <button class="dnb" onclick="switchDay(6,this)">D7・7/24 那霸</button>
-  <button class="dnb" onclick="switchDay(7,this)">D8・7/25 購物</button>
-  <button class="dnb" onclick="switchDay(8,this)">D9・7/26 回程</button>
-</div>
-<div class="ddetail active" id="day-0">
-<div class="ddh" style="background:linear-gradient(135deg,#03045e,#0077b6)"><div class="ddbig">01</div><div class="ddinfo"><div class="dddate">2026年7月18日（六）降落日</div><div class="ddtitle">✈ 抵達那霸・瀨長島</div><div class="ddtheme">機場取車 → 瀨長島下午茶 → 國際通晚餐</div><div class="dchip">&#127968; 🏨 那霸市區飯店（住2晚）</div></div></div>
-<div class="tl">
-<div class="titem"><div class="tdot"></div><div class="tc" onclick="toggleCard(this)"><div class="tctop"><span class="tct">13:00</span><span class="tcn">✈ 那霸機場 OKA 降落</span><a class="tcl" href="https://www.google.com/maps/search/那霸機場" target="_blank" onclick="event.stopPropagation()">&#128205;</a></div><div class="tcd">IT288 13:00抵達。出關後搭接駁巴士至租車中心，建議事先網路取車。同時辦理日本SIM卡（IIJmio或日本通），機場有售。<div class="tags"><span class="tag">🕐 約45分</span><span class="tag">事先網路預訂</span></div></div></div></div>
-<div class="titem"><div class="tdot dd2"></div><div class="dblk">&#128663; 🚗 機場 → 瀨長島｜約20分 / <b>10km</b></div></div>
-<div class="titem"><div class="tdot"></div><div class="tc" onclick="toggleCard(this)"><div class="tctop"><span class="tct">14:30</span><span class="tcn">🏝 瀨長島 Umikaji Terrace</span><a class="tcl" href="https://www.google.com/maps/search/瀨長島+Umikaji+Terrace" target="_blank" onclick="event.stopPropagation()">&#128205;</a></div><div class="tcd">地中海風格白色商店街，整體平坦無障礙，長輩散步完全沒問題。坐在露台看飛機從頭頂掠過，搭配沖繩甜點，完美的旅程開場。<div class="tags"><span class="tag">🕐 1-1.5小時</span><span class="tag s">長輩友善</span><span class="tag">免費</span><span class="tag">看飛機</span></div></div></div></div>
-<div class="titem"><div class="tdot dd2"></div><div class="dblk">&#128663; 🚗 瀨長島 → 那霸國際通｜約30分 / <b>20km</b></div></div>
-<div class="titem"><div class="tdot"></div><div class="tc" onclick="toggleCard(this)"><div class="tctop"><span class="tct">17:30</span><span class="tcn">🛍 國際通・晚餐</span><a class="tcl" href="https://www.google.com/maps/search/那霸+国際通り" target="_blank" onclick="event.stopPropagation()">&#128205;</a></div><div class="tcd">那霸最熱鬧的步行街，全長1.6km。推薦第一晚吃沖繩料理（沖縄そば、ラフテー）讓長輩感受在地風味。逛完早點回飯店休息！<div class="tags"><span class="tag s">長輩友善</span><span class="tag">步行街無車</span></div></div></div></div>
-<div class="titem"><div class="tdot hd"></div><div class="hblk"><div style="font-size:1.5rem">&#127968;</div><div><div class="hblkn">那霸市區飯店 Check-in（住2晚）</div><div class="hblks">靠近國際通，步行方便，有電梯</div></div></div></div>
-</div></div>
-<div class="ddetail" id="day-1">
-<div class="ddh" style="background:linear-gradient(135deg,#3b0764,#7c3aed)"><div class="ddbig">02</div><div class="ddinfo"><div class="dddate">2026年7月19日（日）</div><div class="ddtitle">⛩ 南部聖地巡禮</div><div class="ddtheme">首里城 → 齋場御嶽 → 知念岬 → 濱邊茶屋 → 牧志市場</div><div class="dchip">&#127968; 🏨 那霸市區（連住，不換飯店）</div></div></div>
-<div class="tl">
-<div class="titem"><div class="tdot"></div><div class="tc" onclick="toggleCard(this)"><div class="tctop"><span class="tct">09:00</span><span class="tcn">🏯 首里城公園</span><a class="tcl" href="https://www.google.com/maps/search/首里城公園" target="_blank" onclick="event.stopPropagation()">&#128205;</a></div><div class="tcd">琉球王國世界遺產，設有電梯和輪椅路線，長輩完全適合。2019年火災後修復中，外郭石牆及部分建築可參觀。早上涼快，9點前到避開人潮。<div class="tags"><span class="tag">🕐 1.5小時</span><span class="tag s">長輩友善</span><span class="tag">世界遺產</span><span class="tag">¥400</span></div></div></div></div>
-<div class="titem"><div class="tdot dd2"></div><div class="dblk">&#128663; 🚗 首里城 → 南城市｜約50分 / <b>32km</b>（往南）</div></div>
-<div class="titem"><div class="tdot"></div><div class="tc" onclick="toggleCard(this)"><div class="tctop"><span class="tct">11:00</span><span class="tcn">⛩ 齋場御嶽</span><a class="tcl" href="https://www.google.com/maps/search/斎場御嶽" target="_blank" onclick="event.stopPropagation()">&#128205;</a></div><div class="tcd">琉球最高聖地，世界遺產。需在「南城市地域物產館」購票（¥300），步行約10分鐘。林蔭步道有小坡，著裝勿太暴露（聖地）。<div class="tags"><span class="tag">🕐 1小時</span><span class="tag">¥300</span><span class="tag">著裝得體</span></div></div></div></div>
-<div class="titem"><div class="tdot dd2"></div><div class="dblk">&#128663; 🚗 齋場御嶽 → 知念岬｜約15分 / <b>6km</b></div></div>
-<div class="titem"><div class="tdot"></div><div class="tc" onclick="toggleCard(this)"><div class="tctop"><span class="tct">13:00</span><span class="tcn">🌅 知念岬公園</span><a class="tcl" href="https://www.google.com/maps/search/知念岬公園+沖繩" target="_blank" onclick="event.stopPropagation()">&#128205;</a></div><div class="tcd">南部最壯觀的海岬，停車場到觀景台5分鐘全平坦。360度清澈蔚藍海景，是南部最適合長輩的戶外景點。<div class="tags"><span class="tag">🕐 40分</span><span class="tag s">長輩友善</span><span class="tag">免費</span></div></div></div></div>
-<div class="titem"><div class="tdot dd2"></div><div class="dblk">&#128663; 🚗 知念岬 → 濱邊茶屋｜約10分 / <b>5km</b></div></div>
-<div class="titem"><div class="tdot"></div><div class="tc" onclick="toggleCard(this)"><div class="tctop"><span class="tct">14:30</span><span class="tcn">☕ 濱邊の茶屋</span><a class="tcl" href="https://www.google.com/maps/search/浜辺の茶屋+沖繩" target="_blank" onclick="event.stopPropagation()">&#128205;</a></div><div class="tcd">建於沙灘旁的特色咖啡廳，漲潮時海水圍繞宛如浮島。搭配沖繩傳統點心，慢節奏午後適合長輩。建議提前查潮汐時間。<div class="tags"><span class="tag">🕐 1小時</span><span class="tag s">長輩友善</span><span class="tag">漲潮更美</span></div></div></div></div>
-<div class="titem"><div class="tdot dd2"></div><div class="dblk">&#128663; 🚗 濱邊茶屋 → 那霸｜約40分 / <b>30km</b></div></div>
-<div class="titem"><div class="tdot"></div><div class="tc" onclick="toggleCard(this)"><div class="tctop"><span class="tct">18:00</span><span class="tcn">🐟 牧志公設市場・晚餐</span><a class="tcl" href="https://www.google.com/maps/search/牧志公設市場+那霸" target="_blank" onclick="event.stopPropagation()">&#128205;</a></div><div class="tcd">一樓挑海鮮，帶上二樓加工（料理費¥500-1000/人）。2023年新館完工，設施齊全。長輩對互動式市場體驗很有興趣！<div class="tags"><span class="tag s">長輩友善</span><span class="tag">🕐 1.5小時</span><span class="tag">現煮海鮮</span></div></div></div></div>
-</div></div>
-<div class="ddetail" id="day-2">
-<div class="ddh" style="background:linear-gradient(135deg,#0c4a6e,#0891b2)"><div class="ddbig">03</div><div class="ddinfo"><div class="dddate">2026年7月20日（一）</div><div class="ddtitle">🇺🇸 中部・美國村→恩納</div><div class="ddtheme">那霸 Check-out → 壺屋通 → 北谷 → 殘波岬 → 恩納 Check-in</div><div class="dchip">&#127968; 🏨 恩納海景飯店 Check-in（住4晚）</div></div></div>
-<div class="tl">
-<div class="titem"><div class="tdot"></div><div class="tc" onclick="toggleCard(this)"><div class="tctop"><span class="tct">09:00</span><span class="tcn">🏺 壺屋陶器通（退房前）</span><a class="tcl" href="https://www.google.com/maps/search/壺屋やちむん通り" target="_blank" onclick="event.stopPropagation()">&#128205;</a></div><div class="tcd">那霸最有歷史的工藝街，平坦石板路，沖繩傳統陶器「やちむん」各家各有特色。長輩逛工藝品最開心！<div class="tags"><span class="tag s">長輩友善</span><span class="tag">🕐 40分</span></div></div></div></div>
-<div class="titem"><div class="tdot dd2"></div><div class="dblk">&#128663; 🚗 那霸 → 北谷｜約30分 / <b>22km</b>（帶行李 Check-out）</div></div>
-<div class="titem"><div class="tdot"></div><div class="tc" onclick="toggleCard(this)"><div class="tctop"><span class="tct">11:00</span><span class="tcn">🇺🇸 北谷美國村</span><a class="tcl" href="https://www.google.com/maps/search/北谷美國村+沖繩" target="_blank" onclick="event.stopPropagation()">&#128205;</a></div><div class="tcd">美式風情購物娛樂區，路面平坦，海邊有遮蔭休息處。午餐多選擇：漢堡、墨西哥料理、日式定食。長輩在樹蔭下休息，年輕人逛街。<div class="tags"><span class="tag s">長輩友善</span><span class="tag">🕐 2小時</span><span class="tag">午餐</span></div></div></div></div>
-<div class="titem"><div class="tdot dd2"></div><div class="dblk">&#128663; 🚗 北谷 → 殘波岬｜約30分 / <b>22km</b></div></div>
-<div class="titem"><div class="tdot"></div><div class="tc" onclick="toggleCard(this)"><div class="tctop"><span class="tct">14:00</span><span class="tcn">🌊 殘波岬</span><a class="tcl" href="https://www.google.com/maps/search/殘波岬+沖繩" target="_blank" onclick="event.stopPropagation()">&#128205;</a></div><div class="tcd">停車場到岬角步道平緩，5-10分鐘步行。30公尺高礁岩被海浪拍打，景象壯觀震撼。可登燈塔（¥200），長輩可在平台觀景。<div class="tags"><span class="tag s">長輩友善</span><span class="tag">🕐 45分</span><span class="tag">燈塔¥200</span></div></div></div></div>
-<div class="titem"><div class="tdot dd2"></div><div class="dblk">&#128663; 🚗 殘波岬 → 恩納｜約25分 / <b>18km</b></div></div>
-<div class="titem"><div class="tdot hd"></div><div class="hblk"><div style="font-size:1.5rem">&#127968;</div><div><div class="hblkn">恩納海景飯店 Check-in（住4晚！）</div><div class="hblks">入住後享用泳池或海灘日落，連住4晚不換飯店，長輩最舒適</div></div></div></div>
-</div></div>
-<div class="ddetail" id="day-3">
-<div class="ddh" style="background:linear-gradient(135deg,#052e16,#059669)"><div class="ddbig">04</div><div class="ddinfo"><div class="dddate">2026年7月21日（二）</div><div class="ddtitle">🦈 美麗海水族館・北部</div><div class="ddtheme">水族館 → 翡翠海灘 → 備瀨福木林道 → 萬座毛夕陽</div><div class="dchip">&#127968; 🏨 恩納（連住）</div></div></div>
-<div class="tl">
-<div class="titem"><div class="tdot dd2"></div><div class="dblk">&#128663; 🚗 恩納 → 水族館｜約50分 / <b>45km</b>（早出發！）</div></div>
-<div class="titem"><div class="tdot"></div><div class="tc" onclick="toggleCard(this)"><div class="tctop"><span class="tct">09:00 開館</span><span class="tcn">🦈 沖繩美麗海水族館</span><a class="tcl" href="https://www.google.com/maps/search/沖繩美ら海水族館" target="_blank" onclick="event.stopPropagation()">&#128205;</a></div><div class="tcd">全室空調，輪椅友善，電梯齊全，是長輩最喜歡的景點之一！「黑潮之海」大水槽可同時看到多條鯨鯊和鬼蝠魟，震撼程度保證全家目瞪口呆。建議提前網路購票。<div class="tags"><span class="tag s">長輩必去！</span><span class="tag">🕐 2-3小時</span><span class="tag">¥2180/人</span><span class="tag">全室空調</span></div></div></div></div>
-<div class="titem"><div class="tdot"></div><div class="tc" onclick="toggleCard(this)"><div class="tctop"><span class="tct">12:00</span><span class="tcn">🏖 翡翠海灘・午餐</span><a class="tcl" href="https://www.google.com/maps/search/翡翠海灘+海洋博公園" target="_blank" onclick="event.stopPropagation()">&#128205;</a></div><div class="tcd">公園內免費白沙灘，有樹蔭遮蔭休憩區。長輩坐樹下乘涼喝飲料，年輕人下水游泳，完美分工。附近有簡餐餐廳可午餐。<div class="tags"><span class="tag s">長輩友善</span><span class="tag">免費</span><span class="tag">有遮蔭</span></div></div></div></div>
-<div class="titem"><div class="tdot dd2"></div><div class="dblk">&#128663; 🚗 翡翠海灘 → 備瀨福木｜約15分 / <b>10km</b></div></div>
-<div class="titem"><div class="tdot"></div><div class="tc" onclick="toggleCard(this)"><div class="tctop"><span class="tct">14:30</span><span class="tcn">🌳 備瀨福木林道</span><a class="tcl" href="https://www.google.com/maps/search/備瀬のフクギ並木+沖繩" target="_blank" onclick="event.stopPropagation()">&#128205;</a></div><div class="tcd">百年福木形成的天然林蔭隧道，全程平坦，夏天特別涼爽舒適。可租腳踏車（¥500/hr）慢慢逛，長輩走500m即能感受精華。<div class="tags"><span class="tag s">長輩友善</span><span class="tag">🕐 1小時</span><span class="tag">免費</span><span class="tag">涼爽</span></div></div></div></div>
-<div class="titem"><div class="tdot dd2"></div><div class="dblk">&#128663; 🚗 備瀨 → 萬座毛｜約50分 / <b>38km</b>（途中回恩納）</div></div>
-<div class="titem"><div class="tdot"></div><div class="tc" onclick="toggleCard(this)"><div class="tctop"><span class="tct">17:30</span><span class="tcn">🌅 萬座毛・夕陽</span><a class="tcl" href="https://www.google.com/maps/search/万座毛+恩納村" target="_blank" onclick="event.stopPropagation()">&#128205;</a></div><div class="tcd">停車場到象鼻岩觀景台步行5分鐘，全平坦。夕陽金光照射珊瑚礁崖，沖繩中部最上鏡的黃昏景點。<div class="tags"><span class="tag s">長輩友善</span><span class="tag">🕐 30分</span><span class="tag">¥100</span></div></div></div></div>
-</div></div>
-<div class="ddetail" id="day-4">
-<div class="ddh" style="background:linear-gradient(135deg,#7f1d1d,#dc2626)"><div class="ddbig">05</div><div class="ddinfo"><div class="dddate">2026年7月22日（三）⚡</div><div class="ddtitle">🏔 沖繩最北端！邊戶岬大冒險</div><div class="ddtheme">今歸仁 → 古宇利 → 邊戶岬（最北）→ 大石林山 → 恩納</div><div class="dchip">&#127968; 🏨 恩納（連住）</div></div></div>
-<div style="background:#fef2f2;border:1px solid #fca5a5;border-radius:10px;padding:.8rem 1rem;margin-bottom:1rem;font-size:.8rem;color:#7f1d1d">&#9200; <b>今日全程約150km，是行程中開車最多的一天。</b> 早8點出發，下午4點前回程。途中長輩可在車上休息。</div>
-<div class="tl">
-<div class="titem"><div class="tdot dd2"></div><div class="dblk">&#128663; 🚗 恩納 → 今歸仁｜約50分 / <b>55km</b>（早出發！）</div></div>
-<div class="titem"><div class="tdot"></div><div class="tc" onclick="toggleCard(this)"><div class="tctop"><span class="tct">08:00</span><span class="tcn">🏰 今歸仁城跡</span><a class="tcl" href="https://www.google.com/maps/search/今歸仁城跡+沖繩" target="_blank" onclick="event.stopPropagation()">&#128205;</a></div><div class="tcd">北山王的居城，世界遺產，石灰岩城牆蜿蜒山丘壯觀。入口到主城牆有緩坡，長輩可選擇只看入口附近石牆，已非常震撼。<div class="tags"><span class="tag">🕐 45分</span><span class="tag">¥600</span><span class="tag s">長輩看入口即可</span></div></div></div></div>
-<div class="titem"><div class="tdot dd2"></div><div class="dblk">&#128663; 🚗 今歸仁 → 古宇利島｜約20分 / <b>15km</b></div></div>
-<div class="titem"><div class="tdot"></div><div class="tc" onclick="toggleCard(this)"><div class="tctop"><span class="tct">09:30</span><span class="tcn">🌉 古宇利大橋・咖啡</span><a class="tcl" href="https://www.google.com/maps/search/古宇利島+沖繩" target="_blank" onclick="event.stopPropagation()">&#128205;</a></div><div class="tcd">跨越1.2km的古宇利大橋，車上就能欣賞兩側海景。島內有多間海景咖啡廳，長輩在咖啡廳休息，年輕人去Tinu海灘拍心形礁石。<div class="tags"><span class="tag s">長輩（咖啡廳等候）</span><span class="tag">🕐 1小時</span></div></div></div></div>
-<div class="titem"><div class="tdot dd2"></div><div class="dblk">&#128663; 🚗 古宇利 → 邊戶岬｜約55分 / <b>50km</b>（沿東岸北上）</div></div>
-<div class="titem"><div class="tdot"></div><div class="tc" onclick="toggleCard(this)"><div class="tctop"><span class="tct">11:30 最北端！</span><span class="tcn">🏔 邊戶岬（最北端！）</span><a class="tcl" href="https://www.google.com/maps/search/辺戸岬+国頭村+沖繩" target="_blank" onclick="event.stopPropagation()">&#128205;</a></div><div class="tcd">🎉 沖繩本島最北端！停車場到岬角觀景台步行僅5分鐘，全平坦。站在懸崖邊，碧藍海水、礁石、浪花，晴天可遠眺奄美大島。記得拍留念照！<div class="tags"><span class="tag s">長輩友善</span><span class="tag">🕐 45-60分</span><span class="tag">免費</span><span class="tag">環島必打卡！</span></div></div></div></div>
-<div class="titem"><div class="tdot dd2"></div><div class="dblk">&#128663; 🚗 邊戶岬 → 大石林山｜約10分 / <b>7km</b></div></div>
-<div class="titem"><div class="tdot"></div><div class="tc" onclick="toggleCard(this)"><div class="tctop"><span class="tct">13:00</span><span class="tcn">🌿 大石林山（可選）</span><a class="tcl" href="https://www.google.com/maps/search/大石林山+国頭村" target="_blank" onclick="event.stopPropagation()">&#128205;</a></div><div class="tcd">世界遺產亞熱帶喀斯特地形，有「無障礙自然步道」，設有接駁車。長輩版路線平坦30分鐘，年輕人可走挑戰路線1小時。<div class="tags"><span class="tag s">長輩友善（無障礙）</span><span class="tag">¥1200</span></div></div></div></div>
-<div class="titem"><div class="tdot dd2"></div><div class="dblk">&#128663; 🚗 大石林山 → 恩納｜約1.5小時 / <b>80km</b>（沿西岸返回）</div></div>
-<div class="titem"><div class="tdot hd"></div><div class="hblk"><div style="font-size:1.5rem">&#127968;</div><div><div class="hblkn">16:00 回恩納・長輩充分休息</div><div class="hblks">今天開車最多，晚餐在飯店或附近步行可達的小店</div></div></div></div>
-</div></div>
-<div class="ddetail" id="day-5">
-<div class="ddh" style="background:linear-gradient(135deg,#0c4a6e,#0284c7)"><div class="ddbig">06</div><div class="ddinfo"><div class="dddate">2026年7月23日（四）</div><div class="ddtitle">🌊 恩納放鬆・琉球文化日</div><div class="ddtheme">真榮田岬 → 琉球村 → Check-out → 那霸</div><div class="dchip">&#127968; 🏨 恩納 Check-out → 那霸（住2晚）</div></div></div>
-<div class="tl">
-<div class="titem"><div class="tdot"></div><div class="tc" onclick="toggleCard(this)"><div class="tctop"><span class="tct">09:00</span><span class="tcn">🌊 真榮田岬・觀景</span><a class="tcl" href="https://www.google.com/maps/search/真榮田岬+沖繩" target="_blank" onclick="event.stopPropagation()">&#128205;</a></div><div class="tcd">岬角觀景台眺望海灣，長輩在上方坐著看海即可。年輕人若想浮潛，可在此下水（青之洞窟入口），完全不互相影響。<div class="tags"><span class="tag s">長輩（觀景台）</span><span class="tag">🕐 40分</span><span class="tag">免費</span></div></div></div></div>
-<div class="titem"><div class="tdot dd2"></div><div class="dblk">&#128663; 🚗 真榮田岬 → 琉球村｜約20分 / <b>12km</b></div></div>
-<div class="titem"><div class="tdot"></div><div class="tc" onclick="toggleCard(this)"><div class="tctop"><span class="tct">10:30</span><span class="tcn">🥁 琉球村</span><a class="tcl" href="https://www.google.com/maps/search/琉球村+恩納+沖繩" target="_blank" onclick="event.stopPropagation()">&#128205;</a></div><div class="tcd">強烈推薦給長輩！傳統琉球村落實景重現，三線琴演奏、紅型染、傳統舞蹈表演（每天固定時間）。全區遮蔭，距離短，長輩坐著看表演吃黑糖霜淇淋，超開心！<div class="tags"><span class="tag s">長輩必去！</span><span class="tag">🕐 1.5-2小時</span><span class="tag">¥1000</span><span class="tag">有表演節目</span></div></div></div></div>
-<div class="titem"><div class="tdot"></div><div class="tc" onclick="toggleCard(this)"><div class="tctop"><span class="tct">13:00</span><span class="tcn">🍱 恩納最後午餐・Check-out</span><a class="tcl" href="https://www.google.com/maps/search/" target="_blank" onclick="event.stopPropagation()">&#128205;</a></div><div class="tcd">在恩納吃最後一頓海鮮料理，Check-out後往那霸出發。<div class="tags"><span class="tag">🕐 1小時</span></div></div></div></div>
-<div class="titem"><div class="tdot dd2"></div><div class="dblk">&#128663; 🚗 恩納 → 那霸｜約50分 / <b>55km</b></div></div>
-<div class="titem"><div class="tdot hd"></div><div class="hblk"><div style="font-size:1.5rem">&#127968;</div><div><div class="hblkn">那霸市區飯店 Check-in（住2晚）</div><div class="hblks">長輩午休，晚上在國際通步行吃晚餐</div></div></div></div>
-</div></div>
-<div class="ddetail" id="day-6">
-<div class="ddh" style="background:linear-gradient(135deg,#431407,#854d0e)"><div class="ddbig">07</div><div class="ddinfo"><div class="dddate">2026年7月24日（五）</div><div class="ddtitle">🏺 那霸文化・老牌牛排</div><div class="ddtheme">壺屋通 → 牧志市場午餐 → 長輩午休 → Jack's牛排</div><div class="dchip">&#127968; 🏨 那霸市區（連住）</div></div></div>
-<div class="tl">
-<div class="titem"><div class="tdot"></div><div class="tc" onclick="toggleCard(this)"><div class="tctop"><span class="tct">10:00</span><span class="tcn">🏺 壺屋陶器通</span><a class="tcl" href="https://www.google.com/maps/search/壺屋やちむん通り" target="_blank" onclick="event.stopPropagation()">&#128205;</a></div><div class="tcd">那霸傳統工藝街，平坦石板路，沖繩陶器集散地，長輩邊走邊欣賞手工製品，悠閒。<div class="tags"><span class="tag s">長輩友善</span><span class="tag">🕐 45分</span></div></div></div></div>
-<div class="titem"><div class="tdot"></div><div class="tc" onclick="toggleCard(this)"><div class="tctop"><span class="tct">11:30</span><span class="tcn">🐟 牧志公設市場・午餐</span><a class="tcl" href="https://www.google.com/maps/search/牧志公設市場+那霸" target="_blank" onclick="event.stopPropagation()">&#128205;</a></div><div class="tcd">一樓挑海鮮，二樓加工現煮。長輩喜歡看市場熱鬧，等料理上桌前先逛市場，很有趣！<div class="tags"><span class="tag s">長輩友善</span><span class="tag">🕐 1.5小時</span></div></div></div></div>
-<div class="titem"><div class="tdot"></div><div class="tc" onclick="toggleCard(this)"><div class="tctop"><span class="tct">14:00</span><span class="tcn">😴 長輩午休・年輕人逛街</span><a class="tcl" href="https://www.google.com/maps/search/" target="_blank" onclick="event.stopPropagation()">&#128205;</a></div><div class="tcd">安排長輩回飯店午睡休息，非常重要！年輕人可去DFS、藥妝或咖啡廳，17:30集合。<div class="tags"><span class="tag s">重要！長輩充電</span></div></div></div></div>
-<div class="titem"><div class="tdot"></div><div class="tc" onclick="toggleCard(this)"><div class="tctop"><span class="tct">17:30 排隊</span><span class="tcn">🥩 Jack's Steak House</span><a class="tcl" href="https://www.google.com/maps/search/ジャッキーステーキハウス+那霸" target="_blank" onclick="event.stopPropagation()">&#128205;</a></div><div class="tcd">創業1953年沖繩老牌牛排！熟度精準，附湯沙拉麵包超值。開放式廚房讓長輩可以看廚師煎牛排。建議17:30前去排隊，通常30分鐘內入座。<div class="tags"><span class="tag s">長輩友善</span><span class="tag">🕐 1.5小時</span><span class="tag">那霸必吃</span><span class="tag">提早排隊</span></div></div></div></div>
-<div class="titem"><div class="tdot"></div><div class="tc" onclick="toggleCard(this)"><div class="tctop"><span class="tct">19:30</span><span class="tcn">🌙 國際通夜逛</span><a class="tcl" href="https://www.google.com/maps/search/国際通り+那霸" target="_blank" onclick="event.stopPropagation()">&#128205;</a></div><div class="tcd">飯後散步消食，逛紅芋塔、BLUE SEAL冰淇淋、藥妝，長輩晚上散步心情好。<div class="tags"><span class="tag s">長輩友善</span></div></div></div></div>
-</div></div>
-<div class="ddetail" id="day-7">
-<div class="ddh" style="background:linear-gradient(135deg,#042f2e,#0d9488)"><div class="ddbig">08</div><div class="ddinfo"><div class="dddate">2026年7月25日（六）</div><div class="ddtitle">🛍 採購衝刺・最後夕陽</div><div class="ddtheme">DFS → 御菓子御殿 → 瀨長島夕陽 → 告別晚餐</div><div class="dchip">&#127968; 🏨 那霸市區（連住）</div></div></div>
-<div class="tl">
-<div class="titem"><div class="tdot"></div><div class="tc" onclick="toggleCard(this)"><div class="tctop"><span class="tct">10:00</span><span class="tcn">🛍 DFS・おもろまち商圈</span><a class="tcl" href="https://www.google.com/maps/search/DFS+沖繩+おもろまち" target="_blank" onclick="event.stopPropagation()">&#128205;</a></div><div class="tcd">T Galleria DFS免稅店，電梯齊全，全館空調，長輩逛百貨最舒適！旁邊Main Place購物中心有各種日本品牌。<div class="tags"><span class="tag s">長輩友善</span><span class="tag">🕐 2小時</span><span class="tag">免稅</span></div></div></div></div>
-<div class="titem"><div class="tdot"></div><div class="tc" onclick="toggleCard(this)"><div class="tctop"><span class="tct">12:30</span><span class="tcn">🧁 御菓子御殿・工廠參觀</span><a class="tcl" href="https://www.google.com/maps/search/御菓子御殿+那霸" target="_blank" onclick="event.stopPropagation()">&#128205;</a></div><div class="tcd">透過玻璃窗看工廠現場製作紅芋塔，長輩超喜歡！免費入場，現場試吃，採購伴手禮。<div class="tags"><span class="tag s">長輩超愛！</span><span class="tag">🕐 45分</span><span class="tag">免費參觀</span></div></div></div></div>
-<div class="titem"><div class="tdot dd2"></div><div class="dblk">&#128663; 🚗 那霸 → 瀨長島｜約20分 / <b>12km</b></div></div>
-<div class="titem"><div class="tdot"></div><div class="tc" onclick="toggleCard(this)"><div class="tctop"><span class="tct">16:00</span><span class="tcn">🌅 瀨長島・告別夕陽</span><a class="tcl" href="https://www.google.com/maps/search/瀨長島+Umikaji+Terrace" target="_blank" onclick="event.stopPropagation()">&#128205;</a></div><div class="tcd">第一天和最後一天都在瀨長島，完美首尾呼應！看著飛機降落、夕陽西沉，在露台喝飲料，拍9天的告別合照。<div class="tags"><span class="tag s">長輩友善</span><span class="tag">🕐 1.5小時</span><span class="tag">首尾呼應！</span></div></div></div></div>
-<div class="titem"><div class="tdot dd2"></div><div class="dblk">&#128663; 🚗 瀨長島 → 那霸｜約20分 / <b>12km</b></div></div>
-<div class="titem"><div class="tdot"></div><div class="tc" onclick="toggleCard(this)"><div class="tctop"><span class="tct">19:00</span><span class="tcn">🍽 告別晚餐・三線琴表演</span><a class="tcl" href="https://www.google.com/maps/search/那霸+沖繩料理+三線琴" target="_blank" onclick="event.stopPropagation()">&#128205;</a></div><div class="tcd">推薦預訂有三線琴現場演奏的沖繩料理餐廳（如「島唄」或「あしびうなぁ」），長輩聽著沖繩民謠，為整趟旅程畫下最感動的句點。<div class="tags"><span class="tag">🕐 2小時</span></div></div></div></div>
-</div></div>
-<div class="ddetail" id="day-8">
-<div class="ddh" style="background:linear-gradient(135deg,#111827,#374151)"><div class="ddbig">09</div><div class="ddinfo"><div class="dddate">2026年7月26日（日）</div><div class="ddtitle">✈ 回程日 IT289</div><div class="ddtheme">最後採買 → 還車 → 機場 → 21:40起飛 → 22:30高雄</div><div class="dchip">&#127968; 🛬 22:30 抵達高雄小港機場</div></div></div>
-<div class="tl">
-<div class="titem"><div class="tdot"></div><div class="tc" onclick="toggleCard(this)"><div class="tctop"><span class="tct">10:00</span><span class="tcn">🛍 國際通最後衝刺</span><a class="tcl" href="https://www.google.com/maps/search/国際通り+那霸" target="_blank" onclick="event.stopPropagation()">&#128205;</a></div><div class="tcd">BLUE SEAL冰淇淋（最後吃！）、泡盛酒、藥妝補貨。長輩可在咖啡廳等候，年輕人快速採購。<div class="tags"><span class="tag">🕐 2小時</span><span class="tag">最後機會</span></div></div></div></div>
-<div class="titem"><div class="tdot dd2"></div><div class="dblk">&#128663; 🚗 那霸市區 → 機場｜約20分 / <b>13km</b>（預留充足時間）</div></div>
-<div class="titem"><div class="tdot"></div><div class="tc" onclick="toggleCard(this)"><div class="tctop"><span class="tct">16:00</span><span class="tcn">🚗 還車・轉機場</span><a class="tcl" href="https://www.google.com/maps/search/那霸機場" target="_blank" onclick="event.stopPropagation()">&#128205;</a></div><div class="tcd">還車後搭接駁巴士至航廈約20-30分鐘。長輩行動較慢，預留足夠時間。建議16:00前抵達還車中心。<div class="tags"><span class="tag">還車→航廈約30分</span><span class="tag s">⚠長輩預留時間</span></div></div></div></div>
-<div class="titem"><div class="tdot"></div><div class="tc" onclick="toggleCard(this)"><div class="tctop"><span class="tct">17:30</span><span class="tcn">✈ 機場辦理登機手續</span><a class="tcl" href="https://www.google.com/maps/search/那霸機場+国際線" target="_blank" onclick="event.stopPropagation()">&#128205;</a></div><div class="tcd">IT289航班21:40起飛，19:00前辦行李托運。機場B1有豐富購物和美食，最後掃貨機會！<div class="tags"><span class="tag">機場B1最後採買</span><span class="tag s">長輩候機室休息</span></div></div></div></div>
-<div class="titem"><div class="tdot"></div><div class="tc" onclick="toggleCard(this)"><div class="tctop"><span class="tct">21:40</span><span class="tcn">✈ IT289 那霸→高雄 22:30抵達</span><a class="tcl" href="https://www.google.com/maps/search/那霸機場" target="_blank" onclick="event.stopPropagation()">&#128205;</a></div><div class="tcd">さようなら沖縄！謝謝這片蔚藍的海 🌺<div class="tags"><span class="tag">回程！</span></div></div></div></div>
-</div></div>
-</div></div>
-
-<div id="tab-hotels" class="panel">
-<div class="hsec">
-<div class="stitle">🏨 分區住宿計畫</div>
-<p style="color:#6b7280;font-size:.85rem;margin-bottom:1.5rem">住宿跟著路線走，減少重複開車，每區住完再移動。</p>
-<div style="background:white;border-radius:12px;padding:1.5rem;box-shadow:0 2px 12px rgba(0,0,0,.06);margin-bottom:1.5rem">
-  <div style="font-weight:700;color:var(--deep);margin-bottom:1rem;font-family:'Syne',sans-serif">📍 住宿移動計畫</div>
-  <div style="display:flex;align-items:center;gap:.8rem;flex-wrap:wrap;font-size:.85rem">
-    <div style="background:#0077b6;color:white;border-radius:8px;padding:.5rem .9rem;font-weight:700">那霸<br><span style="font-size:.7rem;font-weight:400">7/18-19（2晚）</span></div>
-    <span style="color:#d1d5db;font-size:1.5rem">→</span>
-    <div style="background:#059669;color:white;border-radius:8px;padding:.5rem .9rem;font-weight:700">恩納<br><span style="font-size:.7rem;font-weight:400">7/20-23（4晚）</span></div>
-    <span style="color:#d1d5db;font-size:1.5rem">→</span>
-    <div style="background:#854d0e;color:white;border-radius:8px;padding:.5rem .9rem;font-weight:700">那霸<br><span style="font-size:.7rem;font-weight:400">7/23-26（2晚）</span></div>
-  </div>
-  <div style="margin-top:1rem;font-size:.78rem;color:#6b7280;line-height:1.8">✅ 那霸(2晚)→恩納是探索中北部的最佳基地，4晚不換飯店<br>✅ 邊戶岬當天從恩納出發，當天回恩納，不需在最北住宿<br>✅ 最後2晚回那霸，方便26日還車和去機場</div>
-</div>
-<div class="hgrid">
-  <div class="hcard">
-    <div class="htop"><div class="hnights">7/18-19・2晚</div><div class="hname">那霸市區飯店</div><div style="font-size:.75rem;opacity:.8;margin-top:.2rem">到達 & 南部探索基地</div></div>
-    <div class="hbody">
-      <div class="harea">📍 那霸・國際通周邊</div>
-      <div class="hdesc">🏨 <b>Cross Hotel 沖繩</b> — 國際通步行3分鐘，有電梯，房間寬敞<br>🏨 <b>Vessel Hotel Campana 沖繩</b> — 空間大，浴缸，長輩舒適<br>🏨 <b>Daiwa Roynet 那霸国際通</b> — 乾淨現代，位置最佳<br><br><b>長輩注意：</b>選有電梯、房間夠大的飯店</div>
-      <a class="hlink" href="https://www.booking.com/search.html?ss=%E9%82%A3%E9%9C%B8+%E5%9B%BD%E9%9A%9B%E9%80%9A" target="_blank">Booking.com 查詢 →</a>
+<div class="day-panel active" id="dp-0">
+<div class="day-header-inner">
+  <div class="day-title-block">
+    <span class="day-big">D1</span>
+    <div>
+      <div class="day-date-txt">7/18（六）</div>
+      <div class="day-title-txt">抵達・宜野灣</div>
+      <div class="day-theme">機場取車 → 瀨長島 → 宜野灣</div>
     </div>
   </div>
-  <div class="hcard">
-    <div class="htop" style="background:linear-gradient(135deg,#065f46,#059669)"><div class="hnights">7/20-23・4晚 ⭐ 重點住宿</div><div class="hname">恩納海景度假村</div><div style="font-size:.75rem;opacity:.8;margin-top:.2rem">旅程最重要的住宿！</div></div>
-    <div class="hbody">
-      <div class="harea">📍 恩納村・珊瑚海岸</div>
-      <div class="hdesc">⭐⭐⭐⭐⭐ <b>ANA InterContinental 萬座海灘</b> — 全套設施，長輩最舒適<br>⭐⭐⭐⭐ <b>Renaissance Okinawa Resort</b> — 私人沙灘<br>⭐⭐⭐⭐ <b>Kafuu Resort Fuchaku</b> — CP值高<br><br><b>長輩友善重點：</b>選有電梯、泳池有坡道入水、飯店內有餐廳的度假村。4晚不換飯店！<br><span style="color:#dc2626;font-weight:700">⚠ 7月旺季，強烈建議現在就預訂！</span></div>
-      <a class="hlink" href="https://www.booking.com/search.html?ss=%E6%81%A9%E7%B4%8D%E6%9D%91+%E3%83%AA%E3%82%BE%E3%83%BC%E3%83%88" target="_blank">Booking.com 查詢 →</a>
-    </div>
-  </div>
-  <div class="hcard">
-    <div class="htop" style="background:linear-gradient(135deg,#1e1b4b,#4338ca)"><div class="hnights">7/23-26・2晚</div><div class="hname">那霸市區飯店</div><div style="font-size:.75rem;opacity:.8;margin-top:.2rem">最後衝刺＋回程前</div></div>
-    <div class="hbody">
-      <div class="harea">📍 那霸・おもろまち / 国際通</div>
-      <div class="hdesc">🏨 <b>Hotel Gran View Okinawa</b> — 靠近おもろまち<br>🏨 <b>Toyoko Inn 那霸おもろまち</b> — 乾淨平價，早餐含<br>🏨 <b>Hilton 那霸首里城</b> — 最後豪華版<br><br>💡 那霸兩段可選同一家飯店，讓長輩熟悉環境</div>
-      <a class="hlink" href="https://www.booking.com/search.html?ss=%E9%82%A3%E9%9C%B8+%E3%81%8A%E3%82%82%E3%82%8D%E3%81%BE%E3%81%A1" target="_blank">Booking.com 查詢 →</a>
-    </div>
+  <div class="day-hotel-chip" style="border-color:#2563eb;color:#2563eb">🏨 The Grand Hotel Ginowan</div>
+</div>
+
+<div class="spots">
+<div class="spot-row">
+  <span class="spot-time">13:00</span>
+  <div class="spot-content">
+    <div class="spot-name">那霸機場 OKA 降落</div>
+    <div class="spot-desc">取車・辦SIM卡</div>
+    <button class="copy-btn" onclick="copyKw(this,'那覇空港')" title="複製搜尋關鍵字">複製關鍵字</button>
   </div>
 </div>
-<div class="tipbox" style="margin-top:1.5rem">
-  <h4>💡 帶長輩住宿選擇重點</h4>
-  <ul>
-    <li>選有<b>浴缸</b>的房型（泡澡有助恢復疲勞）</li>
-    <li>度假村選<b>泳池有坡道入水</b>，長輩可以安全下水</li>
-    <li>確認飯店有<b>餐廳</b>，長輩體力不足時可在飯店解決晚餐</li>
-    <li>7月沖繩均溫30-33°C，高溫多濕，<b>飯店空調</b>非常重要</li>
-    <li>那霸兩段可訂<b>同一家飯店</b>，行李可以寄放，不用帶著跑</li>
-    <li>7月旺季，<b>現在就要預訂</b>！熱門飯店剩最後幾間</li>
-  </ul>
+<div class="drive-row"><span class="car-icon">🚗</span><span class="drive-info">機場 → 瀨長島</span><span class="drive-km">10km / 15分</span></div>
+<div class="spot-row">
+  <span class="spot-time">14:30</span>
+  <div class="spot-content">
+    <div class="spot-name">瀨長島 Umikaji Terrace<span class="senior-tag">長輩友善</span></div>
+    <div class="spot-desc">海景咖啡，看飛機降落，平坦步道</div>
+    <button class="copy-btn" onclick="copyKw(this,'瀬長島ウミカジテラス')" title="複製搜尋關鍵字">複製關鍵字</button>
+  </div>
 </div>
+<div class="drive-row"><span class="car-icon">🚗</span><span class="drive-info">瀨長島 → Ginowan</span><span class="drive-km">15km / 20分</span></div>
+<div class="spot-hotel"><span class="hotel-icon">🏨</span><div class="spot-content"><div class="spot-name">The Grand Hotel Ginowan Check-in</div><button class="copy-btn" onclick="copyKw(this,'ザ・グランドホテル宜野湾')" title="複製搜尋關鍵字">複製關鍵字</button></div></div>
+</div>
+
+</div>
+<div class="day-panel" id="dp-1">
+<div class="day-header-inner">
+  <div class="day-title-block">
+    <span class="day-big">D2</span>
+    <div>
+      <div class="day-date-txt">7/19（日）</div>
+      <div class="day-title-txt">中部世界遺產</div>
+      <div class="day-theme">中城城跡 → 勝連城跡 → 泡瀨漁港 → Rycom</div>
+    </div>
+  </div>
+  <div class="day-hotel-chip" style="border-color:#7c3aed;color:#7c3aed">🏨 Rycom Crystal Hotel</div>
+</div>
+
+<div class="spots">
+<div class="drive-row"><span class="car-icon">🚗</span><span class="drive-info">Ginowan → 中城城跡</span><span class="drive-km">12km / 15分</span></div>
+<div class="spot-row">
+  <span class="spot-time">09:30</span>
+  <div class="spot-content">
+    <div class="spot-name">中城城跡</div>
+    <div class="spot-desc">世界遺產，絕美海景石牆，有坡</div>
+    <button class="copy-btn" onclick="copyKw(this,'中城城跡 沖縄')" title="複製搜尋關鍵字">複製關鍵字</button>
+  </div>
+</div>
+<div class="drive-row"><span class="car-icon">🚗</span><span class="drive-info">中城 → 勝連城跡</span><span class="drive-km">12km / 15分</span></div>
+<div class="spot-row">
+  <span class="spot-time">11:30</span>
+  <div class="spot-content">
+    <div class="spot-name">勝連城跡</div>
+    <div class="spot-desc">世界遺產，俯瞰東海岸</div>
+    <button class="copy-btn" onclick="copyKw(this,'勝連城跡 うるま市')" title="複製搜尋關鍵字">複製關鍵字</button>
+  </div>
+</div>
+<div class="drive-row"><span class="car-icon">🚗</span><span class="drive-info">勝連 → 泡瀨漁港</span><span class="drive-km">15km / 20分</span></div>
+<div class="spot-row">
+  <span class="spot-time">13:00</span>
+  <div class="spot-content">
+    <div class="spot-name">泡瀨漁港<span class="senior-tag">長輩友善</span></div>
+    <div class="spot-desc">海鮮直銷午餐，新鮮便宜</div>
+    <button class="copy-btn" onclick="copyKw(this,'泡瀬漁港 沖縄市')" title="複製搜尋關鍵字">複製關鍵字</button>
+  </div>
+</div>
+<div class="drive-row"><span class="car-icon">🚗</span><span class="drive-info">泡瀨 → Rycom</span><span class="drive-km">8km / 10分</span></div>
+<div class="spot-hotel"><span class="hotel-icon">🏨</span><div class="spot-content"><div class="spot-name">Rycom Crystal Hotel Check-in</div><button class="copy-btn" onclick="copyKw(this,'Rycom Crystal Hotel')" title="複製搜尋關鍵字">複製關鍵字</button></div></div>
+</div>
+
+</div>
+<div class="day-panel" id="dp-2">
+<div class="day-header-inner">
+  <div class="day-title-block">
+    <span class="day-big">D3</span>
+    <div>
+      <div class="day-date-txt">7/20（一）</div>
+      <div class="day-title-txt">海中道路・離島串聯</div>
+      <div class="day-theme">海中道路 → 海中展望塔 → 平安座 → 浜比嘉 → 伊計島</div>
+    </div>
+  </div>
+  <div class="day-hotel-chip" style="border-color:#db2777;color:#db2777">🏨 ANA Crowne Plaza Uruma Hills</div>
+</div>
+
+<div class="spots">
+<div class="drive-row"><span class="car-icon">🚗</span><span class="drive-info">Rycom → 海中道路入口</span><span class="drive-km">12km / 15分</span></div>
+<div class="spot-row">
+  <span class="spot-time">09:30</span>
+  <div class="spot-content">
+    <div class="spot-name">海中道路<span class="senior-tag">長輩友善</span></div>
+    <div class="spot-desc">4.7km壯觀跨海大橋</div>
+    <button class="copy-btn" onclick="copyKw(this,'海中道路 うるま市')" title="複製搜尋關鍵字">複製關鍵字</button>
+  </div>
+</div>
+<div class="spot-row">
+  <span class="spot-time">10:00</span>
+  <div class="spot-content">
+    <div class="spot-name">🔭 海中展望塔<span class="senior-tag">長輩友善</span></div>
+    <div class="spot-desc">半潛艇！下到水中看珊瑚魚群，不需下水，長輩必去</div>
+    <button class="copy-btn" onclick="copyKw(this,'海中展望塔 うるま市')" title="複製搜尋關鍵字">複製關鍵字</button>
+  </div>
+</div>
+<div class="drive-row"><span class="car-icon">🚗</span><span class="drive-info">展望塔 → 平安座島</span><span class="drive-km">8km / 10分</span></div>
+<div class="spot-row">
+  <span class="spot-time">11:30</span>
+  <div class="spot-content">
+    <div class="spot-name">平安座島<span class="senior-tag">長輩友善</span></div>
+    <div class="spot-desc">離島風情，可串聯浜比嘉島</div>
+    <button class="copy-btn" onclick="copyKw(this,'平安座島 沖縄')" title="複製搜尋關鍵字">複製關鍵字</button>
+  </div>
+</div>
+<div class="drive-row"><span class="car-icon">🚗</span><span class="drive-info">平安座 → 浜比嘉島</span><span class="drive-km">5km / 8分</span></div>
+<div class="spot-row">
+  <span class="spot-time">12:30</span>
+  <div class="spot-content">
+    <div class="spot-name">浜比嘉島<span class="senior-tag">長輩友善</span></div>
+    <div class="spot-desc">小島，海景午餐</div>
+    <button class="copy-btn" onclick="copyKw(this,'浜比嘉島 うるま市')" title="複製搜尋關鍵字">複製關鍵字</button>
+  </div>
+</div>
+<div class="drive-row"><span class="car-icon">🚗</span><span class="drive-info">浜比嘉 → 伊計島</span><span class="drive-km">8km / 12分</span></div>
+<div class="spot-row">
+  <span class="spot-time">14:30</span>
+  <div class="spot-content">
+    <div class="spot-name">伊計島<span class="senior-tag">長輩友善</span></div>
+    <div class="spot-desc">東岸最末端離島，白沙灘</div>
+    <button class="copy-btn" onclick="copyKw(this,'伊計島 うるま市')" title="複製搜尋關鍵字">複製關鍵字</button>
+  </div>
+</div>
+<div class="drive-row"><span class="car-icon">🚗</span><span class="drive-info">伊計島 → ANA Uruma Hills</span><span class="drive-km">25km / 30分</span></div>
+<div class="spot-hotel"><span class="hotel-icon">🏨</span><div class="spot-content"><div class="spot-name">ANA Crowne Plaza Uruma Hills Check-in</div><button class="copy-btn" onclick="copyKw(this,'ANAクラウンプラザリゾート沖縄うるまの杜')" title="複製搜尋關鍵字">複製關鍵字</button></div></div>
+</div>
+
+</div>
+<div class="day-panel" id="dp-3">
+<div class="day-header-inner">
+  <div class="day-title-block">
+    <span class="day-big">D4</span>
+    <div>
+      <div class="day-date-txt">7/21（二）</div>
+      <div class="day-title-txt">西岸北上・水族館</div>
+      <div class="day-theme">Uruma → 水族館 → 翡翠海灘 → 備瀨林道 → 本部</div>
+    </div>
+  </div>
+  <div class="day-hotel-chip" style="border-color:#059669;color:#059669">🏨 Motobu Green Park Hotel</div>
+</div>
+
+<div class="spots">
+<div class="spot-row">
+  <span class="spot-time">08:00</span>
+  <div class="spot-content">
+    <div class="spot-name">ANA Uruma 出發</div>
+    <div class="spot-desc">早出發！</div>
+    
+  </div>
+</div>
+<div class="drive-row"><span class="car-icon">🚗</span><span class="drive-info">Uruma → 美麗海水族館（西岸）</span><span class="drive-km">90km / 1.5小時</span></div>
+<div class="spot-row">
+  <span class="spot-time">09:30</span>
+  <div class="spot-content">
+    <div class="spot-name">沖繩美麗海水族館<span class="senior-tag">長輩友善</span></div>
+    <div class="spot-desc">全室空調，輪椅友善，鯨鯊震撼，長輩必去！建議事先網路購票</div>
+    <button class="copy-btn" onclick="copyKw(this,'沖縄美ら海水族館')" title="複製搜尋關鍵字">複製關鍵字</button>
+  </div>
+</div>
+<div class="spot-row">
+  <span class="spot-time">12:30</span>
+  <div class="spot-content">
+    <div class="spot-name">翡翠海灘<span class="senior-tag">長輩友善</span></div>
+    <div class="spot-desc">公園內免費白沙灘，有遮蔭，長輩乘涼年輕人下水</div>
+    <button class="copy-btn" onclick="copyKw(this,'エメラルドビーチ 海洋博公園')" title="複製搜尋關鍵字">複製關鍵字</button>
+  </div>
+</div>
+<div class="drive-row"><span class="car-icon">🚗</span><span class="drive-info">水族館 → 備瀨福木林道</span><span class="drive-km">5km / 8分</span></div>
+<div class="spot-row">
+  <span class="spot-time">14:30</span>
+  <div class="spot-content">
+    <div class="spot-name">備瀨福木林道<span class="senior-tag">長輩友善</span></div>
+    <div class="spot-desc">百年林蔭步道，全平坦涼爽，長輩友善</div>
+    <button class="copy-btn" onclick="copyKw(this,'備瀬のフクギ並木 本部')" title="複製搜尋關鍵字">複製關鍵字</button>
+  </div>
+</div>
+<div class="drive-row"><span class="car-icon">🚗</span><span class="drive-info">備瀨 → Motobu</span><span class="drive-km">3km / 5分</span></div>
+<div class="spot-hotel"><span class="hotel-icon">🏨</span><div class="spot-content"><div class="spot-name">Motobu Green Park Hotel Check-in</div><button class="copy-btn" onclick="copyKw(this,'モトブグリーンパークホテル')" title="複製搜尋關鍵字">複製關鍵字</button></div></div>
+</div>
+
+</div>
+<div class="day-panel" id="dp-4">
+<div class="day-header-inner">
+  <div class="day-title-block">
+    <span class="day-big">D5</span>
+    <div>
+      <div class="day-date-txt">7/22（三）</div>
+      <div class="day-title-txt">古宇利島・今歸仁城</div>
+      <div class="day-theme">今歸仁城跡 → 古宇利大橋 → 古宇利海洋塔 → 回本部</div>
+    </div>
+  </div>
+  <div class="day-hotel-chip" style="border-color:#059669;color:#059669">🏨 Motobu Green Park Hotel（連住）</div>
+</div>
+
+<div class="spots">
+<div class="drive-row"><span class="car-icon">🚗</span><span class="drive-info">Motobu → 今歸仁城跡</span><span class="drive-km">20km / 25分</span></div>
+<div class="spot-row">
+  <span class="spot-time">09:30</span>
+  <div class="spot-content">
+    <div class="spot-name">今歸仁城跡</div>
+    <div class="spot-desc">世界遺產，北山王石牆。長輩只需看入口石牆即壯觀</div>
+    <button class="copy-btn" onclick="copyKw(this,'今帰仁城跡')" title="複製搜尋關鍵字">複製關鍵字</button>
+  </div>
+</div>
+<div class="drive-row"><span class="car-icon">🚗</span><span class="drive-info">今歸仁 → 古宇利島</span><span class="drive-km">15km / 20分</span></div>
+<div class="spot-row">
+  <span class="spot-time">11:00</span>
+  <div class="spot-content">
+    <div class="spot-name">古宇利大橋<span class="senior-tag">長輩友善</span></div>
+    <div class="spot-desc">1.2km跨海橋，車上就能欣賞雙側海景</div>
+    <button class="copy-btn" onclick="copyKw(this,'古宇利大橋 今帰仁')" title="複製搜尋關鍵字">複製關鍵字</button>
+  </div>
+</div>
+<div class="spot-row">
+  <span class="spot-time">11:30</span>
+  <div class="spot-content">
+    <div class="spot-name">古宇利海洋塔<span class="senior-tag">長輩友善</span></div>
+    <div class="spot-desc">瞭望台＋珊瑚貝殼展示，長輩友善</div>
+    <button class="copy-btn" onclick="copyKw(this,'古宇利オーシャンタワー')" title="複製搜尋關鍵字">複製關鍵字</button>
+  </div>
+</div>
+<div class="spot-row">
+  <span class="spot-time">11:45</span>
+  <div class="spot-content">
+    <div class="spot-name">ハートロック（Tinu海灘）</div>
+    <div class="spot-desc">心形礁石，退潮時可走近拍照</div>
+    <button class="copy-btn" onclick="copyKw(this,'ハートロック ティーヌ浜 古宇利島')" title="複製搜尋關鍵字">複製關鍵字</button>
+  </div>
+</div>
+<div class="spot-row">
+  <span class="spot-time">13:00</span>
+  <div class="spot-content">
+    <div class="spot-name">島上午餐</div>
+    <div class="spot-desc">海景餐廳</div>
+    <button class="copy-btn" onclick="copyKw(this,'古宇利島 レストラン')" title="複製搜尋關鍵字">複製關鍵字</button>
+  </div>
+</div>
+<div class="drive-row"><span class="car-icon">🚗</span><span class="drive-info">古宇利 → Motobu</span><span class="drive-km">25km / 30分</span></div>
+<div class="spot-row">
+  <span class="spot-time">15:00</span>
+  <div class="spot-content">
+    <div class="spot-name">回飯店休息</div>
+    <div class="spot-desc">長輩午睡</div>
+    
+  </div>
 </div>
 </div>
 
-<div id="tab-rental" class="panel">
-<div class="hsec">
-<div class="stitle">🚗 租車建議</div>
-<div class="rgrid">
-  <div class="rcard"><div class="rcname">🏆 OTS租車</div><div class="rcdesc">沖繩最大本土租車，中文介面，機場有接駁，4人車選擇豐富，台灣人最推薦。</div><a class="rclink" href="https://www.otsinternational.jp/otsrentacar/tw/" target="_blank">官網預訂 →</a></div>
-  <div class="rcard"><div class="rcname">⭐ Times Car</div><div class="rcdesc">日本最大連鎖，車況良好，保險完善，那霸機場多個取車據點。</div><a class="rclink" href="https://rental.timescar.jp/" target="_blank">官網預訂 →</a></div>
-  <div class="rcard"><div class="rcname">🛡 Toyota Rent-A-Car</div><div class="rcdesc">豐田原廠，車況佳，大型車款多，環島穩定性高。</div><a class="rclink" href="https://rent.toyota.co.jp/" target="_blank">官網預訂 →</a></div>
-  <div class="rcard"><div class="rcname">💰 Niconico租車</div><div class="rcdesc">平價選擇，車雖較舊，但9天環島省費用可觀。</div><a class="rclink" href="https://www.niconicorentacar.jp/" target="_blank">官網預訂 →</a></div>
 </div>
-<div style="background:white;border-radius:12px;padding:1.5rem;margin-bottom:1rem;box-shadow:0 2px 12px rgba(0,0,0,.06)">
-  <div style="font-weight:700;color:var(--deep);margin-bottom:1rem;font-family:'Syne',sans-serif">🚙 帶長輩的最佳車型選擇</div>
-  <div style="display:grid;grid-template-columns:1fr 1fr;gap:1rem">
-    <div style="background:#f0fdf4;border-radius:8px;padding:1rem;border:2px solid #059669">
-      <div style="font-weight:700;color:#065f46;margin-bottom:.5rem">✅ 推薦：1台7人座 MPV</div>
-      <div style="font-size:.82rem;color:#4b5563;line-height:1.8">🚐 Toyota Noah / Voxy<br>🚐 Honda Step WGN<br>🚐 Toyota Alphard（豪華版）<br><br>✅ 滑門設計，長輩上下車不彎腰<br>✅ 行李空間大，9天衣物不擠<br>✅ 中排座位長輩舒適躺靠<br>✅ 只要1名司機即可<br>✅ 停車費x1</div>
-    </div>
-    <div style="background:#f9fafb;border-radius:8px;padding:1rem;border:1px solid #d1d5db">
-      <div style="font-weight:700;color:#4b5563;margin-bottom:.5rem">⚠ 可選：2台5人座</div>
-      <div style="font-size:.82rem;color:#6b7280;line-height:1.8">較靈活但費用多一倍<br>需要2名有效駕照<br>停車費x2<br>長輩上下小車較麻煩<br><br>❌ 帶長輩旅行較不推薦</div>
+<div class="day-panel" id="dp-5">
+<div class="day-header-inner">
+  <div class="day-title-block">
+    <span class="day-big">D6</span>
+    <div>
+      <div class="day-date-txt">7/23（四）</div>
+      <div class="day-title-txt">最北端！邊戶岬</div>
+      <div class="day-theme">やんばる → 大石林山 → 邊戶岬（最北）→ 回本部</div>
     </div>
   </div>
+  <div class="day-hotel-chip" style="border-color:#059669;color:#059669">🏨 Motobu Green Park Hotel（連住）</div>
 </div>
-<div class="tipbox">
-  <h4>⚠ 帶長輩開車注意事項</h4>
-  <ul>
-    <li><b>台灣駕照</b>需換「日文翻譯本」（監理站辦理，非國際駕照），費用約NT$100，需1週</li>
-    <li><b>沖繩靠左行駛</b>，方向盤在右，適應需15-30分鐘，建議有駕車經驗的人開</li>
-    <li>選<b>滑門MPV</b>（Noah/Voxy），長輩上下車不需彎腰，比一般轎車友善</li>
-    <li>加購<b>CDW免責保險</b>（約¥1,500-2,000/天），9天行程必備</li>
-    <li>D5邊戶岬是最長的一天（約150km），建議<b>體力好的人全程駕駛</b></li>
-    <li>沖繩停車場很多，景點均有付費停車（¥200-500/次）</li>
-    <li>7月旺季熱門車型搶手，<span style="color:#dc2626;font-weight:700">建議現在立即預訂！</span></li>
-  </ul>
+<div class="day-note">⚠ 今日開車最多，全程約125km，早出發！</div>
+<div class="spots">
+<div class="spot-row">
+  <span class="spot-time">07:30</span>
+  <div class="spot-content">
+    <div class="spot-name">Motobu 早出發</div>
+    <div class="spot-desc"></div>
+    
+  </div>
+</div>
+<div class="drive-row"><span class="car-icon">🚗</span><span class="drive-info">Motobu → やんばる方向</span><span class="drive-km">30km / 40分</span></div>
+<div class="spot-row">
+  <span class="spot-time">08:30</span>
+  <div class="spot-content">
+    <div class="spot-name">やんばる国立公園</div>
+    <div class="spot-desc">原始亞熱帶森林，沿途觀景，可能遇山原水雞</div>
+    <button class="copy-btn" onclick="copyKw(this,'やんばる国立公園 国頭村')" title="複製搜尋關鍵字">複製關鍵字</button>
+  </div>
+</div>
+<div class="drive-row"><span class="car-icon">🚗</span><span class="drive-info">やんばる → 大石林山</span><span class="drive-km">25km / 35分</span></div>
+<div class="spot-row">
+  <span class="spot-time">09:30</span>
+  <div class="spot-content">
+    <div class="spot-name">大石林山<span class="senior-tag">長輩友善</span></div>
+    <div class="spot-desc">世界遺產，有無障礙步道，接駁車可乘，長輩友善</div>
+    <button class="copy-btn" onclick="copyKw(this,'大石林山 国頭村')" title="複製搜尋關鍵字">複製關鍵字</button>
+  </div>
+</div>
+<div class="drive-row"><span class="car-icon">🚗</span><span class="drive-info">大石林山 → 邊戶岬</span><span class="drive-km">7km / 10分</span></div>
+<div class="spot-row">
+  <span class="spot-time">11:00</span>
+  <div class="spot-content">
+    <div class="spot-name">⭐ 邊戶岬（最北端！）<span class="senior-tag">長輩友善</span></div>
+    <div class="spot-desc">停車場走5分鐘平路，懸崖絕壁藍海，沖繩最北打卡！長輩友善</div>
+    <button class="copy-btn" onclick="copyKw(this,'辺戸岬 国頭村')" title="複製搜尋關鍵字">複製關鍵字</button>
+  </div>
+</div>
+<div class="spot-row">
+  <span class="spot-time">12:30</span>
+  <div class="spot-content">
+    <div class="spot-name">附近午餐</div>
+    <div class="spot-desc">邊戶岬周邊小店</div>
+    <button class="copy-btn" onclick="copyKw(this,'辺戸岬 食堂')" title="複製搜尋關鍵字">複製關鍵字</button>
+  </div>
+</div>
+<div class="drive-row"><span class="car-icon">🚗</span><span class="drive-info">邊戶岬 → Motobu（西岸返回）</span><span class="drive-km">62km / 1小時</span></div>
+<div class="spot-row">
+  <span class="spot-time">15:00</span>
+  <div class="spot-content">
+    <div class="spot-name">回飯店・充分休息</div>
+    <div class="spot-desc">今天開車最多，早點休息</div>
+    
+  </div>
+</div>
+</div>
+
+</div>
+<div class="day-panel" id="dp-6">
+<div class="day-header-inner">
+  <div class="day-title-block">
+    <span class="day-big">D7</span>
+    <div>
+      <div class="day-date-txt">7/24（五）</div>
+      <div class="day-title-txt">東岸南下・名護</div>
+      <div class="day-theme">Motobu → 名護 → 金武 → 海中道路 → 展望塔 → 名護</div>
+    </div>
+  </div>
+  <div class="day-hotel-chip" style="border-color:#d97706;color:#d97706">🏨 Hotel Route Inn Nago</div>
+</div>
+
+<div class="spots">
+<div class="spot-row">
+  <span class="spot-time">09:00</span>
+  <div class="spot-content">
+    <div class="spot-name">Motobu Check-out 出發</div>
+    <div class="spot-desc"></div>
+    
+  </div>
+</div>
+<div class="drive-row"><span class="car-icon">🚗</span><span class="drive-info">Motobu → 名護（沿東岸）</span><span class="drive-km">22km / 30分</span></div>
+<div class="spot-row">
+  <span class="spot-time">10:00</span>
+  <div class="spot-content">
+    <div class="spot-name">名護市區<span class="senior-tag">長輩友善</span></div>
+    <div class="spot-desc">オリオンハッピーパーク（啤酒廠）可參觀，輕鬆半天</div>
+    <button class="copy-btn" onclick="copyKw(this,'オリオンハッピーパーク 名護')" title="複製搜尋關鍵字">複製關鍵字</button>
+  </div>
+</div>
+<div class="drive-row"><span class="car-icon">🚗</span><span class="drive-info">名護 → 金武町</span><span class="drive-km">28km / 35分</span></div>
+<div class="spot-row">
+  <span class="spot-time">12:00</span>
+  <div class="spot-content">
+    <div class="spot-name">金武町 タコライス<span class="senior-tag">長輩友善</span></div>
+    <div class="spot-desc">タコライス（塔可飯）發源地！キングタコス本店必吃</div>
+    <button class="copy-btn" onclick="copyKw(this,'キングタコス 金武本店')" title="複製搜尋關鍵字">複製關鍵字</button>
+  </div>
+</div>
+<div class="drive-row"><span class="car-icon">🚗</span><span class="drive-info">金武 → 海中道路</span><span class="drive-km">25km / 30分</span></div>
+<div class="spot-row">
+  <span class="spot-time">14:00</span>
+  <div class="spot-content">
+    <div class="spot-name">海中道路<span class="senior-tag">長輩友善</span></div>
+    <div class="spot-desc">東岸方向再走一次，景色不同</div>
+    <button class="copy-btn" onclick="copyKw(this,'海中道路 うるま市')" title="複製搜尋關鍵字">複製關鍵字</button>
+  </div>
+</div>
+<div class="spot-row">
+  <span class="spot-time">14:30</span>
+  <div class="spot-content">
+    <div class="spot-name">🔭 海中展望塔<span class="senior-tag">長輩友善</span></div>
+    <div class="spot-desc">D3沒夠看的再來一次！</div>
+    <button class="copy-btn" onclick="copyKw(this,'海中展望塔 うるま市')" title="複製搜尋關鍵字">複製關鍵字</button>
+  </div>
+</div>
+<div class="drive-row"><span class="car-icon">🚗</span><span class="drive-info">海中道路 → Route Inn Nago</span><span class="drive-km">32km / 40分</span></div>
+<div class="spot-hotel"><span class="hotel-icon">🏨</span><div class="spot-content"><div class="spot-name">Hotel Route Inn Nago Check-in</div><button class="copy-btn" onclick="copyKw(this,'ホテルルートイン名護')" title="複製搜尋關鍵字">複製關鍵字</button></div></div>
+</div>
+
+</div>
+<div class="day-panel" id="dp-7">
+<div class="day-header-inner">
+  <div class="day-title-block">
+    <span class="day-big">D8</span>
+    <div>
+      <div class="day-date-txt">7/25（六）</div>
+      <div class="day-title-txt">南部巡禮・玻璃船</div>
+      <div class="day-theme">名護 → 齋場御嶽 → 知念岬 → 玻璃船 → 玉泉洞 → Yuinchi</div>
+    </div>
+  </div>
+  <div class="day-hotel-chip" style="border-color:#0891b2;color:#0891b2">🏨 The Yuinchi Hotel Nanjo</div>
+</div>
+
+<div class="spots">
+<div class="spot-row">
+  <span class="spot-time">08:30</span>
+  <div class="spot-content">
+    <div class="spot-name">Route Inn Nago Check-out</div>
+    <div class="spot-desc"></div>
+    
+  </div>
+</div>
+<div class="drive-row"><span class="car-icon">🚗</span><span class="drive-info">名護 → 齋場御嶽</span><span class="drive-km">100km / 1.5小時</span></div>
+<div class="spot-row">
+  <span class="spot-time">10:30</span>
+  <div class="spot-content">
+    <div class="spot-name">齋場御嶽</div>
+    <div class="spot-desc">世界遺產，琉球最高聖地，林蔭步道有小坡，著裝得體</div>
+    <button class="copy-btn" onclick="copyKw(this,'斎場御嶽 南城市')" title="複製搜尋關鍵字">複製關鍵字</button>
+  </div>
+</div>
+<div class="drive-row"><span class="car-icon">🚗</span><span class="drive-info">齋場御嶽 → 知念岬</span><span class="drive-km">6km / 10分</span></div>
+<div class="spot-row">
+  <span class="spot-time">12:00</span>
+  <div class="spot-content">
+    <div class="spot-name">知念岬<span class="senior-tag">長輩友善</span></div>
+    <div class="spot-desc">360度海景，停車場走5分鐘平路，長輩友善</div>
+    <button class="copy-btn" onclick="copyKw(this,'知念岬公園 南城市')" title="複製搜尋關鍵字">複製關鍵字</button>
+  </div>
+</div>
+<div class="spot-row">
+  <span class="spot-time">13:00</span>
+  <div class="spot-content">
+    <div class="spot-name">南城市午餐</div>
+    <div class="spot-desc">海景餐廳</div>
+    <button class="copy-btn" onclick="copyKw(this,'南城市 海鮮 レストラン')" title="複製搜尋關鍵字">複製關鍵字</button>
+  </div>
+</div>
+<div class="drive-row"><span class="car-icon">🚗</span><span class="drive-info">知念岬 → みーばるビーチ</span><span class="drive-km">5km / 8分</span></div>
+<div class="spot-row">
+  <span class="spot-time">14:00</span>
+  <div class="spot-content">
+    <div class="spot-name">🔭 みーばるビーチ 玻璃船<span class="senior-tag">長輩友善</span></div>
+    <div class="spot-desc">玻璃船出海看珊瑚礁，不需下水，30分鐘，長輩友善</div>
+    <button class="copy-btn" onclick="copyKw(this,'みーばるマリンレジャー みーばるビーチ')" title="複製搜尋關鍵字">複製關鍵字</button>
+  </div>
+</div>
+<div class="drive-row"><span class="car-icon">🚗</span><span class="drive-info">みーばる → 玉泉洞</span><span class="drive-km">8km / 12分</span></div>
+<div class="spot-row">
+  <span class="spot-time">15:30</span>
+  <div class="spot-content">
+    <div class="spot-name">おきなわワールド 玉泉洞<span class="senior-tag">長輩友善</span></div>
+    <div class="spot-desc">鐘乳石洞窟，有空調，長輩友善</div>
+    <button class="copy-btn" onclick="copyKw(this,'おきなわワールド玉泉洞')" title="複製搜尋關鍵字">複製關鍵字</button>
+  </div>
+</div>
+<div class="drive-row"><span class="car-icon">🚗</span><span class="drive-info">玉泉洞 → Yuinchi</span><span class="drive-km">5km / 8分</span></div>
+<div class="spot-hotel"><span class="hotel-icon">🏨</span><div class="spot-content"><div class="spot-name">The Yuinchi Hotel Nanjo Check-in</div><button class="copy-btn" onclick="copyKw(this,'ユインチホテル南城')" title="複製搜尋關鍵字">複製關鍵字</button></div></div>
+</div>
+
+</div>
+<div class="day-panel" id="dp-8">
+<div class="day-header-inner">
+  <div class="day-title-block">
+    <span class="day-big">D9</span>
+    <div>
+      <div class="day-date-txt">7/26（日）</div>
+      <div class="day-title-txt">回程日</div>
+      <div class="day-theme">Yuinchi → 首里城 → 那霸 → 機場 → 回高雄</div>
+    </div>
+  </div>
+  <div class="day-hotel-chip" style="border-color:#64748b;color:#64748b">🏨 IT289 21:40 → 22:30 高雄</div>
+</div>
+
+<div class="spots">
+<div class="spot-row">
+  <span class="spot-time">10:00</span>
+  <div class="spot-content">
+    <div class="spot-name">Yuinchi 出發</div>
+    <div class="spot-desc">輕鬆早餐</div>
+    
+  </div>
+</div>
+<div class="drive-row"><span class="car-icon">🚗</span><span class="drive-info">Yuinchi → 首里城</span><span class="drive-km">32km / 45分</span></div>
+<div class="spot-row">
+  <span class="spot-time">11:00</span>
+  <div class="spot-content">
+    <div class="spot-name">首里城公園<span class="senior-tag">長輩友善</span></div>
+    <div class="spot-desc">世界遺產，修復後值得細看，有電梯，長輩友善</div>
+    <button class="copy-btn" onclick="copyKw(this,'首里城公園 那覇')" title="複製搜尋關鍵字">複製關鍵字</button>
+  </div>
+</div>
+<div class="drive-row"><span class="car-icon">🚗</span><span class="drive-info">首里城 → 那霸市區</span><span class="drive-km">5km / 10分</span></div>
+<div class="spot-row">
+  <span class="spot-time">13:00</span>
+  <div class="spot-content">
+    <div class="spot-name">那霸午餐・最後伴手禮<span class="senior-tag">長輩友善</span></div>
+    <div class="spot-desc">牧志市場 or 國際通</div>
+    <button class="copy-btn" onclick="copyKw(this,'牧志公設市場 那覇')" title="複製搜尋關鍵字">複製關鍵字</button>
+  </div>
+</div>
+<div class="drive-row"><span class="car-icon">🚗</span><span class="drive-info">那霸 → 機場還車</span><span class="drive-km">10km / 15分</span></div>
+<div class="spot-row">
+  <span class="spot-time">16:00</span>
+  <div class="spot-content">
+    <div class="spot-name">還車・機場 Check-in</div>
+    <div class="spot-desc">建議16:00前還車</div>
+    <button class="copy-btn" onclick="copyKw(this,'那覇空港 国際線ターミナル')" title="複製搜尋關鍵字">複製關鍵字</button>
+  </div>
+</div>
+<div class="spot-row">
+  <span class="spot-time">17:00</span>
+  <div class="spot-content">
+    <div class="spot-name">機場 B1 採買<span class="senior-tag">長輩友善</span></div>
+    <div class="spot-desc">最後伴手禮：泡盛・紅芋塔・BLUE SEAL</div>
+    <button class="copy-btn" onclick="copyKw(this,'那覇空港 お土産')" title="複製搜尋關鍵字">複製關鍵字</button>
+  </div>
+</div>
+<div class="spot-row">
+  <span class="spot-time">21:40</span>
+  <div class="spot-content">
+    <div class="spot-name">IT289 起飛 → 22:30 高雄</div>
+    <div class="spot-desc">さようなら沖縄！</div>
+    
+  </div>
+</div>
+</div>
+
+</div>
+
+
+<div class="section-title">🔍 景點關鍵字（去趣 / Google Maps 搜尋用）</div>
+<p style="font-size:.8rem;color:var(--text2);margin-bottom:1rem">點「複製」按鈕後，直接貼到去趣 App 或 Google Maps 搜尋框即可。</p>
+<div class="kw-grid">
+<div class="kw-day-group"><div class="kw-day-label">D1</div>
+<div class="kw-item">
+  <div class="kw-names"><span class="kw-zh">瀨長島 Umikaji Terrace</span><span class="kw-jp">瀬長島ウミカジテラス</span></div>
+  <button class="copy-btn" onclick="copyKw(this,'瀬長島ウミカジテラス')">複製</button>
+</div>
+<div class="kw-item">
+  <div class="kw-names"><span class="kw-zh">那霸機場</span><span class="kw-jp">那覇空港</span></div>
+  <button class="copy-btn" onclick="copyKw(this,'那覇空港')">複製</button>
+</div>
+</div>
+<div class="kw-day-group"><div class="kw-day-label">D2</div>
+<div class="kw-item">
+  <div class="kw-names"><span class="kw-zh">中城城跡</span><span class="kw-jp">中城城跡 沖縄</span></div>
+  <button class="copy-btn" onclick="copyKw(this,'中城城跡 沖縄')">複製</button>
+</div>
+<div class="kw-item">
+  <div class="kw-names"><span class="kw-zh">勝連城跡</span><span class="kw-jp">勝連城跡 うるま市</span></div>
+  <button class="copy-btn" onclick="copyKw(this,'勝連城跡 うるま市')">複製</button>
+</div>
+<div class="kw-item">
+  <div class="kw-names"><span class="kw-zh">泡瀨漁港</span><span class="kw-jp">泡瀬漁港 沖縄市</span></div>
+  <button class="copy-btn" onclick="copyKw(this,'泡瀬漁港 沖縄市')">複製</button>
+</div>
+</div>
+<div class="kw-day-group"><div class="kw-day-label">D3</div>
+<div class="kw-item">
+  <div class="kw-names"><span class="kw-zh">海中道路</span><span class="kw-jp">海中道路 うるま市</span></div>
+  <button class="copy-btn" onclick="copyKw(this,'海中道路 うるま市')">複製</button>
+</div>
+<div class="kw-item">
+  <div class="kw-names"><span class="kw-zh">海中展望塔</span><span class="kw-jp">海中展望塔 うるま市</span></div>
+  <button class="copy-btn" onclick="copyKw(this,'海中展望塔 うるま市')">複製</button>
+</div>
+<div class="kw-item">
+  <div class="kw-names"><span class="kw-zh">平安座島</span><span class="kw-jp">平安座島 沖縄</span></div>
+  <button class="copy-btn" onclick="copyKw(this,'平安座島 沖縄')">複製</button>
+</div>
+<div class="kw-item">
+  <div class="kw-names"><span class="kw-zh">浜比嘉島</span><span class="kw-jp">浜比嘉島 うるま市</span></div>
+  <button class="copy-btn" onclick="copyKw(this,'浜比嘉島 うるま市')">複製</button>
+</div>
+<div class="kw-item">
+  <div class="kw-names"><span class="kw-zh">伊計島</span><span class="kw-jp">伊計島 うるま市</span></div>
+  <button class="copy-btn" onclick="copyKw(this,'伊計島 うるま市')">複製</button>
+</div>
+</div>
+<div class="kw-day-group"><div class="kw-day-label">D4</div>
+<div class="kw-item">
+  <div class="kw-names"><span class="kw-zh">美麗海水族館</span><span class="kw-jp">沖縄美ら海水族館</span></div>
+  <button class="copy-btn" onclick="copyKw(this,'沖縄美ら海水族館')">複製</button>
+</div>
+<div class="kw-item">
+  <div class="kw-names"><span class="kw-zh">翡翠海灘</span><span class="kw-jp">エメラルドビーチ 海洋博公園</span></div>
+  <button class="copy-btn" onclick="copyKw(this,'エメラルドビーチ 海洋博公園')">複製</button>
+</div>
+<div class="kw-item">
+  <div class="kw-names"><span class="kw-zh">備瀨福木林道</span><span class="kw-jp">備瀬のフクギ並木 本部</span></div>
+  <button class="copy-btn" onclick="copyKw(this,'備瀬のフクギ並木 本部')">複製</button>
+</div>
+</div>
+<div class="kw-day-group"><div class="kw-day-label">D5</div>
+<div class="kw-item">
+  <div class="kw-names"><span class="kw-zh">今歸仁城跡</span><span class="kw-jp">今帰仁城跡</span></div>
+  <button class="copy-btn" onclick="copyKw(this,'今帰仁城跡')">複製</button>
+</div>
+<div class="kw-item">
+  <div class="kw-names"><span class="kw-zh">古宇利大橋</span><span class="kw-jp">古宇利大橋 今帰仁</span></div>
+  <button class="copy-btn" onclick="copyKw(this,'古宇利大橋 今帰仁')">複製</button>
+</div>
+<div class="kw-item">
+  <div class="kw-names"><span class="kw-zh">古宇利海洋塔</span><span class="kw-jp">古宇利オーシャンタワー</span></div>
+  <button class="copy-btn" onclick="copyKw(this,'古宇利オーシャンタワー')">複製</button>
+</div>
+<div class="kw-item">
+  <div class="kw-names"><span class="kw-zh">心形礁石 Tinu海灘</span><span class="kw-jp">ハートロック ティーヌ浜 古宇利島</span></div>
+  <button class="copy-btn" onclick="copyKw(this,'ハートロック ティーヌ浜 古宇利島')">複製</button>
+</div>
+</div>
+<div class="kw-day-group"><div class="kw-day-label">D6</div>
+<div class="kw-item">
+  <div class="kw-names"><span class="kw-zh">やんばる国立公園</span><span class="kw-jp">やんばる国立公園 国頭村</span></div>
+  <button class="copy-btn" onclick="copyKw(this,'やんばる国立公園 国頭村')">複製</button>
+</div>
+<div class="kw-item">
+  <div class="kw-names"><span class="kw-zh">大石林山</span><span class="kw-jp">大石林山 国頭村</span></div>
+  <button class="copy-btn" onclick="copyKw(this,'大石林山 国頭村')">複製</button>
+</div>
+<div class="kw-item">
+  <div class="kw-names"><span class="kw-zh">邊戶岬（最北端）</span><span class="kw-jp">辺戸岬 国頭村</span></div>
+  <button class="copy-btn" onclick="copyKw(this,'辺戸岬 国頭村')">複製</button>
+</div>
+</div>
+<div class="kw-day-group"><div class="kw-day-label">D7</div>
+<div class="kw-item">
+  <div class="kw-names"><span class="kw-zh">オリオンハッピーパーク</span><span class="kw-jp">オリオンハッピーパーク 名護</span></div>
+  <button class="copy-btn" onclick="copyKw(this,'オリオンハッピーパーク 名護')">複製</button>
+</div>
+<div class="kw-item">
+  <div class="kw-names"><span class="kw-zh">金武タコライス</span><span class="kw-jp">キングタコス 金武本店</span></div>
+  <button class="copy-btn" onclick="copyKw(this,'キングタコス 金武本店')">複製</button>
+</div>
+</div>
+<div class="kw-day-group"><div class="kw-day-label">D8</div>
+<div class="kw-item">
+  <div class="kw-names"><span class="kw-zh">齋場御嶽</span><span class="kw-jp">斎場御嶽 南城市</span></div>
+  <button class="copy-btn" onclick="copyKw(this,'斎場御嶽 南城市')">複製</button>
+</div>
+<div class="kw-item">
+  <div class="kw-names"><span class="kw-zh">知念岬</span><span class="kw-jp">知念岬公園 南城市</span></div>
+  <button class="copy-btn" onclick="copyKw(this,'知念岬公園 南城市')">複製</button>
+</div>
+<div class="kw-item">
+  <div class="kw-names"><span class="kw-zh">みーばるビーチ玻璃船</span><span class="kw-jp">みーばるマリンレジャー みーばるビーチ</span></div>
+  <button class="copy-btn" onclick="copyKw(this,'みーばるマリンレジャー みーばるビーチ')">複製</button>
+</div>
+<div class="kw-item">
+  <div class="kw-names"><span class="kw-zh">おきなわワールド 玉泉洞</span><span class="kw-jp">おきなわワールド玉泉洞</span></div>
+  <button class="copy-btn" onclick="copyKw(this,'おきなわワールド玉泉洞')">複製</button>
+</div>
+</div>
+<div class="kw-day-group"><div class="kw-day-label">D9</div>
+<div class="kw-item">
+  <div class="kw-names"><span class="kw-zh">首里城</span><span class="kw-jp">首里城公園 那覇</span></div>
+  <button class="copy-btn" onclick="copyKw(this,'首里城公園 那覇')">複製</button>
+</div>
+<div class="kw-item">
+  <div class="kw-names"><span class="kw-zh">牧志公設市場</span><span class="kw-jp">牧志公設市場 那覇</span></div>
+  <button class="copy-btn" onclick="copyKw(this,'牧志公設市場 那覇')">複製</button>
 </div>
 </div>
 </div>
+
 
 </main>
+
 <footer>
-  <div style="font-size:1.5rem;margin-bottom:.5rem">🌺</div>
-  沖繩環島自駕 9天8夜 · 2026.07.18-07.26<br>
-  4人（含60歲長輩）· IT288/IT289 · 高雄⇄那霸<br>
-  路線：那霸→南部→中部→北部→最北邊戶岬→那霸
+  🌺 沖繩環島自駕 9天8夜 · 2026.07.18–07.26<br>
+  4人（含60歲長輩）· IT288 / IT289 · 高雄 ⇄ 那霸<br>
+  路線：宜野灣 → 中部 → 東岸離島 → 本部 → 最北邊戶岬 → 東岸南下 → 南城 → 那霸
 </footer>
 
 <script>
-function switchTab(name,btn){
-  document.querySelectorAll('.panel').forEach(p=>p.classList.remove('active'));
-  document.querySelectorAll('.tbtn').forEach(b=>b.classList.remove('active'));
-  document.getElementById('tab-'+name).classList.add('active');
+function switchDay(idx, btn) {
+  document.querySelectorAll('.day-panel').forEach(p => p.classList.remove('active'));
+  document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+  document.getElementById('dp-' + idx).classList.add('active');
   btn.classList.add('active');
+  btn.scrollIntoView({behavior:'smooth', block:'nearest', inline:'center'});
 }
-function toggleDay(el){el.classList.toggle('open');}
-function toggleCard(el){el.classList.toggle('open');}
-function openGmap(e,q){
-  e.stopPropagation();
-  if(e.target.tagName==='A')return;
-  window.open('https://www.google.com/maps/search/'+encodeURIComponent(q),'_blank');
-}
-function switchDay(idx,btn){
-  document.querySelectorAll('.ddetail').forEach(d=>d.classList.remove('active'));
-  document.querySelectorAll('.dnb').forEach(b=>b.classList.remove('active'));
-  document.getElementById('day-'+idx).classList.add('active');
-  btn.classList.add('active');
-}
-function jumpToDay(idx){
-  document.querySelectorAll('.tbtn').forEach(b=>b.classList.remove('active'));
-  document.querySelectorAll('.panel').forEach(p=>p.classList.remove('active'));
-  document.getElementById('tab-daily').classList.add('active');
-  document.querySelectorAll('.tbtn')[1].classList.add('active');
-  const btns=document.querySelectorAll('.dnb');
-  if(btns[idx])switchDay(idx,btns[idx]);
+
+function copyKw(btn, kw) {
+  navigator.clipboard.writeText(kw).then(() => {
+    btn.textContent = '已複製！';
+    btn.classList.add('copied');
+    setTimeout(() => {
+      btn.textContent = btn.closest('.kw-item') ? '複製' : '複製關鍵字';
+      btn.classList.remove('copied');
+    }, 1800);
+  }).catch(() => {
+    const ta = document.createElement('textarea');
+    ta.value = kw;
+    document.body.appendChild(ta);
+    ta.select();
+    document.execCommand('copy');
+    document.body.removeChild(ta);
+    btn.textContent = '已複製！';
+    btn.classList.add('copied');
+    setTimeout(() => {
+      btn.textContent = btn.closest('.kw-item') ? '複製' : '複製關鍵字';
+      btn.classList.remove('copied');
+    }, 1800);
+  });
 }
 </script>
 </body>
