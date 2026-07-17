@@ -198,6 +198,51 @@ body{
   line-height:1.8;
   color:var(--text-main);
 }
+.activity-list{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:8px;}
+.activity{
+  display:flex;
+  align-items:flex-start;
+  gap:10px;
+  padding:10px 12px;
+  border:1px solid var(--line);
+  border-radius:10px;
+  background:var(--paper);
+}
+.activity-time{
+  flex:none;
+  font-family:'JetBrains Mono',monospace;
+  font-size:11px;
+  color:var(--reef-dark);
+  min-width:44px;
+  padding-top:2px;
+}
+.activity-body{flex:1;min-width:0;}
+.activity-name{font-size:14px;line-height:1.5;word-break:break-word;}
+.activity-actions{display:flex;gap:6px;margin-top:6px;}
+.act-btn{
+  flex:none;
+  border:1px solid var(--line);
+  background:var(--paper-card);
+  color:var(--text-sub);
+  font-size:11px;
+  padding:5px 9px;
+  border-radius:8px;
+  display:inline-flex;
+  align-items:center;
+  gap:4px;
+  cursor:pointer;
+  text-decoration:none;
+  -webkit-tap-highlight-color:transparent;
+}
+.act-btn.copied{color:var(--reef-dark);border-color:var(--reef);}
+@media (max-width:480px){
+  .hero h1{font-size:26px;}
+  .hero{padding:28px 16px 40px;}
+  .wrap{padding:0 14px;}
+  .day-head h2{font-size:17px;}
+  .stamp{width:46px;height:46px;}
+  .summary{grid-template-columns:repeat(2,1fr);}
+}
 .hotel-name{font-size:16px;font-weight:500;color:var(--navy);margin:2px 0;}
 .hotel-name a{color:var(--navy);text-decoration:none;border-bottom:1px dotted var(--navy);}
 .hotel-meta{
@@ -247,7 +292,7 @@ body{
 
 <div class="hero">
   <div class="hero-eyebrow">Okinawa · 沖繩自由行</div>
-  <h1>七夜八日 行程手帳</h1>
+  <h1>九日八夜 行程手帳</h1>
   <p>那覇 · 美國村 · 名護 · 本部 · 古宇利島</p>
   <div class="hero-meta">
     <span>日期 <b>07/18 – 07/26</b></span>
@@ -282,7 +327,7 @@ body{
     </div>
     <div class="sum-card">
       <div class="sum-label">住宿天數</div>
-      <div class="sum-value">7 晚</div>
+      <div class="sum-value">8 晚</div>
     </div>
   </div>
 
@@ -300,66 +345,165 @@ const RATE = 4.69; // 1 TWD ≈ 4.69 JPY
 const days = [
   {
     n:1, date:"07/18", week:"六", title:"那覇市｜識名園・識名宮",
-    plan:"07:00 機場接送\n07:30 KHH AIRPORT\n13:00 OKA AIRPORT\n14:00 大同租車\n14:30 午餐（通堂拉麵）\n15:30 識名園(0900~1800)(P)、識名宮(P)\n　　　壺屋 yachimun 通、榮町市場\n晚餐：Nakamuraya Naha(沖繩麵)、傑克牛排",
-    spots:"識名園 · 識名宮",
+    activities:[
+      {time:"07:00",name:"機場接送"},
+      {time:"07:30",name:"KHH AIRPORT"},
+      {time:"13:00",name:"OKA AIRPORT"},
+      {time:"14:00",name:"大同租車"},
+      {time:"14:30",name:"通堂拉麵（午餐）"},
+      {time:"15:30",name:"識名園"},
+      {time:"",name:"識名宮"},
+      {time:"",name:"壺屋やちむん通"},
+      {time:"",name:"榮町市場"},
+      {time:"晚餐",name:"Nakamuraya Naha 沖繩麵"},
+      {time:"晚餐",name:"傑克牛排"}
+    ],
     hotel:{name:"Route Inn Grantia 那覇（雙人房兩間）",nameEn:"Route Inn Grantia Naha",checkin:"15:00",checkout:"11:00",twd:3673,jpy:3673*RATE,area:"那覇市"},
     transport:"租車（大同租車機場營業所）",
     ticket:{label:"交通押金 / 相關費用",twd:7200,jpy:7200*RATE}
   },
   {
     n:2, date:"07/19", week:"日", title:"美國村｜首里城・波上宮",
-    plan:"飯店早餐(6:30~9:30)\n09:00 波上宮(0900~1700)(P)\n10:00 首里城(玉陵)(金城村屋)(0830~1800)(P~1800)\nPARCO CITY\n港川外人住宅區(雞湯薑麵屋 石工夫)\n午餐：雞湯薑麵屋 石工夫 or MY HOUSE OR BLUE SEAL OR A&W\n普天滿宮(0900~1700)\n晚餐：美國村 OR 浜屋沖繩麵(~1730)\nAEON MALL(10-22)",
-    spots:"波上宮 · 首里城 · 港川外人住宅區 · 普天滿宮",
+    activities:[
+      {time:"6:30-9:30",name:"飯店早餐"},
+      {time:"09:00",name:"波上宮"},
+      {time:"10:00",name:"首里城"},
+      {time:"",name:"玉陵"},
+      {time:"",name:"金城村屋"},
+      {time:"",name:"PARCO CITY"},
+      {time:"",name:"港川外人住宅區"},
+      {time:"午餐",name:"雞湯薑麵屋 石工夫"},
+      {time:"午餐",name:"MY HOUSE"},
+      {time:"午餐",name:"BLUE SEAL"},
+      {time:"午餐",name:"A&W"},
+      {time:"",name:"普天滿宮"},
+      {time:"晚餐",name:"美國村"},
+      {time:"晚餐",name:"浜屋沖繩麵"},
+      {time:"",name:"AEON MALL 沖繩來客夢"}
+    ],
     hotel:{name:"瑞康水晶飯店（四人房）（兩天）",nameEn:"Rycom Crystal Hotel",checkin:"16:00",checkout:"11:00",twd:5321.09,jpy:5321.09*RATE,area:"美國村"},
     ticket:null
   },
   {
     n:3, date:"07/20", week:"一", title:"鐘乳石洞｜中城城跡・勝連城跡",
-    plan:"中城城跡(0830~1700)\n中村家住宅(0900~1700)\nPloughman's Lunch Bakery(0900~1600)\n普天滿宮(0900~1730)\n泡瀬漁港\n勝連城跡(0900~1800)\nKING TACOS 與勝店、比屋根店、あげな店\n海中道路（海中茶屋）\n平安座島\n宮城島（製鹽工廠、果報崖）\n濱比嘉島(Muruku 海濱、Shirumichu、Amamichu、古民家食堂)\nAEON MALL(10-22)",
-    spots:"中城城跡 · 中村家住宅 · 勝連城跡 · 海中道路 · 濱比嘉島",
+    activities:[
+      {time:"",name:"中城城跡"},
+      {time:"",name:"中村家住宅"},
+      {time:"",name:"Ploughman's Lunch Bakery"},
+      {time:"",name:"普天滿宮"},
+      {time:"",name:"泡瀬漁港"},
+      {time:"",name:"勝連城跡"},
+      {time:"",name:"KING TACOS 與勝店"},
+      {time:"",name:"KING TACOS 比屋根店"},
+      {time:"",name:"KING TACOS あげな店"},
+      {time:"",name:"海中道路"},
+      {time:"",name:"海中茶屋"},
+      {time:"",name:"平安座島"},
+      {time:"",name:"宮城島 製鹽工廠"},
+      {time:"",name:"果報崖"},
+      {time:"",name:"濱比嘉島 Muruku海濱"},
+      {time:"",name:"Shirumichu"},
+      {time:"",name:"Amamichu"},
+      {time:"",name:"濱比嘉島古民家食堂"},
+      {time:"",name:"AEON MALL"}
+    ],
     hotel:null,
     ticket:null
   },
   {
     n:4, date:"07/21", week:"二", title:"萬座毛｜海中參觀・名護酒廠",
-    plan:"座喜味城跡(24hr)\n殘波岬(0930~1730)\n琉球村(0930~1700)\n恩納村博物館(09:00~17:00)\n午餐：SEA SIDE DRIVE-IN\nCAVE OKINAWA(0900~1830)\nFOREST CAFÉ(0900~1730)",
-    spots:"萬座毛 · 海中參觀 · 名護酒廠 · 座喜味城跡 · 殘波岬 · 琉球村",
+    activities:[
+      {time:"",name:"座喜味城跡"},
+      {time:"",name:"殘波岬"},
+      {time:"",name:"琉球村"},
+      {time:"",name:"恩納村博物館"},
+      {time:"午餐",name:"SEA SIDE DRIVE-IN"},
+      {time:"",name:"CAVE OKINAWA（萬座毛周邊海中參觀）"},
+      {time:"",name:"FOREST CAFÉ"}
+    ],
     hotel:{name:"ANA 皇冠假日度假飯店（兩間雙人房）",nameEn:"ANA Crowne Plaza Resort Okinawa",checkin:"15:00",checkout:"12:00",twd:7685.54,jpy:7685.54*RATE,area:"名護"},
     ticket:null
   },
   {
     n:5, date:"07/22", week:"三", title:"海生館｜瀬底島・今歸仁城",
-    plan:"飯店早餐\n萬座毛(08:00~20:00)\n海中塔(09:00~17:00)、玻璃船(09:10~16:10)\n許田休息站\n15:00（已預約）ORION BEER\n21世紀之森海灘（星巴克）",
-    spots:"海生館 · 瀬底島 · 今歸仁城",
+    activities:[
+      {time:"",name:"飯店早餐"},
+      {time:"08:00-20:00",name:"萬座毛"},
+      {time:"09:00-17:00",name:"海中塔"},
+      {time:"09:10-16:10",name:"玻璃船"},
+      {time:"",name:"許田休息站"},
+      {time:"15:00",name:"ORION BEER 名護工廠（已預約）"},
+      {time:"",name:"21世紀之森海灘"},
+      {time:"",name:"星巴克 21世紀之森公園店"}
+    ],
     hotel:{name:"本部綠花園飯店（雙人房）（兩天）",nameEn:"Motobu Green Park Hotel",checkin:"15:00",checkout:"10:00",twd:8456,jpy:8456*RATE,area:"今歸仁"},
     ticket:null
   },
   {
-    n:6, date:"07/23", week:"四", title:"古宇利島｜勝連城跡・泡瀬漁港",
-    plan:"星巴克 沖繩本部町店(07:00~22:00)\n美麗海水族館(08:30~18:30)\n午餐：觀景餐廳 INOH(11:00~4:00)\n滿潮福木步道、海灘\n今歸仁城(08:00~18:00)",
-    spots:"古宇利島 · 勝連城跡 · 泡瀬漁港",
+    n:6, date:"07/23", week:"四", title:"古宇利島｜美麗海水族館",
+    activities:[
+      {time:"07:00-22:00",name:"星巴克 沖繩本部町店"},
+      {time:"08:30-18:30",name:"美麗海水族館"},
+      {time:"午餐 11:00-16:00",name:"觀景餐廳 INOH"},
+      {time:"",name:"滿潮福木步道"},
+      {time:"",name:"古宇利島海灘"},
+      {time:"08:00-18:00",name:"今歸仁城"}
+    ],
     hotel:null,
     ticket:{label:"美麗海水族館觀景餐廳 INOH 午餐",twd:null,jpy:null}
   },
   {
     n:7, date:"07/24", week:"五", title:"那覇市｜心形岩・古宇利大橋",
-    plan:"、始まりの洞窟、心形岩\n屋我地島 大橋南端觀景台\nDRIVE IN 里卡里卡沃(1000~1700)\nMatsuda Mega Gama Cave（要預約）\n勝連城跡(0800~1800)\n（泡瀬漁港）\n奧武山公園(06-22可免費停車)",
-    spots:"始まりの洞窟 · 心形岩 · 屋我地島大橋南端觀景台 · 勝連城跡",
+    activities:[
+      {time:"",name:"始まりの洞窟"},
+      {time:"",name:"心形岩"},
+      {time:"",name:"屋我地島大橋南端觀景台"},
+      {time:"10:00-17:00",name:"DRIVE IN 里卡里卡沃"},
+      {time:"",name:"Matsuda Mega Gama Cave（要預約）"},
+      {time:"08:00-18:00",name:"勝連城跡"},
+      {time:"",name:"泡瀬漁港"},
+      {time:"06:00-22:00",name:"奧武山公園（可免費停車）"}
+    ],
     hotel:{name:"沖繩海景飯店",nameEn:"Okinawa Harborview Hotel",checkin:"14:00",checkout:"11:00",twd:6740,jpy:6740*RATE,area:"那覇市"},
     transport:"停奧武山公園 OR D-Parking 那覇壺川1丁目第1駐車場(20~08 300YEN)",
-    ticket:{label:"晚餐：JEF YONABARU / MAIKAI（巴西碳燒蝦飯）/ Shimabutaya Tonkatsu / 拉麵天國",twd:null,jpy:null}
+    ticket:{label:"晚餐：JEF YONABARU / MAIKAI 巴西碳燒蝦飯 / Shimabutaya Tonkatsu / 拉麵天國",twd:null,jpy:null}
   },
   {
     n:8, date:"07/25", week:"六", title:"那覇市｜Gangala之谷・玉泉洞",
-    plan:"飯店早餐\n奧武山公園\n10:00 or 12:00 Gangala之谷(09~16)（要預約）\n玉泉洞(09~16)（毒蛇秀 11:30、13:30、15:30；太鼓秀 10:30、12:30、14:30）\nCYURA島餐廳(玉泉洞吃到飽)\n齋場御嶽(0900~1715)\n知念岬\n奧武島天婦羅三間天婦羅(~1745)\nCOSTCO\n琉球館(0930~1730)\n晚餐：EGG ME TIME、Shimabutaya豬排、donkatsu uchiyaji",
-    spots:"Gangala 之谷 · 玉泉洞 · 齋場御嶽 · 知念岬 · 奧武島",
+    activities:[
+      {time:"",name:"飯店早餐"},
+      {time:"",name:"奧武山公園"},
+      {time:"10:00 or 12:00",name:"Gangala之谷（要預約）"},
+      {time:"09:00-16:00",name:"玉泉洞"},
+      {time:"11:30/13:30/15:30",name:"玉泉洞毒蛇秀"},
+      {time:"10:30/12:30/14:30",name:"玉泉洞太鼓秀"},
+      {time:"",name:"CYURA島餐廳（吃到飽）"},
+      {time:"09:00-17:15",name:"齋場御嶽"},
+      {time:"",name:"知念岬"},
+      {time:"09:00-17:45",name:"奧武島三間天婦羅"},
+      {time:"",name:"COSTCO"},
+      {time:"09:30-17:30",name:"琉球館"},
+      {time:"晚餐",name:"EGG ME TIME"},
+      {time:"晚餐",name:"Shimabutaya豬排"},
+      {time:"晚餐",name:"donkatsu uchiyaji"}
+    ],
     hotel:{name:"拉‧潔特 沖繩那覇飯店",nameEn:"La'gent Hotel Okinawa Naha",checkin:"15:00",checkout:"11:00",twd:5808,jpy:5808*RATE,area:"那覇市"},
     ticket:null
   },
   {
     n:9, date:"07/26", week:"日", title:"回程日｜奧特萊斯・瀬長島",
-    plan:"飯店早餐\n琉球館(0930~1730)\nOUTLET\nDMM水族館\n瀬長島幸福鬆餅(11-21)\n17:00 還車\n機場JCB貴賓室（管制區外）\n19:30 CHECK IN\n22:30 機場接送\n21:40 起飛",
-    spots:"OUTLET · DMM水族館 · 瀬長島",
+    activities:[
+      {time:"",name:"飯店早餐"},
+      {time:"09:30-17:30",name:"琉球館"},
+      {time:"",name:"OUTLET 沖繩奧特萊斯"},
+      {time:"",name:"DMM水族館"},
+      {time:"11:00-21:00",name:"瀬長島幸福鬆餅"},
+      {time:"17:00",name:"還車"},
+      {time:"",name:"機場JCB貴賓室（管制區外）"},
+      {time:"19:30",name:"CHECK IN"},
+      {time:"22:30",name:"機場接送"},
+      {time:"21:40",name:"起飛"}
+    ],
     hotel:null,
     ticket:null
   }
@@ -370,23 +514,67 @@ function fmtJPY(v){ return v==null ? "—" : "¥"+Math.round(v).toLocaleString()
 
 let currency = "TWD";
 
+function getJstTodayStr(){
+  // Okinawa uses Japan Standard Time, UTC+9, no DST
+  const utcMs = Date.now() + (new Date().getTimezoneOffset()*60000);
+  const jst = new Date(utcMs + 9*3600000);
+  const mm = String(jst.getMonth()+1).padStart(2,"0");
+  const dd = String(jst.getDate()).padStart(2,"0");
+  return mm+"/"+dd;
+}
+
 function renderNav(){
   const nav = document.getElementById("dayNav");
-  const todayStr = new Date().toISOString().slice(5,10).replace("-","/");
+  const todayStr = getJstTodayStr();
   nav.innerHTML = days.map(d=>{
     const isToday = d.date === todayStr;
     return `<button class="day-pill${isToday?" today":""}" data-target="day-${d.n}">${d.date} ${d.week}${isToday?" ・今天":""}</button>`;
   }).join("");
   nav.querySelectorAll(".day-pill").forEach(btn=>{
     btn.addEventListener("click", ()=>{
+      document.querySelectorAll(".day-pill").forEach(b=>b.classList.remove("active"));
+      btn.classList.add("active");
       document.getElementById(btn.dataset.target).scrollIntoView({behavior:"smooth", block:"start"});
     });
+  });
+  const todayBtn = nav.querySelector(".day-pill.today");
+  if(todayBtn){
+    todayBtn.classList.add("active");
+    setTimeout(()=>todayBtn.scrollIntoView({inline:"center", block:"nearest"}), 300);
+  }
+}
+
+function copyText(text, btn){
+  navigator.clipboard.writeText(text).then(()=>{
+    const original = btn.innerHTML;
+    btn.classList.add("copied");
+    btn.innerHTML = "已複製";
+    setTimeout(()=>{ btn.classList.remove("copied"); btn.innerHTML = original; }, 1400);
   });
 }
 
 function renderDays(){
   const root = document.getElementById("days");
+  const todayStr = getJstTodayStr();
   root.innerHTML = days.map(d=>{
+    const isToday = d.date === todayStr;
+
+    const activityHtml = `<ul class="activity-list">${d.activities.map((a,i)=>{
+      const searchQuery = encodeURIComponent(a.name + " 沖繩 Okinawa");
+      return `
+        <li class="activity">
+          ${a.time ? `<div class="activity-time">${a.time}</div>` : `<div class="activity-time"></div>`}
+          <div class="activity-body">
+            <div class="activity-name" data-name="${a.name.replace(/"/g,'&quot;')}">${a.name}</div>
+            <div class="activity-actions">
+              <button class="act-btn" data-copy="${a.name.replace(/"/g,'&quot;')}" aria-label="複製名稱">複製名稱</button>
+              <a class="act-btn" href="https://www.google.com/search?q=${searchQuery}" target="_blank" rel="noopener">查詢</a>
+              <a class="act-btn" href="https://www.google.com/maps/search/?api=1&query=${searchQuery}" target="_blank" rel="noopener">地圖</a>
+            </div>
+          </div>
+        </li>`;
+    }).join("")}</ul>`;
+
     let hotelHtml = `<div class="no-hotel">本日無新入住飯店（延續前一晚住宿或當日返程）</div>`;
     if(d.hotel){
       const mapQuery = encodeURIComponent(d.hotel.nameEn + " " + d.hotel.area + " Okinawa");
@@ -397,9 +585,10 @@ function renderDays(){
           <span>退房 <b>${d.hotel.checkout}</b></span>
           <span>區域 <b>${d.hotel.area}</b></span>
         </div>
-        <a class="map-btn" href="https://www.google.com/maps/search/?api=1&query=${mapQuery}" target="_blank" rel="noopener">
-          在 Google 地圖開啟位置
-        </a>
+        <div class="activity-actions" style="margin-top:10px;">
+          <button class="act-btn" data-copy="${d.hotel.nameEn.replace(/"/g,'&quot;')}" aria-label="複製飯店名稱">複製名稱</button>
+          <a class="act-btn" href="https://www.google.com/maps/search/?api=1&query=${mapQuery}" target="_blank" rel="noopener">在 Google 地圖開啟位置</a>
+        </div>
         <div class="price-row">
           <div>
             <div class="price-label">房價估算</div>
@@ -413,7 +602,7 @@ function renderDays(){
     if(d.ticket){
       ticketHtml = `
         <div class="card">
-          <h3><i>券</i> 門票 / 餐飲估價</h3>
+          <h3>門票 / 餐飲估價</h3>
           <div class="plan-line">${d.ticket.label}</div>
           ${d.ticket.twd!=null ? `<div class="price-row"><div class="price-label">估算</div><div class="price-val cur-price" data-twd="${d.ticket.twd}" data-jpy="${d.ticket.jpy}">${currency==="TWD"?fmtTWD(d.ticket.twd):fmtJPY(d.ticket.jpy)}</div></div>` : `<div class="price-sub" style="margin-top:8px;">尚未記錄金額</div>`}
         </div>`;
@@ -427,15 +616,15 @@ function renderDays(){
     return `
       <div class="day" id="day-${d.n}">
         <div class="day-head">
-          <div class="stamp"><span class="n">${String(d.n).padStart(2,"0")}</span><span class="w">${d.date}</span></div>
+          <div class="stamp" style="${isToday?'border-color:var(--reef);color:var(--reef-dark);':''}"><span class="n">${String(d.n).padStart(2,"0")}</span><span class="w">${d.date}</span></div>
           <div>
-            <h2>${d.title}</h2>
-            <div class="date">${d.date}（${d.week}）</div>
+            <h2>${d.title}${isToday?' <span style="font-size:11px;color:var(--reef-dark);border:1px solid var(--reef);border-radius:10px;padding:2px 8px;vertical-align:middle;font-family:\'JetBrains Mono\',monospace;">今天</span>':''}</h2>
+            <div class="date">${d.date}（${d.week}）· 日本沖繩時間</div>
           </div>
         </div>
         <div class="card">
           <h3>今日行程</h3>
-          <div class="plan-line">${d.plan}</div>
+          ${activityHtml}
         </div>
         ${transportHtml}
         ${ticketHtml}
@@ -445,6 +634,10 @@ function renderDays(){
         </div>
       </div>`;
   }).join("");
+
+  root.querySelectorAll("[data-copy]").forEach(btn=>{
+    btn.addEventListener("click", ()=> copyText(btn.dataset.copy, btn));
+  });
 }
 
 function updateCurrency(){
