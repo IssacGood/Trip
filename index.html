@@ -151,7 +151,24 @@ body{
   align-items:center;
   gap:12px;
   margin-bottom:12px;
+  cursor:pointer;
+  -webkit-tap-highlight-color:transparent;
 }
+.day-head .chev{
+  margin-left:auto;
+  flex:none;
+  font-family:'JetBrains Mono',monospace;
+  font-size:12px;
+  color:var(--text-sub);
+  transition:transform .2s ease;
+  padding:4px 6px;
+}
+.day-body{
+  overflow:hidden;
+  display:none;
+}
+.day.open .day-body{display:block;}
+.day.open .chev{transform:rotate(180deg);}
 .stamp{
   flex:none;
   width:52px;height:52px;
@@ -534,7 +551,9 @@ function renderNav(){
     btn.addEventListener("click", ()=>{
       document.querySelectorAll(".day-pill").forEach(b=>b.classList.remove("active"));
       btn.classList.add("active");
-      document.getElementById(btn.dataset.target).scrollIntoView({behavior:"smooth", block:"start"});
+      const target = document.getElementById(btn.dataset.target);
+      target.classList.add("open");
+      target.scrollIntoView({behavior:"smooth", block:"start"});
     });
   });
   const todayBtn = nav.querySelector(".day-pill.today");
@@ -614,29 +633,45 @@ function renderDays(){
     }
 
     return `
-      <div class="day" id="day-${d.n}">
-        <div class="day-head">
+      <div class="day${isToday?" open":""}" id="day-${d.n}">
+        <div class="day-head" data-toggle="day-${d.n}">
           <div class="stamp" style="${isToday?'border-color:var(--reef);color:var(--reef-dark);':''}"><span class="n">${String(d.n).padStart(2,"0")}</span><span class="w">${d.date}</span></div>
           <div>
             <h2>${d.title}${isToday?' <span style="font-size:11px;color:var(--reef-dark);border:1px solid var(--reef);border-radius:10px;padding:2px 8px;vertical-align:middle;font-family:\'JetBrains Mono\',monospace;">今天</span>':''}</h2>
             <div class="date">${d.date}（${d.week}）· 日本沖繩時間</div>
           </div>
+          <div class="chev">▾</div>
         </div>
-        <div class="card">
-          <h3>今日行程</h3>
-          ${activityHtml}
-        </div>
-        ${transportHtml}
-        ${ticketHtml}
-        <div class="card">
-          <h3>住宿</h3>
-          ${hotelHtml}
+        <div class="day-body">
+          <div class="card">
+            <h3>今日行程</h3>
+            ${activityHtml}
+          </div>
+          ${transportHtml}
+          ${ticketHtml}
+          <div class="card">
+            <h3>住宿</h3>
+            ${hotelHtml}
+          </div>
         </div>
       </div>`;
   }).join("");
 
   root.querySelectorAll("[data-copy]").forEach(btn=>{
-    btn.addEventListener("click", ()=> copyText(btn.dataset.copy, btn));
+    btn.addEventListener("click", e=>{
+      e.stopPropagation();
+      copyText(btn.dataset.copy, btn);
+    });
+  });
+
+  root.querySelectorAll(".act-btn[href]").forEach(a=>{
+    a.addEventListener("click", e=> e.stopPropagation());
+  });
+
+  root.querySelectorAll(".day-head").forEach(head=>{
+    head.addEventListener("click", ()=>{
+      document.getElementById(head.dataset.toggle).classList.toggle("open");
+    });
   });
 }
 
