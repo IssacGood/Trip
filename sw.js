@@ -1,5 +1,5 @@
 // 修改 index.html 後，請把版本號 +1（例如 v2），已安裝的手機才會更新
-const VERSION = 'v1';
+const VERSION = 'v2';
 const CACHE = 'halong-tour-' + VERSION;
 const ASSETS = [
   './',
