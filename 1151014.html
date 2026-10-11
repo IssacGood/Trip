@@ -1,0 +1,481 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>北越絕美下龍灣五日遊 - 智慧行程導覽</title>
+    <!-- 引入 Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;500;700&display=swap" rel="stylesheet">
+    <style>
+        body { font-family: 'Noto Sans TC', sans-serif; }
+    </style>
+</head>
+<body class="bg-slate-100 text-slate-800 min-h-screen flex flex-col items-center">
+
+    <!-- 手機容器外框 -->
+    <div class="w-full max-w-md bg-white min-h-screen shadow-xl flex flex-col">
+
+        <!-- 頂部雙時區標題列 -->
+        <header id="app-header" class="bg-gradient-to-r from-blue-700 to-indigo-800 text-white p-3.5 sticky top-0 z-50 shadow-md">
+            <div class="flex justify-between items-center mb-1.5">
+                <div>
+                    <h1 class="text-base font-bold">🇻🇳 北越下龍灣 5 日遊</h1>
+                    <p class="text-[11px] text-blue-200">團號：HAN05261014X | 全團：19 人</p>
+                </div>
+                <button onclick="toggleSimulator()" class="text-[10px] bg-blue-900/80 text-blue-100 border border-blue-400/30 px-2 py-1 rounded hover:bg-blue-800 transition">
+                    ⚙️ 時間模擬
+                </button>
+            </div>
+            <!-- 雙時區顯示區 -->
+            <div class="grid grid-cols-2 gap-2 pt-1 border-t border-blue-600/50 text-center">
+                <div class="bg-blue-900/60 rounded p-1">
+                    <div id="vn-clock" class="text-xs font-mono font-bold">--:--:--</div>
+                    <div class="text-[10px] text-blue-200">🇻🇳 越南時間 (UTC+7)</div>
+                </div>
+                <div class="bg-blue-900/60 rounded p-1">
+                    <div id="tw-clock" class="text-xs font-mono font-bold">--:--:--</div>
+                    <div class="text-[10px] text-blue-200">🇹🇼 台灣時間 (UTC+8)</div>
+                </div>
+            </div>
+        </header>
+
+        <!-- 模擬時間控制面板 (預設隱藏) -->
+        <div id="simulator-panel" class="hidden p-3 bg-amber-50 border-b border-amber-200 text-xs space-y-2">
+            <div class="font-bold text-amber-800 flex justify-between items-center">
+                <span>🧪 測試模式（模擬越南時間）</span>
+                <button onclick="resetSimulator()" class="text-indigo-600 underline text-[11px]">恢復真實時間</button>
+            </div>
+            <div class="flex gap-2">
+                <input type="datetime-local" id="sim-input" value="2026-10-14T09:00" class="border rounded px-2 py-1 flex-1 text-xs">
+                <button onclick="applySimulation()" class="bg-indigo-600 text-white px-3 py-1 rounded font-medium">套用</button>
+            </div>
+        </div>
+
+        <!-- 即時動態狀態卡片區 -->
+        <section class="p-4 bg-gradient-to-b from-indigo-50 to-white border-b border-indigo-100 space-y-2.5">
+            <h2 class="text-xs font-bold text-indigo-700 uppercase tracking-wider flex items-center gap-1">
+                <span class="w-2 h-2 rounded-full bg-emerald-500 animate-pulse"></span> 即時行程動態
+            </h2>
+
+            <!-- 目前景點/餐點卡片 -->
+            <div class="bg-white border-l-4 border-emerald-500 shadow-sm rounded-r-xl p-3">
+                <div class="text-xs font-bold text-emerald-600 flex items-center gap-1 mb-1">
+                    📍【目前進行中景點 / 餐點】
+                </div>
+                <div id="current-activity" class="text-sm font-bold text-slate-900">載入中...</div>
+                <div id="current-time" class="text-xs text-slate-500 mt-0.5">時間區間：--</div>
+            </div>
+
+            <!-- 下一個景點卡片 -->
+            <div class="bg-white border-l-4 border-blue-500 shadow-sm rounded-r-xl p-3">
+                <div class="text-xs font-bold text-blue-600 flex items-center gap-1 mb-1">
+                    ⏭️【下一個景點】
+                </div>
+                <div id="next-activity" class="text-sm font-bold text-slate-800">載入中...</div>
+                <div id="next-time" class="text-xs text-slate-500 mt-0.5">預計開始：--</div>
+            </div>
+        </section>
+
+        <!-- 每日行程天數頁籤 -->
+        <nav id="day-nav" class="flex bg-slate-200 p-1 gap-1 sticky top-[105px] z-40 shadow-inner overflow-x-auto">
+            <button onclick="switchDay(1)" id="tab-day-1" class="flex-1 py-2 px-3 text-xs font-bold rounded-lg text-center transition whitespace-nowrap">Day 1<br><span class="text-[10px] font-normal opacity-75">10/14</span></button>
+            <button onclick="switchDay(2)" id="tab-day-2" class="flex-1 py-2 px-3 text-xs font-bold rounded-lg text-center transition whitespace-nowrap">Day 2<br><span class="text-[10px] font-normal opacity-75">10/15</span></button>
+            <button onclick="switchDay(3)" id="tab-day-3" class="flex-1 py-2 px-3 text-xs font-bold rounded-lg text-center transition whitespace-nowrap">Day 3<br><span class="text-[10px] font-normal opacity-75">10/16</span></button>
+            <button onclick="switchDay(4)" id="tab-day-4" class="flex-1 py-2 px-3 text-xs font-bold rounded-lg text-center transition whitespace-nowrap">Day 4<br><span class="text-[10px] font-normal opacity-75">10/17</span></button>
+            <button onclick="switchDay(5)" id="tab-day-5" class="flex-1 py-2 px-3 text-xs font-bold rounded-lg text-center transition whitespace-nowrap">Day 5<br><span class="text-[10px] font-normal opacity-75">10/18</span></button>
+        </nav>
+
+        <!-- 主要行程時間軸內容區 -->
+        <main class="flex-1 p-4 space-y-4 pb-24">
+            <!-- 當日標題 -->
+            <div class="bg-indigo-900 text-white p-3 rounded-xl shadow">
+                <div id="day-date" class="text-xs text-indigo-200">2026-10-14 (三)</div>
+                <div id="day-title" class="text-sm font-bold mt-0.5">高雄出發 → 河內大世界 → 下龍灣</div>
+            </div>
+
+            <!-- 時間軸列表 -->
+            <div id="timeline-container" class="relative pl-6 space-y-4 before:content-[''] before:absolute before:left-2.5 before:top-2 before:bottom-2 before:w-0.5 before:bg-indigo-200">
+                <!-- 動態生成時間軸項目 -->
+            </div>
+
+            <!-- 實用輔助工具卡片區 -->
+            <div class="mt-8 pt-6 border-t border-slate-200 space-y-4">
+                <h3 class="text-sm font-bold text-slate-700 flex items-center gap-1.5">
+                    🛠️ 實用工具與人員聯絡
+                </h3>
+
+                <!-- 領隊與送機人員卡片 -->
+                <div class="grid grid-cols-1 gap-3">
+                    <div class="bg-amber-50 border border-amber-200 rounded-xl p-3.5 shadow-sm flex items-center justify-between">
+                        <div>
+                            <div class="text-[11px] font-bold text-amber-800">👨‍✈️ 團體領隊</div>
+                            <div class="text-sm font-bold text-slate-900 mt-0.5">張育誠</div>
+                            <div class="text-xs text-slate-600 mt-0.5">電話：0929-988-333</div>
+                        </div>
+                        <a href="tel:0929988333" class="bg-amber-600 text-white px-3 py-1.5 rounded-lg text-xs font-bold shadow hover:bg-amber-700 transition">
+                            📞 撥打
+                        </a>
+                    </div>
+
+                    <div class="bg-blue-50 border border-blue-200 rounded-xl p-3.5 shadow-sm flex items-center justify-between">
+                        <div>
+                            <div class="text-[11px] font-bold text-blue-800">🛫 高雄送機人員</div>
+                            <div class="text-sm font-bold text-slate-900 mt-0.5">謝依雯</div>
+                            <div class="text-xs text-slate-600 mt-0.5">電話：0955-111-508</div>
+                        </div>
+                        <a href="tel:0955111508" class="bg-blue-600 text-white px-3 py-1.5 rounded-lg text-xs font-bold shadow hover:bg-blue-700 transition">
+                            📞 撥打
+                        </a>
+                    </div>
+                </div>
+
+                <!-- 貨幣換算工具卡片 -->
+                <div class="bg-white border border-slate-200 rounded-xl p-4 shadow-sm space-y-3">
+                    <div class="text-xs font-bold text-slate-700 flex items-center justify-between">
+                        <span>💱 越南盾即時換算</span>
+                        <span class="text-[10px] text-slate-400">參考：1 USD ≈ 26,000 VND｜1 TWD ≈ 812 VND</span>
+                    </div>
+                    <div class="grid grid-cols-2 gap-3">
+                        <div>
+                            <label class="text-[10px] text-slate-500 block mb-1">台幣 (TWD)</label>
+                            <input type="number" id="twd-input" value="1000" oninput="convertCurrency('twd')" class="w-full border rounded-lg px-3 py-1.5 text-sm font-medium focus:ring-2 focus:ring-indigo-500 outline-none">
+                        </div>
+                        <div>
+                            <label class="text-[10px] text-slate-500 block mb-1">越南盾 (VND)</label>
+                            <input type="text" id="vnd-output" readonly class="w-full bg-slate-50 border rounded-lg px-3 py-1.5 text-sm font-bold text-indigo-700 outline-none">
+                        </div>
+                    </div>
+                    <div class="grid grid-cols-2 gap-3 pt-1 border-t border-slate-100">
+                        <div>
+                            <label class="text-[10px] text-slate-500 block mb-1">美金 (USD)</label>
+                            <input type="number" id="usd-input" value="10" oninput="convertCurrency('usd')" class="w-full border rounded-lg px-3 py-1.5 text-sm font-medium focus:ring-2 focus:ring-indigo-500 outline-none">
+                        </div>
+                        <div>
+                            <label class="text-[10px] text-slate-500 block mb-1">越南盾 (VND)</label>
+                            <input type="text" id="vnd-output-usd" readonly class="w-full bg-slate-50 border rounded-lg px-3 py-1.5 text-sm font-bold text-indigo-700 outline-none">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+
+        <!-- 底部版權 -->
+        <footer class="bg-slate-800 text-slate-400 text-center py-3 text-xs mt-auto">
+            © 2026 北越下龍灣五日遊行程助手 | 百威旅遊
+        </footer>
+    </div>
+
+    <!-- JavaScript 邏輯與資料庫 -->
+    <script>
+        // 行程資料庫（依百威行前說明手冊 HAN05261014X 整理；房價為 2026/10/12 截圖查詢價）
+        // tz:"TW" = 該時間為台灣時間（其餘為越南當地時間）；mapQuery = Google 地圖搜尋字串；approx = 餐廳地點僅為大致搜尋
+        const tourData = [
+            {
+                "day": 1, "date": "2026-10-14", "title": "高雄出發 → 河內大世界 → 下龍灣",
+                "schedule": [
+                    {"time": "06:10", "tz": "TW", "isEstimated": false, "activity": "高雄小港國際機場國際航廈三樓越南航空櫃台集合報到", "location": "高雄國際機場", "mapQuery": "Kaohsiung International Airport"},
+                    {"time": "08:40", "tz": "TW", "isEstimated": false, "activity": "搭乘越南航空 VN587 飛往河內", "location": "高雄國際機場", "mapQuery": "Kaohsiung International Airport"},
+                    {"time": "10:25", "isEstimated": false, "activity": "抵達河內內排國際機場", "location": "Noi Bai International Airport", "mapQuery": "Noi Bai International Airport"},
+                    {"time": "12:00", "isEstimated": true, "activity": "午餐：華邸私宅合菜 或 鱧魚鍋餐廳 (餐標 USD 10 / 約 NT$320)", "location": "河內（餐廳以領隊安排為準）", "mapQuery": "華邸私宅 河內", "approx": true},
+                    {"time": "14:00", "isEstimated": true, "activity": "河內大世界 Mega Grand World 威尼斯童話街區", "location": "Grand World Hanoi", "mapQuery": "Grand World Ha Noi"},
+                    {"time": "17:30", "isEstimated": true, "activity": "晚餐：明飛下龍風味海鮮合菜 (餐標 USD 8 / 約 NT$256)", "location": "下龍灣（餐廳以領隊安排為準）", "mapQuery": "明飛海鮮 下龍灣", "approx": true},
+                    {"time": "19:00", "isEstimated": true, "activity": "入住：下龍濱海酒店", "location": "Marina Ha Long Hotel", "mapQuery": "Ha Long Marina Hotel, 5 Lô 20 Hoàng Quốc Việt, Bãi Cháy, Hạ Long", "isHotel": true, "address": "Ô số 05, Lô 20, QH khu dân cư Du lịch Đông Hùng Thắng, P. Bãi Cháy, TP. Hạ Long, Quảng Ninh", "phone": "+84-203-396-8888", "phoneHref": "+842033968888", "season": "網路參考價（Mytour，10/14–10/16 共 2 晚、2 位大人、Superior 兩張單人床、含自助早餐）：原價 NT$1,649 → NT$1,516/晚（-9%）；輸入優惠碼 CHAMTHU26 再 -8% ≈ NT$1,395/晚；平台顯示 2 晚最終價 NT$3,219。※團費已含住宿，此價僅供比價參考"}
+                ]
+            },
+            {
+                "day": 2, "date": "2026-10-15", "title": "下龍灣 VIP 冷氣日遊船（驚訝洞、天堂島、鬥雞石）",
+                "schedule": [
+                    {"time": "08:00", "isEstimated": true, "activity": "飯店早餐後出發前往碼頭", "location": "Marina Ha Long Hotel", "mapQuery": "Ha Long Marina Hotel, 5 Lô 20 Hoàng Quốc Việt, Bãi Cháy, Hạ Long"},
+                    {"time": "09:00", "isEstimated": true, "activity": "登 VIP 冷氣遊船遊覽下龍灣、觀賞鬥雞石", "location": "Ha Long Bay", "mapQuery": "Ha Long Bay"},
+                    {"time": "11:00", "isEstimated": true, "activity": "探索天然奇景：驚訝洞鐘乳石", "location": "Sung Sot Cave", "mapQuery": "Sung Sot Cave, Ha Long Bay"},
+                    {"time": "12:30", "isEstimated": true, "activity": "船上海鮮餐（含花蟹/螳螂蝦）(餐標 USD 10 / 約 NT$320)", "location": "Ha Long Bay", "mapQuery": "Ha Long Bay"},
+                    {"time": "14:30", "isEstimated": true, "activity": "登英雄島（TI TOP島）俯瞰下龍灣全景", "location": "Ti Top Island", "mapQuery": "Ti Top Island, Ha Long Bay"},
+                    {"time": "17:30", "isEstimated": true, "activity": "晚餐：漁村餐廳中式料理 (餐標 USD 10 / 約 NT$320)", "location": "下龍灣（餐廳以領隊安排為準）", "mapQuery": "Ha Long Bay", "approx": true},
+                    {"time": "19:00", "isEstimated": true, "activity": "返回下龍濱海酒店享用設施", "location": "Marina Ha Long Hotel", "mapQuery": "Ha Long Marina Hotel, 5 Lô 20 Hoàng Quốc Việt, Bãi Cháy, Hạ Long", "isHotel": true, "address": "Ô số 05, Lô 20, QH khu dân cư Du lịch Đông Hùng Thắng, P. Bãi Cháy, TP. Hạ Long, Quảng Ninh", "phone": "+84-203-396-8888", "phoneHref": "+842033968888", "season": "續住第 2 晚（網路參考價同 Day 1：2 晚最終價 NT$3,219，僅供比價參考）"}
+                ]
+            },
+            {
+                "day": 3, "date": "2026-10-16", "title": "下龍灣 → 河內古都漫遊（還劍湖、36古街、聖若瑟教堂）",
+                "schedule": [
+                    {"time": "08:30", "isEstimated": true, "activity": "下龍灣出發返回河內（車程約2.5小時）", "location": "Hanoi", "mapQuery": "Hanoi"},
+                    {"time": "12:00", "isEstimated": true, "activity": "午餐：越來順酒樓合菜 (餐標 USD 8 / 約 NT$256)", "location": "河內（餐廳以領隊安排為準）", "mapQuery": "越來順酒樓 河內", "approx": true},
+                    {"time": "13:30", "isEstimated": true, "activity": "還劍湖散策", "location": "Hoan Kiem Lake", "mapQuery": "Hoan Kiem Lake"},
+                    {"time": "14:30", "isEstimated": true, "activity": "三十六古街漫步探索", "location": "Hanoi Old Quarter", "mapQuery": "Hanoi Old Quarter"},
+                    {"time": "16:00", "isEstimated": true, "activity": "聖若瑟教堂（外觀）", "location": "St. Joseph's Cathedral Hanoi", "mapQuery": "St. Joseph's Cathedral Hanoi"},
+                    {"time": "18:00", "isEstimated": true, "activity": "晚餐：黎苑港式餐廳合菜 (餐標 USD 12 / 約 NT$384)", "location": "河內（餐廳以領隊安排為準）", "mapQuery": "黎苑港式餐廳 河內", "approx": true},
+                    {"time": "19:30", "isEstimated": true, "activity": "入住：22蘭德公寓飯店", "location": "22Land Hotel & Residence Hanoi", "mapQuery": "22Land Residence Hotel & Spa 52 Ngõ Huyện, Hoàn Kiếm, Hà Nội", "isHotel": true, "address": "52 Ng. Huyện, Hoàn Kiếm, Hà Nội", "phone": "+84-794460000（第三方網站資料，請以訂房確認為準）", "phoneHref": "+84794460000", "season": "網路參考價（Agoda，10/16–10/18 共 2 晚、2 位大人、豪華陽台房 28㎡、含早餐、預訂後立即付款）：原價 NT$1,926 → NT$1,303/晚（Agoda 現減＋LINE 專屬折扣合計約 NT$623，每晚含稅費，數量有限），2 晚約 NT$2,606。※團費已含住宿，此價僅供比價參考"}
+                ]
+            },
+            {
+                "day": 4, "date": "2026-10-17", "title": "河內 → 寧平陸龍灣（長安生態保護區舟遊） → 河內",
+                "schedule": [
+                    {"time": "08:00", "isEstimated": true, "activity": "河內出發前往寧平（車程約2小時）", "location": "Trang An Scenic Landscape Complex", "mapQuery": "Trang An Scenic Landscape Complex"},
+                    {"time": "10:00", "isEstimated": true, "activity": "長安生態保護區小舟漫遊山水（💡 貼心提醒：遊河船家小費每人 20,000 越盾）", "location": "Trang An Scenic Landscape Complex", "mapQuery": "Trang An Scenic Landscape Complex"},
+                    {"time": "12:30", "isEstimated": true, "activity": "午餐：英勇寧平羊肉土雞風味餐 (餐標 USD 8 / 約 NT$256)", "location": "寧平（餐廳以領隊安排為準）", "mapQuery": "英勇寧平羊肉 Ninh Binh", "approx": true},
+                    {"time": "15:00", "isEstimated": true, "activity": "返回河內市區（車程約2小時）", "location": "Hanoi", "mapQuery": "Hanoi"},
+                    {"time": "18:00", "isEstimated": true, "activity": "晚餐：HOME MOC 越式創意料理 + 3 道龍蝦吃到飽 (餐標 USD 65 / 約 NT$2,080)", "location": "HOME MOC（餐廳以領隊安排為準）", "mapQuery": "Home Moc Restaurant Hanoi", "approx": true},
+                    {"time": "20:00", "isEstimated": true, "activity": "入住：22蘭德公寓飯店", "location": "22Land Hotel & Residence Hanoi", "mapQuery": "22Land Residence Hotel & Spa 52 Ngõ Huyện, Hoàn Kiếm, Hà Nội", "isHotel": true, "address": "52 Ng. Huyện, Hoàn Kiếm, Hà Nội", "phone": "+84-794460000（第三方網站資料，請以訂房確認為準）", "phoneHref": "+84794460000", "season": "續住第 2 晚（網路參考價同 Day 3：2 晚約 NT$2,606，僅供比價參考）"}
+                ]
+            },
+            {
+                "day": 5, "date": "2026-10-18", "title": "河內市區巡禮 → 西湖樂天購物中心 → 返台",
+                "schedule": [
+                    {"time": "08:30", "isEstimated": true, "activity": "參觀巴亭廣場、胡志明陵寢、總督府（外觀）、一柱廟", "location": "Ba Dinh Square", "mapQuery": "Ba Dinh Square"},
+                    {"time": "11:30", "isEstimated": true, "activity": "午餐：CNN 推薦烤肉米線 + 春捲 (餐標 USD 6 / 約 NT$192)", "location": "河內（餐廳以領隊安排為準）", "mapQuery": "Bun Cha Hanoi", "approx": true},
+                    {"time": "13:00", "isEstimated": true, "activity": "逛東南亞最大西湖樂天購物中心 Lotte Mall", "location": "Lotte Mall West Lake Hanoi", "mapQuery": "Lotte Mall West Hanoi"},
+                    {"time": "15:15", "isEstimated": true, "activity": "前往河內內排國際機場辦理登機（起飛前3小時）", "location": "Noi Bai International Airport", "mapQuery": "Noi Bai International Airport"},
+                    {"time": "18:15", "isEstimated": false, "activity": "搭乘越南航空 VN586 班機返台（官方表訂）", "location": "Noi Bai International Airport", "mapQuery": "Noi Bai International Airport"},
+                    {"time": "22:00", "tz": "TW", "isEstimated": false, "activity": "抵達高雄小港國際機場（晚餐：機上簡餐）", "location": "高雄國際機場", "mapQuery": "Kaohsiung International Airport"}
+                ]
+            }
+        ];
+
+        // 匯率參考值（USD/VND 約 26,200，2026/8；USD/TWD 32 沿用原假設，未查證）
+        const USD_VND = 26000;
+        const USD_TWD = 32;
+
+        let currentActiveDay = 1;
+        let isSimulated = false;
+        let simulatedTime = null;
+
+        function fixNavOffset() {
+            const h = document.getElementById('app-header');
+            const n = document.getElementById('day-nav');
+            if (h && n) n.style.top = h.offsetHeight + 'px';
+        }
+
+        function initApp() {
+            fixNavOffset();
+            window.addEventListener('resize', fixNavOffset);
+            determineInitialDay();
+            renderDay(currentActiveDay);
+            updateRealtimeStatus();
+            setInterval(updateRealtimeStatus, 1000);
+            convertCurrency('twd');
+            convertCurrency('usd');
+        }
+
+        // 台灣時間(TW)比越南快 1 小時；比對「目前進行中」時統一換算成越南時間
+        function fmtTime(item) {
+            return item.tz === 'TW' ? `${item.time} 台灣時間` : item.time;
+        }
+        function vnMinutes(item) {
+            const [h, m] = item.time.split(':').map(Number);
+            return h * 60 + m - (item.tz === 'TW' ? 60 : 0);
+        }
+
+        function getVietnamTime() {
+            if (isSimulated && simulatedTime) {
+                return new Date(simulatedTime);
+            }
+            const now = new Date();
+            const utc = now.getTime() + (now.getTimezoneOffset() * 60000);
+            return new Date(utc + (3600000 * 7));
+        }
+
+        function getTaiwanTime() {
+            const vnTime = getVietnamTime();
+            return new Date(vnTime.getTime() + 3600000);
+        }
+
+        function determineInitialDay() {
+            const vnTime = getVietnamTime();
+            const year = vnTime.getFullYear();
+            const month = String(vnTime.getMonth() + 1).padStart(2, '0');
+            const day = String(vnTime.getDate()).padStart(2, '0');
+            const dateStr = `${year}-${month}-${day}`;
+
+            const found = tourData.find(d => d.date === dateStr);
+            if (found) {
+                currentActiveDay = found.day;
+            } else {
+                currentActiveDay = 1;
+            }
+        }
+
+        function switchDay(day) {
+            currentActiveDay = day;
+            renderDay(day);
+        }
+
+        function renderDay(day) {
+            for (let i = 1; i <= 5; i++) {
+                const btn = document.getElementById(`tab-day-${i}`);
+                if (i === day) {
+                    btn.className = "flex-1 py-2 px-3 text-xs font-bold rounded-lg text-center transition whitespace-nowrap bg-indigo-600 text-white shadow";
+                } else {
+                    btn.className = "flex-1 py-2 px-3 text-xs font-bold rounded-lg text-center transition whitespace-nowrap bg-white text-slate-600 hover:bg-slate-100";
+                }
+            }
+
+            const dayData = tourData.find(d => d.day === day);
+            document.getElementById('day-date').innerText = `${dayData.date}`;
+            document.getElementById('day-title').innerText = dayData.title;
+
+            const container = document.getElementById('timeline-container');
+            container.innerHTML = '';
+
+            dayData.schedule.forEach((item) => {
+                const mapsUrl = `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(item.mapQuery || item.location)}`;
+                const timeTagText = `${fmtTime(item)} (${item.isEstimated ? '預測時間' : '表訂時間'})`;
+                
+                let extraHtml = '';
+                if (item.isHotel) {
+                    extraHtml = `
+                        <div class="mt-2 text-[11px] text-slate-500 bg-slate-100 p-2 rounded border border-slate-200 space-y-1">
+                            <div>📍 地址：${item.address}</div>
+                            <div>📞 電話：<a href="tel:${item.phoneHref}" class="text-indigo-600 underline font-medium">${item.phone}</a></div>
+                            <div class="text-amber-700 font-medium bg-amber-50 p-1 rounded">💰 房價資訊：${item.season}</div>
+                        </div>
+                    `;
+                }
+
+                const div = document.createElement('div');
+                div.className = "relative flex items-start space-x-3 group";
+                div.innerHTML = `
+                    <div class="absolute -left-6 mt-1.5 w-3 h-3 rounded-full border-2 border-indigo-600 bg-white group-hover:bg-indigo-600 transition"></div>
+                    <div class="bg-slate-50 border border-slate-200 rounded-xl p-3 flex-1 shadow-sm">
+                        <div class="flex justify-between items-start mb-1">
+                            <span class="inline-block bg-indigo-100 text-indigo-700 text-[10px] font-bold px-2 py-0.5 rounded-full">
+                                ⏰ ${timeTagText}
+                            </span>
+                            <a href="${mapsUrl}" target="_blank" class="bg-blue-50 text-blue-700 border border-blue-200 text-[10px] font-bold px-2 py-0.5 rounded hover:bg-blue-100 transition flex items-center gap-1 shadow-xs">
+                                🗺️ 地圖導航
+                            </a>
+                        </div>
+                        <div class="text-xs font-bold text-slate-800">${item.activity}</div>
+                        <div class="text-[10px] text-slate-400 mt-1">📍 地點：${item.location}</div>
+                        ${item.approx ? '<div class="text-[10px] text-amber-600 mt-0.5">⚠️ 地圖為大致搜尋，實際餐廳以領隊／導遊當天安排為準</div>' : ''}
+                        ${extraHtml}
+                    </div>
+                `;
+                container.appendChild(div);
+            });
+        }
+
+        function updateRealtimeStatus() {
+            const vnTime = getVietnamTime();
+            const twTime = getTaiwanTime();
+            
+            const vh = String(vnTime.getHours()).padStart(2, '0');
+            const vm = String(vnTime.getMinutes()).padStart(2, '0');
+            const vs = String(vnTime.getSeconds()).padStart(2, '0');
+            document.getElementById('vn-clock').innerText = `${vh}:${vm}:${vs}`;
+
+            const th = String(twTime.getHours()).padStart(2, '0');
+            const tm = String(twTime.getMinutes()).padStart(2, '0');
+            const ts = String(twTime.getSeconds()).padStart(2, '0');
+            document.getElementById('tw-clock').innerText = `${th}:${tm}:${ts}`;
+
+            const year = vnTime.getFullYear();
+            const month = String(vnTime.getMonth() + 1).padStart(2, '0');
+            const dayStr = String(vnTime.getDate()).padStart(2, '0');
+            const todayDateStr = `${year}-${month}-${dayStr}`;
+
+            const currentDayObj = tourData.find(d => d.date === todayDateStr);
+            const currentEl = document.getElementById('current-activity');
+            const currentTimeEl = document.getElementById('current-time');
+            const nextEl = document.getElementById('next-activity');
+            const nextTimeEl = document.getElementById('next-time');
+
+            if (!currentDayObj) {
+                currentEl.innerText = "目前為休息 / 自由時間或尚未開始";
+                currentTimeEl.innerText = `今天是 ${todayDateStr}（不在旅遊期間 2026/10/14 - 10/18 內）`;
+                nextEl.innerText = "Day 1 首個行程：高雄機場集合報到";
+                nextTimeEl.innerText = "2026-10-14 06:10";
+                return;
+            }
+
+            const currentMinutes = vnTime.getHours() * 60 + vnTime.getMinutes();
+
+            let schedule = currentDayObj.schedule.map(item => {
+                return { ...item, totalMinutes: vnMinutes(item) };
+            });
+
+            let activeIndex = -1;
+            for (let i = 0; i < schedule.length; i++) {
+                const startM = schedule[i].totalMinutes;
+                const endM = (i < schedule.length - 1) ? schedule[i+1].totalMinutes : startM + 120;
+
+                if (currentMinutes >= startM && currentMinutes < endM) {
+                    activeIndex = i;
+                    break;
+                }
+            }
+
+            if (activeIndex !== -1) {
+                const current = schedule[activeIndex];
+                const next = schedule[activeIndex + 1];
+
+                currentEl.innerText = current.activity;
+                currentTimeEl.innerText = `時間區間：${fmtTime(current)} 起 | 地點：${current.location}`;
+
+                if (next) {
+                    nextEl.innerText = next.activity;
+                    nextTimeEl.innerText = `預計開始：${fmtTime(next)} | 地點：${next.location}`;
+                } else {
+                    nextEl.innerText = "今日行程已全部結束，準備入住休息";
+                    nextTimeEl.innerText = "明日請準時起床";
+                }
+            } else if (currentMinutes < schedule[0].totalMinutes) {
+                currentEl.innerText = "目前為晨間休息時間";
+                currentTimeEl.innerText = `今日首個行程即將開始`;
+                nextEl.innerText = schedule[0].activity;
+                nextTimeEl.innerText = `預計開始：${fmtTime(schedule[0])}`;
+            } else {
+                currentEl.innerText = "目前為夜間自由活動 / 飯店休息時間";
+                currentTimeEl.innerText = "今日行程已結束";
+                
+                const nextDayObj = tourData.find(d => d.day === currentDayObj.day + 1);
+                if (nextDayObj) {
+                    nextEl.innerText = `[Day ${nextDayObj.day}] ${nextDayObj.schedule[0].activity}`;
+                    nextTimeEl.innerText = `明天 ${nextDayObj.date} ${fmtTime(nextDayObj.schedule[0])}`;
+                } else {
+                    nextEl.innerText = "本次精彩行程已圓滿結束，準備返台！";
+                    nextTimeEl.innerText = "珍重再見";
+                }
+            }
+        }
+
+        function convertCurrency(type) {
+            if (type === 'twd') {
+                const twd = parseFloat(document.getElementById('twd-input').value) || 0;
+                const vnd = twd * (USD_VND / USD_TWD);
+                document.getElementById('vnd-output').value = vnd.toLocaleString() + ' ₫';
+            } else if (type === 'usd') {
+                const usd = parseFloat(document.getElementById('usd-input').value) || 0;
+                const vnd = usd * USD_VND;
+                document.getElementById('vnd-output-usd').value = vnd.toLocaleString() + ' ₫';
+            }
+        }
+
+        function toggleSimulator() {
+            const panel = document.getElementById('simulator-panel');
+            panel.classList.toggle('hidden');
+        }
+
+        function applySimulation() {
+            const val = document.getElementById('sim-input').value;
+            if (val) {
+                isSimulated = true;
+                simulatedTime = new Date(val);
+                updateRealtimeStatus();
+                alert('已套用模擬越南時間！');
+            }
+        }
+
+        function resetSimulator() {
+            isSimulated = false;
+            simulatedTime = null;
+            document.getElementById('simulator-panel').classList.add('hidden');
+            determineInitialDay();
+            renderDay(currentActiveDay);
+            updateRealtimeStatus();
+            alert('已恢復為真實系統時間。');
+        }
+
+        window.onload = initApp;
+    </script>
+</body>
+</html>
