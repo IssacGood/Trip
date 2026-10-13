@@ -157,7 +157,7 @@ body{font-family:"Noto Sans TC","PingFang TC","Microsoft JhengHei","Heiti TC",sy
                 <div class="bg-white border border-slate-200 rounded-xl p-4 shadow-sm space-y-3">
                     <div class="text-xs font-bold text-slate-700 flex items-center justify-between">
                         <span>💱 越南盾即時換算</span>
-                        <span class="text-xs text-slate-400">參考：1 USD ≈ 26,000 VND｜1 TWD ≈ 812 VND</span>
+                        <span class="text-xs text-slate-400">參考：1 USD ≈ 25,910 VND｜1 TWD ≈ 806 VND（2026/10/13 更新）</span>
                     </div>
                     <div class="grid grid-cols-2 gap-3">
                         <div>
@@ -186,6 +186,13 @@ body{font-family:"Noto Sans TC","PingFang TC","Microsoft JhengHei","Heiti TC",sy
                 <div class="text-xs text-slate-500">每筆可填：物品、送給誰、預算（台幣）、實際花費與幣別。資料只存在這支手機。</div>
                 <div id="shop-list" class="space-y-2"></div>
                 <button type="button" onclick="addShopRow()" class="w-full border border-dashed border-indigo-300 text-indigo-600 rounded-lg py-1.5 font-bold">＋ 新增一筆</button>
+                <div class="flex flex-wrap items-center gap-1.5 mt-2">
+                    <span class="text-xs text-slate-400">💡 點一下快速加入（手冊推薦土產）：</span>
+                    <button type="button" onclick="addShopItem('芒果乾')" class="text-xs bg-amber-50 border border-amber-200 text-amber-800 rounded-full px-2.5 py-1 font-bold">🥭 芒果乾</button>
+                    <button type="button" onclick="addShopItem('腰果')" class="text-xs bg-amber-50 border border-amber-200 text-amber-800 rounded-full px-2.5 py-1 font-bold">🌰 腰果</button>
+                    <button type="button" onclick="addShopItem('越南咖啡')" class="text-xs bg-amber-50 border border-amber-200 text-amber-800 rounded-full px-2.5 py-1 font-bold">☕ 越南咖啡</button>
+                    <button type="button" onclick="addShopItem('糖果餅乾')" class="text-xs bg-amber-50 border border-amber-200 text-amber-800 rounded-full px-2.5 py-1 font-bold">🍬 糖果餅乾</button>
+                </div>
                 <div id="shop-total" class="bg-slate-50 border border-slate-200 rounded-lg p-2.5 space-y-0.5"></div>
             </section>
                 <!-- 💵 小費 -->
@@ -366,8 +373,10 @@ body{font-family:"Noto Sans TC","PingFang TC","Microsoft JhengHei","Heiti TC",sy
                                 <li>2025/1/1 起全面禁止電子煙與加熱菸草，不得攜帶入境，違規最高罰 10 億越盾（約 NT$128 萬）及 5 年監禁</li>
                                 <li>14 歲以下兒童入境須有父母或監護人陪同</li>
                                 <li>免稅：香菸 1 條（200 支）、酒 1 瓶（1 公升）</li>
+                                <li>落地簽證：備妥 2 吋大頭照 2 張，由旅行社協辦（費用以百威公告為準）；護照效期需滿 6 個月以上</li>
                                 <li>電壓 220V，插座與台灣不同，請帶轉接頭</li>
                                 <li>請在機場或飯店換匯，不要在街頭或黑市換；信用卡僅部分地方可用，建議帶美金或台幣現金</li>
+                                <li>保險：百威已投保旅行業責任險（意外身故 250 萬／意外醫療 20 萬，僅限旅行社責任事故）；建議自行加保旅遊平安險＋海外突發疾病醫療險</li>
                                 <li>越南時間比台灣慢 1 小時；10 月約 22–29°C，帶薄外套</li>
                             </ul>
                         </div>
@@ -530,9 +539,9 @@ body{font-family:"Noto Sans TC","PingFang TC","Microsoft JhengHei","Heiti TC",sy
             }
         ];
 
-        // 匯率參考值（USD/VND 約 26,200，2026/8；USD/TWD 32 沿用原假設，未查證）
-        const USD_VND = 26000;
-        const USD_TWD = 32;
+        // 匯率參考值（2026/10/13 更新：USD/VND 約 25,910；USD/TWD 約 32.16）
+        const USD_VND = 25910;
+        const USD_TWD = 32.16;
 
         let currentActiveDay = 1;
         let isSimulated = false;
@@ -814,9 +823,23 @@ body{font-family:"Noto Sans TC","PingFang TC","Microsoft JhengHei","Heiti TC",sy
             box.innerHTML = `<div class="text-xs font-bold text-sky-800 mb-1.5">🌤️ 當日天氣預報</div><div class="space-y-1">${parts.join('')}</div>${alertHtml}`;
         }
 
+        // 每日特別提醒（長輩打開當天行程，一眼就看到）
+        const DAY_NOTICES = {
+            1: '🛂 記得帶護照＋2 吋大頭照 2 張（落地簽用）；06:10 在高雄小港機場集合，別遲到！',
+            2: '🛟 出海日：外海風大記得帶薄外套；上下船及水上活動務必穿救生衣。天候不佳時出海行程會改為陸地行程。',
+            5: '👔 今天參觀巴亭廣場、胡志明陵寢、一柱廟：請穿有袖上衣＋長褲／長裙，不可穿無袖、短褲、短裙，否則可能無法進入！'
+        };
+
         function renderExtras(day) {
             const wrap = document.getElementById('day-extras');
             wrap.innerHTML = '';
+            if (DAY_NOTICES[day]) {
+                const n = document.createElement('div');
+                n.className = 'bg-amber-50 border-l-4 border-amber-400 rounded-r-xl p-3 shadow-sm mb-3';
+                n.innerHTML = '<div class="text-xs font-bold text-amber-800">⚠️ 今日提醒</div>' +
+                    '<div class="text-sm font-bold text-slate-900 mt-1 leading-relaxed">' + DAY_NOTICES[day] + '</div>';
+                wrap.appendChild(n);
+            }
             const wx = document.createElement('div');
             wx.className = 'bg-sky-50 border border-sky-200 rounded-xl p-3.5 shadow-sm';
             wrap.appendChild(wx);
@@ -1216,6 +1239,13 @@ body{font-family:"Noto Sans TC","PingFang TC","Microsoft JhengHei","Heiti TC",sy
             buildShop();
         }
 
+        function addShopItem(name) {
+            const all = shopRows();
+            all.push({ item: name, who: '', budget: '', amount: '', cur: 'TWD' });
+            storeSet('tour_shop_v1', all);
+            buildShop();
+        }
+
 
         // ---------- 底部分頁切換 ----------
         const VIEWS = ['itinerary', 'phrases', 'money', 'check', 'tools'];
@@ -1236,7 +1266,7 @@ body{font-family:"Noto Sans TC","PingFang TC","Microsoft JhengHei","Heiti TC",sy
             { key: 'lg', label: '大', cls: 'fs-lg' },
             { key: 'xl', label: '特大', cls: 'fs-xl' }
         ];
-        const DEFAULT_FONT = 'std';   // 想讓大家一打開就是大字，改成 'lg'
+        const DEFAULT_FONT = 'lg';   // 2026/10/13：配合長輩使用，預設改為大字
         let currentFont = DEFAULT_FONT;
         function applyFontSize(key) {
             const f = FONT_SIZES.find(x => x.key === key) || FONT_SIZES[0];
