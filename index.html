@@ -147,6 +147,20 @@ body{font-family:"Noto Sans TC","PingFang TC","Microsoft JhengHei","Heiti TC",sy
                     <li>設定好後回到這裡，按右上角「🔄 刷新」或重開 App。</li>
                 </ul>
             </details>
+            <!-- 💰 價格朗讀器 -->
+            <div class="bg-white border border-indigo-200 rounded-xl p-3 space-y-2">
+                <div class="text-xs font-bold text-indigo-700">💰 價格朗讀 <span class="font-normal text-slate-400">輸入越南盾，按喇叭唸給老闆聽</span></div>
+                <div class="flex gap-2">
+                    <input id="price-input" type="number" inputmode="numeric" min="0" placeholder="例如 50000" oninput="updatePriceWords()"
+                        class="flex-1 min-w-0 border border-slate-200 rounded-lg px-3 py-2 text-sm outline-none focus:ring-2 focus:ring-indigo-500">
+                    <button type="button" onclick="speakPrice(false)" aria-label="朗讀價格"
+                        class="shrink-0 w-11 border border-emerald-200 rounded-lg bg-white text-lg active:bg-emerald-50">🔊</button>
+                    <button type="button" onclick="speakPrice(true)" aria-label="用這個價格開價"
+                        class="shrink-0 px-3 border border-amber-300 rounded-lg bg-amber-50 text-xs font-bold text-amber-800 active:bg-amber-100">💬 開價</button>
+                </div>
+                <div id="price-words" class="text-xs text-slate-600"></div>
+                <div class="flex flex-wrap gap-1.5" id="price-chips"></div>
+            </div>
             <div id="phrase-list" class="space-y-3 text-xs text-slate-700"></div>
         </div>
 
@@ -334,21 +348,21 @@ body{font-family:"Noto Sans TC","PingFang TC","Microsoft JhengHei","Heiti TC",sy
                     <div class="mt-3 space-y-2 text-xs text-slate-700">
                         <div class="bg-white rounded-lg p-2.5 border border-indigo-100">
                             <div class="font-bold text-indigo-700">去程　10/14　高雄小港機場</div>
-                            <div class="mt-1"><b>Southern Premium Lounge</b>（小港唯一配合龍騰的貴賓室）</div>
+                            <div class="mt-1"><span class="text-amber-500 tracking-tight">★★★★☆</span> <b>Southern Premium Lounge</b>（小港唯一配合龍騰的貴賓室）</div>
                             <div class="mt-1">📍 國際航廈出境管制區內：過安檢＋證照查驗後上 <b>3 樓，左轉走約 200 公尺</b></div>
                             <div class="text-xs text-slate-500 mt-0.5">建議 06:10 集合報到後、07:30 前進去，吃個早餐再登機（08:40 起飛）。</div>
                         </div>
                         <div class="bg-white rounded-lg p-2.5 border border-indigo-100">
                             <div class="font-bold text-indigo-700">回程　10/18　河內內排機場 T2（國際線航廈）</div>
-                            <div class="mt-1">以下都在 <b>T2（2 客運大樓）國際出境管制區內</b>，擇一使用（T1 是國內線，去不了）：</div>
+                            <div class="mt-1">以下都在 <b>T2（2 客運大樓）國際出境管制區內</b>，擇一使用（T1 是國內線，去不了）。星星代表綜合推薦程度：</div>
                             <ul class="list-disc pl-4 mt-1 space-y-1">
-                                <li>⭐ <b>SH Premium Lounge Ha Noi 2號（首選）</b>：T2 東翼 4 樓，Gate 21–22 附近——KKday 參考價每人 NT$985（優惠 NT$936）；評價 4.2／213 則，口碑最穩</li>
-                                <li><b>SH Premium Lounge Ha Noi 3號</b>：T2 西翼 4 樓，Gate 37 附近——較新，有吧台招牌鹹咖啡＋調酒、淋浴；KKday 每人 NT$1,217（無折扣）；⚠️ LoungeKey 是否適用尚未確認</li>
-                                <li><b>ACV Lounge</b>：T2 4 樓，Gate 31 附近——最大間，有淋浴、睡艙；KKday 每人 NT$1,254 起</li>
-                                <li><b>Vietnam Airlines Lotus Lounge - International</b>：T2——越航自營，人多時可能優先自家商務艙旅客</li>
+                                <li><span class="text-amber-500 tracking-tight">★★★★★</span> <b>SH Premium Lounge Ha Noi 2號（首選）</b>：T2 東翼 4 樓，Gate 21–22 附近——KKday 參考價每人 NT$985（優惠 NT$936）；評價 4.2／213 則，口碑最穩</li>
+                                <li><span class="text-amber-500 tracking-tight">★★★★☆</span> <b>SH Premium Lounge Ha Noi 3號</b>：T2 西翼 4 樓，Gate 37 附近——較新，有吧台招牌鹹咖啡＋調酒、淋浴；KKday 每人 NT$1,217（無折扣）；龍騰出行可進</li>
+                                <li><span class="text-amber-500 tracking-tight">★★★★☆</span> <b>ACV Lounge</b>：T2 4 樓，Gate 31 附近——最大間，有淋浴、睡艙；KKday 每人 NT$1,254 起</li>
+                                <li><span class="text-amber-500 tracking-tight">★★★★☆</span> <b>Vietnam Airlines Lotus Lounge - International</b>：T2——越航自營，人多時可能優先自家商務艙旅客</li>
                             </ul>
                             <div class="text-xs text-slate-500 mt-1">約 15:15 到機場，進管制區後先找貴賓室休息（18:15 起飛）。</div>
-                            <div class="text-xs text-emerald-700 bg-emerald-50 border border-emerald-200 rounded p-2 mt-1.5">💳 持 JCB 白金卡／晶緻卡可用 <b>LoungeKey</b> 免費進 SH Premium（每年 2 次免費額度，不耗龍騰額度）：跟櫃台說要用 LoungeKey，出示 JCB 實體卡＋登機證（姓名需相符），會先刷 1 美元預授權、之後退款。本人使用、不可轉讓。JCB 名單未註明 2 號或 3 號，<b>2 號較保險</b>；想去 3 號請先在 LoungeKey App 查 Hanoi 確認。</div>
+                            <div class="text-xs text-emerald-700 bg-emerald-50 border border-emerald-200 rounded p-2 mt-1.5">💳 用<b>龍騰出行</b>免費進 SH Premium（2 號、3 號都在龍騰名單上；使用回程額度）：出示龍騰 App 電子卡 QR Code＋登機證即可，不用實體卡、無預授權。<b>2 號為首選</b>（口碑 4.2／213 則最穩）；2 號若排隊，改去西翼 3 號同樣可進。備案：JCB 熊本熊卡 LoungeKey（每年 2 次額度留著以後用）。</div>
                         </div>
                         <div class="text-xs text-slate-400">貴賓室都在管制區內，須先過安檢＋證照查驗。合作名單偶爾變動，出發前請用 DragonPass App 再確認一次當日適用貴賓室，並攜帶配合的信用卡／App QR Code。</div>
                     </div>
@@ -618,6 +632,7 @@ body{font-family:"Noto Sans TC","PingFang TC","Microsoft JhengHei","Heiti TC",sy
             calcTips();
             buildChecklist();
             buildPhrases();
+            buildPriceChips();
             buildShop();
             showInstallBanner();
         }
@@ -1082,6 +1097,14 @@ body{font-family:"Noto Sans TC","PingFang TC","Microsoft JhengHei","Heiti TC",sy
                 ['我只是看看', 'Tôi chỉ xem thôi'], ['我要這個', 'Tôi lấy cái này'], ['不用了，謝謝', 'Không cần, cảm ơn'],
                 ['可以刷卡嗎？', 'Có thanh toán bằng thẻ được không?'], ['不用找了', 'Không cần thối lại']
             ] },
+            { title: '💰 殺價專用', rows: [
+                ['我們來自台灣', 'Chúng tôi đến từ Đài Loan'], ['我是台灣人', 'Tôi là người Đài Loan'],
+                ['能不能再便宜一點？', 'Bớt thêm chút được không?'], ['最低多少錢？', 'Giá thấp nhất bao nhiêu?'],
+                ['有打折嗎？', 'Có giảm giá không?'], ['說個實在價吧', 'Nói giá thật đi'],
+                ['別的地方比較便宜', 'Chỗ khác bán rẻ hơn'], ['我買兩個，算便宜一點', 'Tôi mua hai cái, bớt cho tôi'],
+                ['我出這個價，可以嗎？', 'Giá này được không?'], ['好，我買了', 'Được, tôi mua'],
+                ['太貴了，我不要了', 'Đắt quá, tôi không mua nữa']
+            ] },
             { title: '🍜 餐廳', rows: [
                 ['請給我一瓶水', 'Cho tôi một chai nước'], ['不要辣', 'Không cay'], ['不要香菜', 'Không cho rau mùi'],
                 ['我不吃牛肉', 'Tôi không ăn thịt bò'], ['我對海鮮過敏', 'Tôi bị dị ứng hải sản'], ['好吃！', 'Ngon quá!'],
@@ -1153,6 +1176,72 @@ body{font-family:"Noto Sans TC","PingFang TC","Microsoft JhengHei","Heiti TC",sy
             };
             synth.speak(u);
             if (!v) setTimeout(() => { if (!pickViVoice()) openVoiceHelp(); }, 800);
+        }
+
+        // ---------- 越南語數字轉文字（北越說 nghìn） ----------
+        const VI_D = ['không','một','hai','ba','bốn','năm','sáu','bảy','tám','chín'];
+        function viUnder100(x) {
+            if (x < 10) return VI_D[x];
+            if (x < 20) return 'mười' + (x === 10 ? '' : ' ' + (x === 15 ? 'lăm' : VI_D[x % 10]));
+            const t = Math.floor(x / 10), o = x % 10;
+            let s = VI_D[t] + ' mươi';
+            if (o === 1) s += ' mốt';
+            else if (o === 5) s += ' lăm';
+            else if (o > 0) s += ' ' + VI_D[o];
+            return s;
+        }
+        function viUnder1000(x) {
+            if (x < 100) return viUnder100(x);
+            const h = Math.floor(x / 100), r = x % 100;
+            let s = VI_D[h] + ' trăm';
+            if (r === 0) return s;
+            return s + (r < 10 ? ' lẻ ' + VI_D[r] : ' ' + viUnder100(r));
+        }
+        function viNum(n) {
+            n = Math.floor(Math.abs(n));
+            if (n === 0) return 'không';
+            const parts = [];
+            const scales = [[1e9,'tỷ'],[1e6,'triệu'],[1e3,'nghìn']];
+            for (const [v, name] of scales) {
+                if (n >= v) { parts.push(viUnder1000(Math.floor(n / v)) + ' ' + name); n %= v; }
+            }
+            if (n > 0) parts.push(parts.length && n < 10 ? 'lẻ ' + VI_D[n] : viUnder1000(n));
+            return parts.join(' ');
+        }
+
+        // ---------- 價格朗讀器 ----------
+        const PRICE_CHIPS = [10000, 20000, 50000, 100000, 200000, 500000];
+        function buildPriceChips() {
+            const box = document.getElementById('price-chips');
+            if (!box) return;
+            box.innerHTML = '';
+            PRICE_CHIPS.forEach(v => {
+                const b = document.createElement('button');
+                b.type = 'button';
+                b.className = 'px-2.5 py-1 text-xs border border-slate-200 rounded-full bg-slate-50 active:bg-indigo-50';
+                b.textContent = v.toLocaleString('en-US');
+                b.addEventListener('click', () => {
+                    document.getElementById('price-input').value = v;
+                    updatePriceWords();
+                });
+                box.appendChild(b);
+            });
+        }
+        function priceValue() {
+            const el = document.getElementById('price-input');
+            if (!el) return null;
+            const v = parseInt(el.value, 10);
+            return (isNaN(v) || v < 0) ? null : v;
+        }
+        function updatePriceWords() {
+            const v = priceValue();
+            const el = document.getElementById('price-words');
+            if (el) el.textContent = v === null ? '' : v.toLocaleString('en-US') + ' = ' + viNum(v) + ' đồng';
+        }
+        function speakPrice(offer) {
+            const v = priceValue();
+            if (v === null) { showToast('請先輸入金額'); return; }
+            speakVi(viNum(v) + ' đồng' + (offer ? ', được không?' : ''), false);
         }
 
         function buildPhrases() {
